@@ -12,10 +12,10 @@ lager den som en komponent vi kan hente inn i de ulike sidene
 export default function MyFooter () {
     return (
         <div id="baren" style={footerStyle}>
-            <BarKnapp iconName={BsFillHouseDoorFill} linkLink="/" />
-            <BarKnapp linkText="Ruter" linkLink="/ruter" />
-            <BarKnapp linkText="Tidslinje" linkLink="/tidslinje"/>
-            <BarKnapp linkText="Profil" linkLink="/profil" />
+            <BarKnapp iconName={<BsFillHouseDoorFill size={30} />} linkLink="/" />
+            <BarKnapp iconName={<BsFillCursorFill size={30}/>} linkLink="/ruter" />
+            <BarKnapp iconName={<BsGraphDown size={30}/>} linkLink="/tidslinje"/>
+            <BarKnapp iconName={<BsFillPersonFill size={30}/>} linkLink="/profil" />
         </div>
     )
 }
@@ -27,9 +27,9 @@ tror ikoner kan byttes ut med tekst ved {props.linkImg} */
 function BarKnapp (props) {
     return (
         <div style={knappStyle}>
-            <Link to={props.linkLink}>
-                {props.linkText}
+            <Link to={props.linkLink} activeStyle={linkActive}>
                 {props.iconName}
+                
             </Link>
         </div>
     )
@@ -43,8 +43,12 @@ const footerStyle = {
     bottom: "0",
     width: "100%",
     backgroundColor: "#6F6F6F",
-    height: "60px"
+    height: "50px",
+    padding: "20px 0px 0px 0px"
 }
+// padding over med textAlign under gjør ikonene midtstilt
+// padding er over høyre under venstre. verticalAlign midstiller eventuell tekst
+// ikon-svg er 30px, så padding over må være 50px-30px=20px
 
 const knappStyle = {
     width: "25%",
@@ -52,5 +56,11 @@ const knappStyle = {
     float: "left",
     textAlign: "center",
     verticalAlign: "middle",
-    lineHeight: footerStyle.height
+    lineHeight: footerStyle.height,
+
+}
+
+// når vi er på gitte siden får knappen fargen under
+const linkActive = {
+    color: "#FFFFFF"
 }
