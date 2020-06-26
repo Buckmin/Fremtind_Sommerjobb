@@ -4,6 +4,7 @@ import React from "react"
 // under her importerer vi alle kompontentene vi lager
 import Header from "../components/header"
 import LoremIpsum from "../components/testtext"
+import MyFooter from "../components/footer"
 
 
 // her er selve funksjonen som kjører komponentene ut på skjermen
@@ -15,6 +16,7 @@ export default function Home() {
                     cmd+klikk sender deg rett til koden der "Header" ligger*/}
       <div>Hello world!</div>
       <LoremIpsum />
+      <MyFooter />
     </div>
   )
 }
