@@ -13,10 +13,11 @@ html {
     color: white;
     width: 600 px;
     height: 10000px;
+    font-family: sans-serif;
 }
 
-/* a er alle linker */
+/* a er alle linker. linker er også knappene i navbaren! */
 a {
-    color: #999999;
+    color: #999999; 
   }
 
