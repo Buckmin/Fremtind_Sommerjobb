@@ -1,13 +1,13 @@
 import React from "react"
 import Header from "../components/header"
-import MyFooter from "../components/footer"
+import Footer from "../components/Footer"
 
 
 export default function Home() {
   return ( 
     <div id="hovedkontainer" style={hovedStyle}>
       <Header headerText="profil"/> 
-      <MyFooter />
+      <Footer />
     </div>
   )
 }

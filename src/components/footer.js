@@ -9,7 +9,7 @@ dette er footeren med linker mellom de ulike sidene.
 lager den som en komponent vi kan hente inn i de ulike sidene
 */
 
-export default function MyFooter () {
+export default function Footer () {
     return (
         <div id="baren" style={footerStyle}>
             <BarKnapp iconName={<BsFillHouseDoorFill size={30} />} linkLink="/" />

@@ -3,7 +3,7 @@ import React from "react"
 
 // under her importerer vi alle kompontentene vi lager
 import Header from "../components/header"
-import MyFooter from "../components/footer"
+import Footer from "../components/Footer"
 import Funfacts from "../data/funfacts"
 import EmissionsPerDay from "../data/emissions"
 import { BsArrowLeft } from "react-icons/bs"
@@ -21,7 +21,7 @@ export default function Home() {
           <AlleFaktabokser />
           <YourTotalEmission />
       </div>
-      <MyFooter />
+      <Footer />
     </div>
   )
 }
