@@ -7,6 +7,8 @@ import Footer from "../components/Footer"
 //import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 //import "@fremtind/jkl-accordion/accordion.min.css";
 
+import LoremIpsum from "../components/testtext"
+import AccordionJS from "../components/AccordionJS"
 
 
 export default function MyRoutes () {
@@ -19,6 +21,13 @@ export default function MyRoutes () {
                 <AccordionItem title="Accordion #1">Her er det som går inni accordion. Det kan være så mangt.</AccordionItem>
                 <AccordionItem title="Accordion #2">Her er annet innhold til accordion.</AccordionItem>
             </Accordion> */}
+        <div style={blackStyle}>
+{/*             <AccordionJS 
+                title="test-tittel" 
+                content={<LoremIpsum/>}
+            /> */}
+        </div>
+
             <Footer />
         </div>
         

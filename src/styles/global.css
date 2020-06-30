@@ -14,6 +14,10 @@ html {
     width: 600 px;
     height: 10000px;
     font-family: Fremtind Grotesk;
+    /*Emma tester under*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* a er alle linker. linker er også knappene i navbaren! */

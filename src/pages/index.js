@@ -6,7 +6,7 @@ import Header from "../components/header"
 import LoremIpsum from "../components/testtext"
 import Footer from "../components/Footer"
 
-// fremtind-fonter -> trengs kun å importeres en gang i prosjektet
+// ER: fremtind-fonter -> trengs kun å importeres en gang i prosjektet
 // hvis vi ikke får jøkul-komponenter til å fungere har vi i det minste fontene som gir preg av Fremtind
 import  "../styles/webfonts.css"
 
