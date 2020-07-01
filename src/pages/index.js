@@ -31,7 +31,7 @@ export default function Home() {
 
 
 const hovedStyle = {
-  maxWidth: "500px",
+  maxWidth: "294px",
   margin: "0 auto"
 };
 

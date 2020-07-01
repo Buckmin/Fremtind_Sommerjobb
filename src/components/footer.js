@@ -39,12 +39,16 @@ function BarKnapp (props) {
 /* definerer style med css */ 
 const footerStyle = {
     position: "fixed",
-    left: "0",
+    left: "0 auto",
     bottom: "0",
     width: "100%",
     backgroundColor: "#6F6F6F",
     height: "50px",
-    padding: "20px 0px 0px 0px"
+    padding: "20px 0px 0px 0px",
+    maxWidth: "294px",
+    display: "flex"
+    //margin: "0 auto",
+
 }
 // padding over med textAlign under gjør ikonene midtstilt
 // padding er over høyre under venstre. verticalAlign midstiller eventuell tekst
