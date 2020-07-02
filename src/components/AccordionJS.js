@@ -3,6 +3,7 @@ import React, {useState, useRef} from "react"
 import "../styles/AccordionJS.css"
 import Chevron from "../components/Chevron"
 
+import MapContainer from "../components/MapContainer"
 
 function AccordionJS(props) {
 
@@ -47,7 +48,10 @@ function AccordionJS(props) {
                     Fra: {props.fromDest}
                     <br/>
                     Til: {props.toDest}
-                    <br/>
+                    <br/><br/>
+                    {/* Førsteutkast av kart, dette er statisk på et bestemt område uten directions */}
+                    Kart: <br/>
+                    <MapContainer/>
                     {/* ER: Ikke implementert props under enda, usikker på om vi kan ta inn komponent som prop? */}
                     {props.transport}
                     <br/>
