@@ -2,6 +2,8 @@
 .accordion__section {
     display: flex;
     flex-direction: column;
+    width: 95%;
+    margin: auto;
     margin-bottom: 0.5cm;
   }
   
@@ -10,7 +12,9 @@
     background-color: white;
     color: black;
     cursor: pointer;
-    padding: 18px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     align-items: center;
     border: none;
@@ -27,7 +31,7 @@
   /* Style the accordion content title */
   .accordion__title {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     font-family: Fremtind Grotesk Display;
   }
   
@@ -40,6 +44,13 @@
   /* Style to rotate icon when state is active */
   .rotate {
     transform: rotate(90deg);
+  }
+
+  .accordion__address {
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Fremtind Grotesk Display;
   }
   
   /* Style the accordion content panel. Note: hidden by default */

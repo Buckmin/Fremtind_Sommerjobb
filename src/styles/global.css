@@ -13,8 +13,10 @@ html {
     color: white;
     /*ER: endret width og height til størrelse på iPhone 11 pro max*/
     /*Vil automatisk scrolle ned dersom komponentene fyller høyden*/
-    width: 294 px;
-    height: 597.2 px;
+/*     min-width: 58.6 mm;
+    min-height: 123.8 mm;
+    max-width: 77.8 mm;
+    max-height: 158 mm; */
     font-family: Fremtind Grotesk;
     /*ER tester under*/
     box-sizing: border-box;

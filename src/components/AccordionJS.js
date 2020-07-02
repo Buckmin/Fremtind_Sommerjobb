@@ -1,7 +1,6 @@
 import React, {useState, useRef} from "react"
 
 import "../styles/AccordionJS.css"
-//import BsChevronRight from "react-icons/bs"
 import Chevron from "../components/Chevron"
 
 
@@ -26,7 +25,16 @@ function AccordionJS(props) {
     return(
         <div className="accordion__section">
             <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
-                <p className="accordion__title">{props.title}</p>
+                <div>
+                    <p className="accordion__title">
+                        {props.title}
+                    </p>
+{/*                     <p className="accordion__address">
+                        Fra: {props.fromDest}
+                        <br/>
+                        Til: {props.toDest}
+                    </p> */}
+                </div>
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
             </button>
             <div 

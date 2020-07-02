@@ -39,6 +39,6 @@ export default function MyRoutes () {
 }
 
 const hovedStyle = {
-    maxWidth: "294px",
+    //maxWidth: "300px",
     margin: "0 auto"
   };
