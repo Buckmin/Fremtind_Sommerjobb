@@ -4,6 +4,8 @@ import { GoogleMap, DirectionsService, DirectionsRenderer} from '@react-google-m
 import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
 import "@fremtind/jkl-text-input/text-input.min.css";
 
+
+
 class Directions extends React.Component {
   constructor (props) {
     super(props)

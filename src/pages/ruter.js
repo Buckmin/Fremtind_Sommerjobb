@@ -6,8 +6,23 @@ import Footer from "../components/Footer"
 
 import AccordionJS from "../components/AccordionJS"
 
+import { BsPlus } from "react-icons/bs";
+import { Link } from "gatsby"
+
 
 export default function MyRoutes () {
+
+    function NewRouteButton (props) {
+        return (
+            <div style={buttonStyle}>
+                <Link to={props.linkLink}>
+                    {props.iconName}
+                    
+                </Link>
+            </div>
+        )
+    }
+
     return (
 
         <div style={hovedStyle}>
@@ -32,6 +47,22 @@ export default function MyRoutes () {
                 fromDest="Damstredet 1"
                 toDest="Henrik Ibsens gate 1"
             />
+{/*             <AccordionJS 
+                title="test1" 
+                fromDest="Damstredet 1"
+                toDest="Henrik Ibsens gate 1"
+            />
+            <AccordionJS 
+                title="test2" 
+                fromDest="Damstredet 1"
+                toDest="Henrik Ibsens gate 1"
+            />
+            <AccordionJS 
+                title="test3" 
+                fromDest="Damstredet 1"
+                toDest="Henrik Ibsens gate 1"
+            /> */}
+            <NewRouteButton iconName={<BsPlus size={40} color={"black"}/>} linkLink="/newroute" />
             <Footer/>
         </div>
         
@@ -42,3 +73,17 @@ const hovedStyle = {
     //maxWidth: "300px",
     margin: "0 auto"
   };
+
+const buttonStyle = {
+    float: "right",
+    //position: "fixed",
+    textAlign: "center",
+    verticalAlign: "middle",
+    borderRadius: "100%",
+    backgroundColor: "white",
+    color: "black",
+    padding: "15px",
+    marginRight: "5%"
+
+
+}
