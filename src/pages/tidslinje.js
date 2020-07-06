@@ -41,7 +41,8 @@ function HeleLinjen (props) { // denne funksjonen returnerer et array med så ma
       elementArray.push(<LinjeElement />)
     }
   return(
-    <div id="linjen" style={{float: "left", padding: "10px", width: "10px", height: elementArray.length, backgroundColor: "black"}}>
+    <div id="linjen" style={{float: "left", padding: "10px", width: "10px", height: elementArray.length}}>
+      {/* ER: tok bort backgroundColor: "black" i linjen */}
       {elementArray}
     </div>
   )
@@ -73,7 +74,8 @@ function AlleFaktabokser (props) { // denne funksjonen lager et array med alle f
     }
   }
   return (
-    <div id="faktaboksenesBoks" style={{position: "relative", float: "right", width: "90%", height: tidslinjePixelHoyde, backgroundColor: "black"}}>
+    <div id="faktaboksenesBoks" style={{position: "relative", float: "right", width: "90%", height: tidslinjePixelHoyde}}>
+      {/* ER: tok bort backgroundColor: "black" i faktaboksenesboks */}
       {faktaboksArray}
     </div>
   )

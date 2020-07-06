@@ -4,6 +4,9 @@ import { GoogleMap, DirectionsService, DirectionsRenderer} from '@react-google-m
 import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
 import "@fremtind/jkl-text-input/text-input.min.css";
 
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import "@fremtind/jkl-button/button.min.css";
+
 
 
 class Directions extends React.Component {
@@ -107,7 +110,7 @@ class Directions extends React.Component {
     return (
       <div className='map'>
         <div className='map-settings'>
-          <hr className='mt-0 mb-3' />
+          {/* <hr className='mt-0 mb-3' /> */}
 
           <div className='row'>
             <div className='col-md-6 col-lg-4'>
@@ -176,6 +179,7 @@ class Directions extends React.Component {
               />
               <label className='custom-control-label' htmlFor='WALKING'>Gå</label>
             </div>
+            <br/>
           </div>
 
           <button className='btn btn-primary' type='button' onClick={this.onClick}>
@@ -184,6 +188,7 @@ class Directions extends React.Component {
         </div>
 
         <div className='map-container'>
+          <br/>
           <GoogleMap
             // required
             id='direction-example'

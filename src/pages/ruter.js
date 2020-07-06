@@ -62,7 +62,7 @@ export default function MyRoutes () {
                 fromDest="Damstredet 1"
                 toDest="Henrik Ibsens gate 1"
             /> */}
-            <NewRouteButton iconName={<BsPlus size={40} color={"black"}/>} linkLink="/newroute" />
+            <NewRouteButton iconName={<BsPlus size={40} color={"white"}/>} linkLink="/newroute" />
             <Footer/>
         </div>
         
@@ -75,15 +75,18 @@ const hovedStyle = {
   };
 
 const buttonStyle = {
-    float: "right",
-    //position: "fixed",
+    overflow: "auto",
+    position: "fixed",
+    right: "5px",
+    bottom: "100px",
     textAlign: "center",
     verticalAlign: "middle",
-    borderRadius: "100%",
-    backgroundColor: "white",
-    color: "black",
+    borderRadius: "50%",
+    backgroundColor: "#6F6F6F",
+    boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.25)",
     padding: "15px",
-    marginRight: "5%"
+    marginRight: "5%",
+    display: "block"
 
 
 }

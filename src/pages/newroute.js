@@ -6,6 +6,9 @@ import { Link } from "gatsby"
 import Header from "../components/header"
 import Footer from "../components/Footer"
 
+import Directions from "../components/Directions";
+import {LoadScript} from '@react-google-maps/api';
+
 export default function NewRoute() {
 
     function BackButton (props) {
@@ -24,7 +27,11 @@ export default function NewRoute() {
         <Header headerText="Ny rute"/>
         <BackButton iconName={<BsChevronLeft size={25}/>} linkLink="/ruter" buttonText="Tilbake"/>
         <br/>
-        <div>Hei hei test</div>
+        <div>
+            <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
+                <Directions/>
+            </LoadScript>
+        </div>
         <Footer />
     </div>
   )
@@ -39,7 +46,6 @@ const hovedStyle = {
 };
 
 const backStyle = {
-    color: "white",
     fontSize: "20px",
     alignItems: "left",
 }
