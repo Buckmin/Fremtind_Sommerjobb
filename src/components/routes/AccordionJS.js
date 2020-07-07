@@ -1,14 +1,9 @@
 import React, {useState, useRef} from "react"
 
-import "../styles/AccordionJS.css"
+import "../../styles/AccordionJS.css"
 import Chevron from "./Chevron"
 
-import MapContainer from "./MapContainer"
-
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
-import "@fremtind/jkl-radio-button/radio-button.min.css";
-
-import Directions from "./Directions";
+import ShowRoute from "./ShowRoute";
 
 import {LoadScript} from '@react-google-maps/api';
 
@@ -17,8 +12,8 @@ function AccordionJS(props) {
     const [setActive, setActiveState] = useState("");
     const [setHeight, setHeightState] = useState("0px");
     const [setRotate, setRotateState] = useState("accordion__icon");
-    //radio
-    const [selectedValue, setSelectedValue] = useState("bil"); //setter bil som default
+    //radio - bruker ikke lenger
+    //const [selectedValue, setSelectedValue] = useState("bil"); //setter bil som default
 
     const content = useRef(null)
 
@@ -50,9 +45,9 @@ function AccordionJS(props) {
             >
                 <div className="accordion__text">
                     {/* ER: Her bruker de noe kalt dangerouslySetInnerHTML i tutorial, prøver å unngå i første omgang */}
-                    Fra: {props.fromDest}
+                    Fra: {props.orig}
                     <br/>
-                    Til: {props.toDest}
+                    Til: {props.dest}
                     <br/><br/>
                     {/* ER: Radio for transportvalg - kommentert ut for nå*/}
 {/*                     <RadioButtons
@@ -70,7 +65,10 @@ function AccordionJS(props) {
                     />
                     <br/><br/> */}
                     <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
-                        <Directions/>
+                        <ShowRoute
+                            orig = {props.orig}
+                            dest = {props.dest}
+                        />
                     </LoadScript>
                     <br/><br/>
                 </div>

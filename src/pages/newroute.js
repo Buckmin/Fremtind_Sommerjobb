@@ -2,11 +2,10 @@ import React from "react"
 import { BsChevronLeft } from "react-icons/bs";
 import { Link } from "gatsby"
 
-// under her importerer vi alle kompontentene vi lager
 import Header from "../components/header"
 import Footer from "../components/Footer"
 
-import Directions from "../components/Directions";
+import CreateRoute from "../components/routes/CreateRoute";
 import {LoadScript} from '@react-google-maps/api';
 
 export default function NewRoute() {
@@ -29,7 +28,7 @@ export default function NewRoute() {
         <br/>
         <div>
             <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
-                <Directions/>
+                <CreateRoute/>
             </LoadScript>
         </div>
         <Footer />

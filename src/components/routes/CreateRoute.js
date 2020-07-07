@@ -7,9 +7,11 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
 
+//import "../styles/Directions.css";
 
 
-class Directions extends React.Component {
+
+class CreateRoute extends React.Component {
   constructor (props) {
     super(props)
 
@@ -17,7 +19,7 @@ class Directions extends React.Component {
       response: null,
       travelMode: 'DRIVING',
       origin: '',
-      destination: ''
+      destination: '',
     }
 
     this.directionsCallback = this.directionsCallback.bind(this)
@@ -106,6 +108,13 @@ class Directions extends React.Component {
     console.log('onClick args: ', args)
   }
 
+/*   //egen funksjon - for å skille mellom allerede eksisterende ruter og der du fyller inn info om start og slutt
+  defaultOrigDest() {
+    if (this.origin.value !== '' && this.destination.value !== '') {
+      return document.getElementById(this.routeinfo).className = 'hiddendiv';
+    }
+  } */
+
   render () {
     return (
       <div className='map'>
@@ -125,7 +134,7 @@ class Directions extends React.Component {
               <div className='form-group'>
                 <label htmlFor='DESTINATION'>Til: </label>
                 <br />
-                <input id='DESTINATION' className='form-control' type='text' ref={this.getDestination} />
+                <input id='DESTINATION' ref='orig' className='form-control' type='text' ref={this.getDestination} />
                 <br/><br/>
               </div>
             </div>
@@ -267,4 +276,4 @@ class Directions extends React.Component {
 }
 
 
-export default Directions;
+export default CreateRoute;

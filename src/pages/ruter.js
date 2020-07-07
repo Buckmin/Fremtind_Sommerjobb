@@ -4,7 +4,7 @@ import React from "react"
 import Header from "../components/header"
 import Footer from "../components/Footer"
 
-import AccordionJS from "../components/AccordionJS"
+import AccordionJS from "../components/routes/AccordionJS"
 
 import { BsPlus } from "react-icons/bs";
 import { Link } from "gatsby"
@@ -29,38 +29,38 @@ export default function MyRoutes () {
             <Header headerText="Mine ruter"/>
             <AccordionJS 
                 title="Hjem - Jobb" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Hammersborggata 2"
+                orig="Henrik Ibsens gate 1"
+                dest="Hammersborggata 2"
             />
             <AccordionJS 
                 title="Jobb - Hjem" 
-                fromDest="Hammersborggata 2"
-                toDest="Henrik Ibsens gate 1"
+                orig="Hammersborggata 2"
+                dest="Henrik Ibsens gate 1"
             />
             <AccordionJS 
                 title="Hjem - Barnehagen" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Damstredet 1"
+                orig="Henrik Ibsens gate 1"
+                dest="Damstredet 1"
             />
             <AccordionJS 
                 title="Barnehagen - Hjem" 
-                fromDest="Damstredet 1"
-                toDest="Henrik Ibsens gate 1"
+                orig="Damstredet 1"
+                dest="Henrik Ibsens gate 1"
             />
 {/*             <AccordionJS 
                 title="test1" 
-                fromDest="Damstredet 1"
-                toDest="Henrik Ibsens gate 1"
+                orig="Damstredet 1"
+                dest="Henrik Ibsens gate 1"
             />
             <AccordionJS 
                 title="test2" 
-                fromDest="Damstredet 1"
-                toDest="Henrik Ibsens gate 1"
+                orig="Damstredet 1"
+                dest="Henrik Ibsens gate 1"
             />
             <AccordionJS 
                 title="test3" 
-                fromDest="Damstredet 1"
-                toDest="Henrik Ibsens gate 1"
+                orig="Damstredet 1"
+                dest="Henrik Ibsens gate 1"
             /> */}
             <NewRouteButton iconName={<BsPlus size={40} color={"white"}/>} linkLink="/newroute" />
             <Footer/>
