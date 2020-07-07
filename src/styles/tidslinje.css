@@ -1,0 +1,92 @@
+/* 
+statisk style til komponenter i tidslinje. farge, høyde, bredde etc
+*/
+
+/* style på diven rundt alt i denne pagen */
+.div__hovedStyle {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+/* den grønne linjen, ett element */
+.div__ett-linjeelement {
+    width: 10px;
+    height: 1px;
+    float: top; 
+    /* 
+    OPPDATERING 7.7.20: nå endrer fargen seg fra grønn til oransje til rød. 
+                        for å gå tilbake sett background-color: "farge"; her
+    // fargen bør vel være dynamisk utfra mengde CO2
+    // ett element, 0,1kg CO2 er nå 1px høy
+    // elementene kommer under hverandre, fra lav til høy*/
+}
+
+/*  den grønne linjen, hele greia */
+.div__hele-linjen {
+    float: left;
+    padding: 10px;
+    width: 10px;
+    background-color: black;
+    /* height: elementArray.length; som er dynamisk! */
+}
+
+/* boksen rundt alle faktaboksene */
+.div__faktaboksenesBoks {
+    position: relative;
+    float: right;
+    width: 90%;
+    /* height: tidslinjePixelHoyde; height er dynamisk */
+    background-color: black;
+}
+
+
+/* faktaboks, styling på den enkelete faktaboksen */
+.div__faktaboksStyle {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    /* top: props.yVerdi; inline*/
+}
+
+/* faktaboks, boksen rundt dato og infotekst */
+.div__tekstboksStyle {
+    border: 1px solid green;
+    width: 90%;
+    padding: 10px;
+}
+
+/* faktaboks, paragrafen med dato */
+.p__datoStyle {
+    margin-top: 0; /* fjerner mellomrom over tekst */
+    font-size: 10px;
+    font-weight: 800; /* bold skrift */
+}
+
+/* faktaboks, paragrafen med tekst, altså selve funfacten */
+.p__tekstInBoksStyle {
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+/* faktaboks, spanet med CO2-tallet */
+.span__CO2tallStyle {
+    color: orange;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* faktaboks, spanet med "kg" etter CO2-tallet */
+.span__kgFaktaboksStyle {
+    color: orangered;
+}
+
+/* faktaboks, div med siste faktaboks med totalt utslipp */
+.div__totalBoksStyle {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    padding: 20px;
+    /* top: tidslinjePixelHoyde + 100, // +100 for å flytte langt nok ned, dynamisk */
+
+}
