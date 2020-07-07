@@ -1,11 +1,16 @@
 import React from "react"
 import { ManyFunfactsDict } from "./tidslinjeData/funfacts"
-import { totalEmission, userEmissionsSliced, tidslinjePixelHoyde, startDate } from "../tidslinjeComp/totalEmission"
 import { BsArrowLeft } from "react-icons/bs"
 import "../../styles/tidslinje.css"
 
-export function AlleFaktabokser (props) { // denne funksjonen lager et array med alle faktaboksene.
+import { formatDate } from "../tidslinjeComp/tidslinjeData/randomDateKG"
 
+
+
+
+
+export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSliced}) { // denne funksjonen lager et array med alle faktaboksene.
+    const tidslinjePixelHoyde = totalEmission*10       // 1kg tar opp 10px
     let boksDict = ManyFunfactsDict() // kg CO2 som key, tekst(er) i array som strings
     let faktaboksArray = [] // array med faktiske faktabokser. fylles opp i for-løkka nedenfor
     let boksensYverdi = 0   // y-verdien boksen har fra toppen av diven "tidslinjen"
@@ -16,7 +21,7 @@ export function AlleFaktabokser (props) { // denne funksjonen lager et array med
     let currentDate = userEmissionsSliced[0][0]   // for å vise datoen en grense ble passert
     let emissionSumOnCurrentDate = userEmissionsSliced[0][1] // format: [dato, kg CO2 sluppet ut på dato]
 
-    for( let i = 0; i < totalEmission; i ++) { // i er antall kg CO2 slupper ut
+    for( let i = 0; i < totalEmission && i < Object.keys(boksDict).length; i ++) { // i er antall kg CO2 slupper ut
         deciderNumber = Math.random()
         if (i > emissionSumOnCurrentDate) { // justerer dato-delen
             dagerSidenStart ++
@@ -40,7 +45,7 @@ export function AlleFaktabokser (props) { // denne funksjonen lager et array med
             i = i + 15 // når er boks er lagt til arrayey, må de neste 15 verdiene hoppes over
         }
     }
-    faktaboksArray.push( < YourTotalEmission />) // legger til boks helt nederst på tidslinjen for totalt utslipp
+    faktaboksArray.push( < YourTotalEmission tidslinjePixelHoyde={tidslinjePixelHoyde} totalEmission={totalEmission} selectedDate={selectedDate}/>) // legger til boks helt nederst på tidslinjen for totalt utslipp
 
     return (
       <div id="faktaboksenesBoks" className="div__faktaboksenesBoks" style={{height: tidslinjePixelHoyde}}>
@@ -60,7 +65,7 @@ export function AlleFaktabokser (props) { // denne funksjonen lager et array med
         <span className="span__CO2tallStyle">{props.CO2mengde}</span> 
         <span className="span__kgFaktaboksStyle">kg</span>
         <div id="tekstboks" className="div__tekstboksStyle">
-          <p className="p__datoStyle"> Passert på dag {props.dagenPassert}, som var {props.datoPassert} </p>
+          <p className="p__datoStyle"> Passert på dag {props.dagenPassert}, som var {formatDate(props.datoPassert)} </p>
           <p className="p__tekstInBoksStyle">{props.boksTekst}</p>
           <p className="p__tekstInBoksStyle">{props.currentSum}</p>
         </div>
@@ -68,13 +73,13 @@ export function AlleFaktabokser (props) { // denne funksjonen lager et array med
     )
   }
   
-  function YourTotalEmission (props) { // dette er boksen nederst på tidslinjen som sier hvor mye totalutslippet vil være
+  function YourTotalEmission ({selectedDate, totalEmission, tidslinjePixelHoyde}) { // dette er boksen nederst på tidslinjen som sier hvor mye totalutslippet vil være
     return (
       <div className="div__totalBoksStyle" style={{top: tidslinjePixelHoyde + 100}}> 
         {/* bare en pil, men nå er boksen for langt nede: <BsArrowLeft />  */}
         <span className="span__CO2tallStyle">Totalt {totalEmission}</span> 
         <span className="span__kgFaktaboksStyle">kg</span>
-        <p className="p__tekstInBoksStyle"> sluppet ut gjennom reiser siden {startDate}</p>
+        <p className="p__tekstInBoksStyle"> sluppet ut gjennom reiser siden {formatDate(selectedDate)}</p>
       </div>
     )
   }

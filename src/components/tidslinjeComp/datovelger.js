@@ -1,20 +1,20 @@
-import React, { useState } from "react"
+import React from "react"
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 
-export var startDato = new Date("2020-06-01")
 
-export function Datovelger (){
-    const [selectedDate, setSelectedDate] = useState (startDato)
+export function Datovelger ({onChange, selectedDate}){
+    //const [selectedDate, setSelectedDate] = useState (startDato)
+
+    // må legge inn tidligste mulige dato!
     
-
     return (
         <DatePicker
             selected={selectedDate}
 
-            onChange={date => setSelectedDate(date)} //only when value has changed
+            onChange={onChange} //only when value has changed
             //onSelect={updateStartDato(selectedDate)}
             dateFormat="yyyy-MM-dd"
         />
