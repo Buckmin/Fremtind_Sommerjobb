@@ -23,7 +23,7 @@ export function Funfacts () {
 export function ManyFunfactsDict() {
     const funDict =
     {
-        0   :   [   "	bare ingenting slipper ut ingenting	"	]	,
+        0   :   [   "	bare ingenting slipper ut ingenting	", " hei", "på "	]	,
         1	:	[	"	tekst 1	"	,	"	tekst2	"	,	"	tekst 3	"	,	]	,
         2	:	[	"	tekst 1	"	,	"	tekst2	"	,	"	tekst 3	"	,	]	,
         3	:	[	"	tekst 1	"	,	"	tekst2	"	,	"	tekst 3	"	,	]	,

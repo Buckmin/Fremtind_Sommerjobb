@@ -33,5 +33,5 @@ export function formatDate(date) { // funksjon som tar inn en dato og returnerer
     if (day.length < 2) 
         day = '0' + day;
 
-    return [year, month, day].join('-'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
+    return [year, month, day].join('.'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
 }

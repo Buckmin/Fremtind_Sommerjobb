@@ -1,10 +1,9 @@
 // denne fila ...
 
 import React from "react"
-import { totalEmission } from "../tidslinjeComp/totalEmission"
 import "../../styles/tidslinje.css"
 
-export function HeleLinjen (props) { // denne funksjonen returnerer et array med så mange LinjeElement tidslinjen skal være
+export function HeleLinjen ({totalEmission}) { // denne funksjonen returnerer et array med så mange LinjeElement tidslinjen skal være
     let elementArray = []
     let colorVariableNumber = 0
     for (var i = 0; i < totalEmission; i+= 0.1){
