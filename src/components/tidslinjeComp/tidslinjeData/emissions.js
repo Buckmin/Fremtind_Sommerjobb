@@ -1,15 +1,8 @@
-
-
 /* 
-    dette er en testfil for utslipp. laget av brynjar for å teste tidslinjen
-
-    B: lurte på om denne fila må inneholde alle datoer eller ikke. Har nå landet
-       på at den må det, fordi det gir mulighet til å starte telling på en 
-       vilkårlig dato. Dersom 2020-07-21 ikke er med i lista, kan lista ikke bli
-       slicet på den datoen og da blir det krøll.
+        Dette er fila hvor fake testutslipp blir generert. for å teste koden vi har.
 */
 
-export function EmissionsPerDay() {
+export function EmissionsPerDay() { // tanken med denne blir så å sette alle emissions til 0 for alle dager, så fylles de opp etterhvert.
     //let dag1utslipp = new Date ("2020-01-01") // første dag i brukerens informasjon om utslipp
     let currentDag = new Date ("2020-01-01")
     const emissionsArr2 = [[new Date(currentDag), 1]] // første element, første dato kommer ikke med pga ""....getDate() +1"
@@ -20,7 +13,7 @@ export function EmissionsPerDay() {
     }
     
 
-
+// gammelt array.
     // const emissionsArr = 
     // [
     //     ["	2020-06-01	"	,	1	],

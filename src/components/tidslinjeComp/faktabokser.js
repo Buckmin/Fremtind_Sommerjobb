@@ -2,10 +2,7 @@ import React from "react"
 import { ManyFunfactsDict } from "./tidslinjeData/funfacts"
 import { BsArrowLeft } from "react-icons/bs"
 import "../../styles/tidslinje.css"
-
 import { formatDate } from "../tidslinjeComp/tidslinjeData/randomDateKG"
-
-
 
 
 
@@ -56,7 +53,7 @@ export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSlic
   
 
   // dette er funksjonen for de enkelete boksene med fakta om utslipp.
-  // props: tekst, mengde CO2, dato passert grense
+
   function FaktaBoks (props) {
     // styling på boksene i 
     return (

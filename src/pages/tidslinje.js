@@ -22,14 +22,13 @@ export default function Home() {
   const [selectedDate, setSelectedDate] = useState (new Date("2020-02-27"))
   const userEmissions = EmissionsPerDay() // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
   const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(userEmissions, selectedDate) // array med emissions fra og med valgt startsdato
-  //console.log(userEmissionsSliced)
   let totalEmission = sumOfEmissionsInArray(userEmissionsSliced) // dette er nå summen av utslipp fra arrayet i emissions.js
   return ( 
     <div id="hovedkontainer" className="div__hovedStyle">
       <Header headerText="tidslinje"/> 
-      <div id="startsdato"> Startdato nå: {formatDate(new Date(selectedDate))} (men den blir dessverre ikke oppdatert i tidslinjen, det kommer snart)</div>
+      <div id="startsdato"> Startdato nå: {formatDate(new Date(selectedDate))}</div>
       <div id="tidslinjeinfo"><Datovelger id="dato1" selectedDate={selectedDate} onChange={date => setSelectedDate(date)} /></div>
-      <div id="tidslinjen" style={tidslinjenStyle}>
+      <div id="tidslinjen" >
           <HeleLinjen totalEmission={totalEmission} />
           <AlleFaktabokser totalEmission={totalEmission} selectedDate={selectedDate} userEmissionsSliced={userEmissionsSliced}/>
       </div>
@@ -38,7 +37,6 @@ export default function Home() {
   )
 }
 
-const tidslinjenStyle = { // styles her fordi den endrer seg utfra antall element
-  //height: tidslinjePixelHoyde, 
-  //position: "relative"
-}
+// nytt i denne filen nå er disse som ser slik ut: "totalEmission={totalEmission}"
+// det er for å sende nye verdier nedover i systemet
+// er visst det som er greia med react, måten det skjer og det da blir rendret mange nye element i hele kjeden
