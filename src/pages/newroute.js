@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 // under her importerer vi alle kompontentene vi lager
 import Header from "../components/header"
-import Footer from "../components/Footer"
+import Footer from "../components/footer"
 
 import Directions from "../components/Directions";
 import {LoadScript} from '@react-google-maps/api';

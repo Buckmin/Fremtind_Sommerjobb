@@ -12,7 +12,7 @@ statisk style til komponenter i tidslinje. farge, høyde, bredde etc
 /* den grønne linjen, ett element */
 .div__ett-linjeelement {
     width: 10px;
-    height: 1px;
+    height: 10px;
     float: top; 
     /* 
     OPPDATERING 7.7.20: nå endrer fargen seg fra grønn til oransje til rød. 
@@ -28,6 +28,7 @@ statisk style til komponenter i tidslinje. farge, høyde, bredde etc
     padding: 10px;
     width: 10px;
     background-color: white;
+    margin-bottom: 300px;
     /* height: elementArray.length; som er dynamisk! */
 }
 
@@ -45,7 +46,7 @@ statisk style til komponenter i tidslinje. farge, høyde, bredde etc
 .div__faktaboksStyle {
     position: absolute;
     width: 80%;
-    height: 80%;
+    height: auto;
     /* top: props.yVerdi; inline*/
 }
 
@@ -87,6 +88,8 @@ statisk style til komponenter i tidslinje. farge, høyde, bredde etc
     width: 80%;
     height: auto;
     padding: 20px;
+    border-style: solid;
+    border-color: #525252;
     /* top: tidslinjePixelHoyde + 100, // +100 for å flytte langt nok ned, dynamisk */
 
 }

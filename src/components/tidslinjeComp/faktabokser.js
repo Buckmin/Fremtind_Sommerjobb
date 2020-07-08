@@ -7,7 +7,7 @@ import { formatDate } from "../tidslinjeComp/tidslinjeData/randomDateKG"
 
 
 export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSliced}) { // denne funksjonen lager et array med alle faktaboksene.
-    const tidslinjePixelHoyde = totalEmission*10       // 1kg tar opp 10px
+
     let boksDict = ManyFunfactsDict() // kg CO2 som key, tekst(er) i array som strings
     let faktaboksArray = [] // array med faktiske faktabokser. fylles opp i for-løkka nedenfor
     let boksensYverdi = 0   // y-verdien boksen har fra toppen av diven "tidslinjen"
@@ -32,20 +32,22 @@ export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSlic
                  dictTekst = arrAvTekster[Math.floor(Math.random() * arrAvTekster.length)]// velger tilfeldig tekst, dersom det er flere enn en tekst per key
             }
             else {dictTekst = boksDict[i]} // når det bare er en value per key
+
             faktaboksArray.push(<FaktaBoks 
                     yVerdi={boksensYverdi} 
                     boksTekst={dictTekst}   // sender teksten i arrayet til boksen
                     CO2mengde={ i }
                     dagenPassert={ dagerSidenStart }
                     datoPassert={currentDate}
+                    key={i} 
                     />)
             i = i + 15 // når er boks er lagt til arrayey, må de neste 15 verdiene hoppes over
         }
     }
-    faktaboksArray.push( < YourTotalEmission tidslinjePixelHoyde={tidslinjePixelHoyde} totalEmission={totalEmission} selectedDate={selectedDate}/>) // legger til boks helt nederst på tidslinjen for totalt utslipp
+    faktaboksArray.push( < YourTotalEmission key={ "siste" } totalEmission={totalEmission} selectedDate={selectedDate}/>) // legger til boks helt nederst på tidslinjen for totalt utslipp
 
     return (
-      <div id="faktaboksenesBoks" className="div__faktaboksenesBoks" style={{height: tidslinjePixelHoyde}}>
+      <div id="faktaboksenesBoks" className="div__faktaboksenesBoks" style={{height: totalEmission*10}}>
         {faktaboksArray}
       </div>
     )
@@ -70,10 +72,9 @@ export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSlic
     )
   }
   
-  function YourTotalEmission ({selectedDate, totalEmission, tidslinjePixelHoyde}) { // dette er boksen nederst på tidslinjen som sier hvor mye totalutslippet vil være
+  function YourTotalEmission ({selectedDate, totalEmission}) { // dette er boksen nederst på tidslinjen som sier hvor mye totalutslippet vil være
     return (
-      <div className="div__totalBoksStyle" style={{top: tidslinjePixelHoyde + 100}}> 
-        {/* bare en pil, men nå er boksen for langt nede: <BsArrowLeft />  */}
+      <div className="div__totalBoksStyle" style={{top: totalEmission*10 + 110}}> 
         <span className="span__CO2tallStyle">Totalt {totalEmission}</span> 
         <span className="span__kgFaktaboksStyle">kg</span>
         <p className="p__tekstInBoksStyle"> sluppet ut gjennom reiser siden {formatDate(selectedDate)}</p>

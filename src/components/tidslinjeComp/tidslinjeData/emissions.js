@@ -6,7 +6,7 @@ export function EmissionsPerDay() { // tanken med denne blir så å sette alle e
     //let dag1utslipp = new Date ("2020-01-01") // første dag i brukerens informasjon om utslipp
     let currentDag = new Date ("2020-01-01")
     const emissionsArr2 = [[new Date(currentDag), 1]] // første element, første dato kommer ikke med pga ""....getDate() +1"
-    for (let i = 0; i < 364; i++){
+    for (let i = 0; i < 365; i++){
         currentDag.setDate(currentDag.getDate() + 1)
         emissionsArr2.push([new Date(currentDag), 1]) // [[dato 1, utslipp dato 1], [dato 2, utslipp dato 2]]
         //console.log(emissionsArr2[i])
