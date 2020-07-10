@@ -1,0 +1,9 @@
+/* Styling på dashboard, da Index */
+
+
+/* diven rundt hele greia */
+.div__hovedStyle {
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+}

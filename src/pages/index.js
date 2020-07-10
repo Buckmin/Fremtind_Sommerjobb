@@ -17,7 +17,7 @@ import  "../styles/webfonts.css"
 // og så export default home under funksjonen.
 export default function Home() {
   return ( 
-    <div id="hovedkontainer" style={hovedStyle}>
+    <div id="hovedkontainer" className="div__hovedStyle" >
       <Header headerText="headeren vår"/>  {/* dette er en kommentar. sånn henter vi ut komponenter 
                     cmd+klikk sender deg rett til koden der "Header" ligger*/}
       <div>Hello world!</div>
@@ -26,12 +26,3 @@ export default function Home() {
     </div>
   )
 }
-
-
-
-
-const hovedStyle = {
-  //maxWidth: "300px",
-  margin: "0 auto"
-};
-

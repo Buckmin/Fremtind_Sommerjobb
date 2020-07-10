@@ -2,7 +2,7 @@ import React from "react"
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-
+// https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md
 
 
 export function Datovelger ({onChange, selectedDate}){
