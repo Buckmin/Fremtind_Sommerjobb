@@ -44,7 +44,7 @@ export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSlic
             i = i + 15 // når er boks er lagt til arrayey, må de neste 15 verdiene hoppes over
         }
     }
-    faktaboksArray.push( < YourTotalEmission key={ "siste" } totalEmission={totalEmission} selectedDate={selectedDate}/>) // legger til boks helt nederst på tidslinjen for totalt utslipp
+    faktaboksArray.push( < YourTotalEmission key={ "sisteBoks" } totalEmission={totalEmission} selectedDate={selectedDate}/>) // legger til boks helt nederst på tidslinjen for totalt utslipp
 
     return (
       <div id="faktaboksenesBoks" className="div__faktaboksenesBoks" style={{height: totalEmission*10}}>

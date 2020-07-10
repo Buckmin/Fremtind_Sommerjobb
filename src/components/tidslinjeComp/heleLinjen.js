@@ -8,7 +8,6 @@ export function HeleLinjen ({totalEmission}) { // denne funksjonen returnerer et
     let colorVariableNumber = 0
     for (var i = 0; i < totalEmission; i+= 1){
       colorVariableNumber = Math.floor((i*10/totalEmission)) // fordelingen av grønn, oransje, rød på skalaen 0-10.
-      console.log(colorVariableNumber)
       if (colorVariableNumber < 4) { elementArray.push(<LinjeElement key={i} elementfargen = "#35C16D"/>)}
       if (colorVariableNumber >= 4 && colorVariableNumber < 8) {elementArray.push(<LinjeElement key={i} elementfargen = "#FFA42D"/>)}
       if (colorVariableNumber >= 8) {elementArray.push(<LinjeElement key={i} elementfargen = "#D73704"/>)}
