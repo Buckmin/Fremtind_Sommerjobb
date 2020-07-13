@@ -12,6 +12,7 @@ import  "../styles/webfonts.css"
 
 
 import { TravelProgressBarsKG, TravelProgressBarsPercentage } from "../components/statistics/progressBars"
+import { HjuletTotalCO2 } from "../components/statistics/hjulet"
 // importen av ...Bars... gir progresjonsbarene. kall de inn som komponenter 
 
 import 'bootstrap/dist/css/bootstrap.min.css' // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen
@@ -22,6 +23,8 @@ export default function Home() {
     <div id="hovedkontainer" className="div__hovedStyle" >
       <Header headerText="headeren vår"/> 
       <div>Hello world!</div>
+
+      <HjuletTotalCO2 /> 
 
       <TravelProgressBarsKG />
       

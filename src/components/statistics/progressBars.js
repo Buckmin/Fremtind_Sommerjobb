@@ -1,6 +1,6 @@
 
 import React, {useState} from "react" // useState er også bare for testing av knapp §
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from 'react-bootstrap/ProgressBar' // https://react-bootstrap.github.io/components/progress/
 import { MdDirectionsWalk, MdDirectionsBike, MdTrain, MdDirectionsBus, MdDirectionsCar } from "react-icons/md";
 
 import 'bootstrap/dist/css/bootstrap.min.css' // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen

@@ -1,0 +1,9 @@
+
+/* dette er diven rundt hjulet, både selve hjulet og teksten under */
+.div__rundtHjulet {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+}
