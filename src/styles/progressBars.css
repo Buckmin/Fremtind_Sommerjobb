@@ -1,0 +1,36 @@
+
+/* diven rundt de fem progresjonsbarene */
+.div__theProgressBars {
+    width: 350px;
+    height: auto;
+    background-color: #DED4C7;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* se navnet */
+.div__enBarMedIkonOgTekst {
+    height: auto;
+}
+
+.span__tekstOverBaren {
+    float: right;
+}
+
+/* selve baren. skal ikke fylle hele diven over */
+.div__bareBaren {
+    width: 100%;
+    float: right;
+}
+
+ /* progresjonsbar med prosen, her litt mindre for å få plass til ikon og tall når % -> 100 
+ OBS: DET BLIR KRØLL HER PÅ WIDTH NÅR SKJERMSTØRRELSEN ENDRER SEG */
+.div__theProgressBarsPercent {
+    width: 350px;                   
+    height: auto;
+    background-color: #FFFFFF;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}

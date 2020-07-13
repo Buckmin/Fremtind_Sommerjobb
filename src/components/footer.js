@@ -10,12 +10,13 @@ lager den som en komponent vi kan hente inn i de ulike sidene
 */
 
 export default function Footer () {
+    let iconSize = 30
     return (
         <div id="baren" style={footerStyle}>
-            <BarKnapp iconName={<BsFillHouseDoorFill size={30} />} linkLink="/" />
-            <BarKnapp iconName={<BsFillCursorFill size={30}/>} linkLink="/ruter" />
-            <BarKnapp iconName={<BsGraphDown size={30}/>} linkLink="/tidslinje"/>
-            <BarKnapp iconName={<BsFillPersonFill size={30}/>} linkLink="/profil" />
+            <BarKnapp iconName={<BsFillHouseDoorFill size={iconSize} />} linkLink="/" />
+            <BarKnapp iconName={<BsFillCursorFill size={iconSize}/>} linkLink="/ruter" />
+            <BarKnapp iconName={<BsGraphDown size={iconSize}/>} linkLink="/tidslinje"/>
+            <BarKnapp iconName={<BsFillPersonFill size={iconSize}/>} linkLink="/profil" />
         </div>
     )
 }
@@ -25,11 +26,11 @@ vil etterhvert legge inn ikoner
 tror ikoner kan byttes ut med tekst ved {props.linkImg} */
 
 function BarKnapp (props) {
+    let iconSize = 30
     return (
-        <div style={knappStyle}>
-            <Link to={props.linkLink} activeStyle={linkActive}>
+        <div id="enkeltknapp" style={knappStyle}>
+            <Link to={props.linkLink} activeStyle={linkActive} style={{color: "#3D3D3D"}} >
                 {props.iconName}
-                
             </Link>
         </div>
     )
@@ -43,21 +44,24 @@ const footerStyle = {
     bottom: "0",
     width: "100%",
     backgroundColor: "#6F6F6F",
-    height: "50px",
-    padding: "20px 0px 0px 0px",
+    height: "60px",
+    padding: "15px 0px 15px 0px", // OBS! HVIS DET BLIR FEIL I NAV-BAREN mtp ikonenes plassering:
+                                  // skal padding top og bottom være lik:  paddingTop: (height - iconSize) / 2
+                                  // fikk ikke til det automatisk uten veldig mye krøll her i denne koden, så ble uten
+
 
 }
 // padding over med textAlign under gjør ikonene midtstilt
-// padding er over høyre under venstre. verticalAlign midstiller eventuell tekst
-// ikon-svg er 30px, så padding over må være 50px-30px=20px
+// padding er "over høyre under venstre". verticalAlign midstiller eventuell tekst
+
 
 const knappStyle = {
     width: "25%",
-    height: footerStyle.height,
+    height: "100%",
     float: "left",
     textAlign: "center",
     verticalAlign: "middle",
-    lineHeight: footerStyle.height,
+    lineHeight: "100%",
 
 }
 

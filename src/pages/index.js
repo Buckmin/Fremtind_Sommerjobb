@@ -11,17 +11,24 @@ import Footer from "../components/footer"
 import  "../styles/webfonts.css"
 
 
-// her er selve funksjonen som kjører komponentene ut på skjermen
-// B: ikke egt sikker på "export default", det var i tutorialen
-// ER: Export default er bare en enklere måte å eksportere komponenten på. Kan også skrive function Home() {}
-// og så export default home under funksjonen.
+import { TravelProgressBarsKG, TravelProgressBarsPercentage } from "../components/statistics/progressBars"
+// importen av ...Bars... gir progresjonsbarene. kall de inn som komponenter 
+
+import 'bootstrap/dist/css/bootstrap.min.css' // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen
+
+
 export default function Home() {
   return ( 
     <div id="hovedkontainer" className="div__hovedStyle" >
-      <Header headerText="headeren vår"/>  {/* dette er en kommentar. sånn henter vi ut komponenter 
-                    cmd+klikk sender deg rett til koden der "Header" ligger*/}
+      <Header headerText="headeren vår"/> 
       <div>Hello world!</div>
+
+      <TravelProgressBarsKG />
+      
       <LoremIpsum />
+
+      <TravelProgressBarsPercentage />
+      
       <Footer />
     </div>
   )
