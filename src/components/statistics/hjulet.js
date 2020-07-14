@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-// installert circular progression bar. https://github.com/kevinsqi/react-circular-progressbar. 
+// installert circular progression bar. https://github.com/kevinsqi/react-circular-progressbar 
 // demoer på installert circular progression bar: https://codesandbox.io/s/vymm4oln6y?file=/index.js
 import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';

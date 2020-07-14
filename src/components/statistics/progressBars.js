@@ -1,5 +1,5 @@
 
-import React, {useState} from "react" // useState er også bare for testing av knapp §
+import React, {useState} from "react" // useState er også bare for testing av knapp §, https://upmostly.com/tutorials/simplifying-react-state-and-the-usestate-hook
 import ProgressBar from 'react-bootstrap/ProgressBar' // https://react-bootstrap.github.io/components/progress/
 import { MdDirectionsWalk, MdDirectionsBike, MdTrain, MdDirectionsBus, MdDirectionsCar } from "react-icons/md";
 
