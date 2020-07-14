@@ -19,12 +19,14 @@ import 'bootstrap/dist/css/bootstrap.min.css' // styling på alle bootstrap-grei
 
 
 export default function Home() {
+  let userGoalTotCO2 = 100 // denne må komme fra en annen side eller noe sånt
+  let totalEmission = 71.1 // denne må regnes ut eller hentes ut fra et annet sted
   return ( 
     <div id="hovedkontainer" className="div__hovedStyle" >
       <Header headerText="headeren vår"/> 
       <div>Hello world!</div>
 
-      <HjuletTotalCO2 /> 
+      <HjuletTotalCO2 totalEmission={totalEmission} userGoalTotCO2={userGoalTotCO2}/> 
 
       <TravelProgressBarsKG />
       

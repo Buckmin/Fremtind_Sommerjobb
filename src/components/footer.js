@@ -26,7 +26,6 @@ vil etterhvert legge inn ikoner
 tror ikoner kan byttes ut med tekst ved {props.linkImg} */
 
 function BarKnapp (props) {
-    let iconSize = 30
     return (
         <div id="enkeltknapp" style={knappStyle}>
             <Link to={props.linkLink} activeStyle={linkActive} style={{color: "#3D3D3D"}} >
