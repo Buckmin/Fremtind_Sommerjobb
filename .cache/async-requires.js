@@ -6,7 +6,9 @@ exports.components = {
   "component---src-pages-index-js": () => import("./../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-newroute-js": () => import("./../src/pages/newroute.js" /* webpackChunkName: "component---src-pages-newroute-js" */),
   "component---src-pages-profil-js": () => import("./../src/pages/profil.js" /* webpackChunkName: "component---src-pages-profil-js" */),
+  "component---src-pages-reiseplanlegger-js": () => import("./../src/pages/reiseplanlegger.js" /* webpackChunkName: "component---src-pages-reiseplanlegger-js" */),
   "component---src-pages-ruter-js": () => import("./../src/pages/ruter.js" /* webpackChunkName: "component---src-pages-ruter-js" */),
-  "component---src-pages-tidslinje-js": () => import("./../src/pages/tidslinje.js" /* webpackChunkName: "component---src-pages-tidslinje-js" */)
+  "component---src-pages-tidslinje-js": () => import("./../src/pages/tidslinje.js" /* webpackChunkName: "component---src-pages-tidslinje-js" */),
+  "component---src-pages-travelplanner-js": () => import("./../src/pages/travelplanner.js" /* webpackChunkName: "component---src-pages-travelplanner-js" */)
 }
 

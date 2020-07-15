@@ -14,6 +14,9 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@entur/chip": "^0.3.19",
+    "@entur/form": "^3.1.2",
+    "@entur/sdk": "^1.7.2",
     "@fremtind/jkl-accordion-react": "^1.4.9",
     "@fremtind/jkl-card-react": "^1.2.24",
     "@fremtind/jkl-core": "^4.5.5",
