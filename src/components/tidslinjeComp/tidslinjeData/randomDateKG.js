@@ -1,10 +1,10 @@
 
 //export vs export default: https://stackoverflow.com/questions/36426521/what-does-export-default-do-in-jsx/36426988
 
-export function RandomArrDateKgCO2 (props){ // returnerer et 2d-array med props.antall dager fra og med props.startdato (2020-06-01 er default)
+ function RandomArrDateKgCO2 (props){ // returnerer et 2d-array med props.antall dager fra og med props.startdato (2020-06-01 er default)
     var arr = []
     var startdato =  "2020-11-01" // velger props.startdato eller default spesifisert etter ||
-    var max = 100
+    var max = 10
     var min = 0
     for (var i = 0; i <  100; i++){
         arr.push([(new Date(startdato)), Math.floor(Math.random() * (max - min + 1)) + min]) // Math.floor... gir et tilfeldig tall i [0,100]
@@ -12,7 +12,7 @@ export function RandomArrDateKgCO2 (props){ // returnerer et 2d-array med props.
     return arr
 }
 
-export function StringOfRandomArrDateKgCO2(){
+export function StringOfRandomArrDateKgCO2(){ //
     let arr = RandomArrDateKgCO2()
     let newArr = []
     for (var i = 0; i < arr.length; i++){
