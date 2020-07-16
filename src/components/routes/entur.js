@@ -12,6 +12,8 @@ function FindSomeTrips(props) {
     const [destination, setDestination] = useState();
     const [travelMode, setTravelMode] = useState();
 
+    
+
     useEffect( () => {
         const fetchTrips = async () => {
             //etterhvert endre til service.findTrips(props.origin, props.destination) som tas inn via input
@@ -110,15 +112,10 @@ function FindSomeTrips(props) {
 
 
     return(
-/*         <div>
-            {stuff}
-        </div>
- */
-        <div>
-            {/* <filterTrips/> */}
-        </div>
+        <div>Hei</div>
     )
 
 }
 
 export default FindSomeTrips
+

@@ -11,7 +11,6 @@ exports.components = {
   "component---src-pages-profil-js": hot(preferDefault(require("C:\\Users\\Emma\\Documents\\Fremtind\\fremtind-prototype\\src\\pages\\profil.js"))),
   "component---src-pages-reiseplanlegger-js": hot(preferDefault(require("C:\\Users\\Emma\\Documents\\Fremtind\\fremtind-prototype\\src\\pages\\reiseplanlegger.js"))),
   "component---src-pages-ruter-js": hot(preferDefault(require("C:\\Users\\Emma\\Documents\\Fremtind\\fremtind-prototype\\src\\pages\\ruter.js"))),
-  "component---src-pages-tidslinje-js": hot(preferDefault(require("C:\\Users\\Emma\\Documents\\Fremtind\\fremtind-prototype\\src\\pages\\tidslinje.js"))),
-  "component---src-pages-travelplanner-js": hot(preferDefault(require("C:\\Users\\Emma\\Documents\\Fremtind\\fremtind-prototype\\src\\pages\\travelplanner.js")))
+  "component---src-pages-tidslinje-js": hot(preferDefault(require("C:\\Users\\Emma\\Documents\\Fremtind\\fremtind-prototype\\src\\pages\\tidslinje.js")))
 }
 
