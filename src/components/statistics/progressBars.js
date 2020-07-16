@@ -1,17 +1,22 @@
 
-import React, {useState} from "react" // useState er også bare for testing av knapp §, https://upmostly.com/tutorials/simplifying-react-state-and-the-usestate-hook
+import React from "react"
 import ProgressBar from 'react-bootstrap/ProgressBar' // https://react-bootstrap.github.io/components/progress/
 import { MdDirectionsWalk, MdDirectionsBike, MdTrain, MdDirectionsBus, MdDirectionsCar } from "react-icons/md";
 
 import 'bootstrap/dist/css/bootstrap.min.css' // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen
 import "../../styles/progressBars.css"
 
-export function TravelProgressBarsKG () { // ta inn dato/tidsperiode? ta inn array(dict?) med utslipp
-    let walkEmission = 10
-    let bikeEmission = 20
-    let trainEmission = 15
-    let busEmission = 35
-    let carEmission = 75
+export function TravelProgressBarsKG () { // ta inn dato/tidsperiode? ta inn array(dict?) med utslipp. 
+    // OPPDATERING PÅ DENNE OG NESTE FUNKSJON FOR BARER:
+    // Nå tar de inn dict fra localStorage og sender ut tall fra det.
+    // localStorage initierers på hjemmesiden
+    let tripsEmissionDict = JSON.parse(localStorage.getItem("CO2SumTransportMeans"))
+
+    let walkEmission = tripsEmissionDict["walkEmission"]
+    let bikeEmission = tripsEmissionDict["bikeEmission"]
+    let trainEmission = tripsEmissionDict["trainEmission"]
+    let busEmission = tripsEmissionDict["busEmission"]
+    let carEmission = tripsEmissionDict["carEmission"]
     let sumEmissions = walkEmission + bikeEmission + carEmission + busEmission + trainEmission
     // disse variablene burde være i et array, men fordi det er usikkert hvordan data inn blir seende ut,
     // så er de per denne iterasjonen kun satt som konstanter med navn.
@@ -47,12 +52,12 @@ function OneBarWithIconAndTekst (props) {
 // OBS! denne funksjonen er nå ganske avhengig av skjermstørrelsen
 
 export function TravelProgressBarsPercentage () {
-    // let walkTrips = 20 // fjern denne kommentaren når knappen "Øk Walks" blir fjernet. kommenter da ut alt markert med §
-    const [walkTrips, incrementWalks] = useState(10) // bare for å vise/teste §
-    let bikeTrips = 5
-    let trainTrips = 10
-    let busTrips = 9
-    let carTrips = 15
+    let tripsDict = JSON.parse(localStorage.getItem("amountOfTrips"))
+    let walkTrips = tripsDict["walkTrips"]
+    let bikeTrips = tripsDict["bikeTrips"]
+    let trainTrips = tripsDict["trainTrips"]
+    let busTrips = tripsDict["busTrips"]
+    let carTrips = tripsDict["carTrips"]
     let sumTrips = walkTrips + bikeTrips + trainTrips + busTrips + carTrips
     let iconSize = 24 // størrelsen på ikonene
 
@@ -64,13 +69,6 @@ export function TravelProgressBarsPercentage () {
         <OneBarWithMovingIconAndTextPercentage id="bus" IconName={<MdDirectionsBus size={iconSize} />} antallTrips={busTrips} sumTrips={sumTrips}/>
         <OneBarWithMovingIconAndTextPercentage id="car" IconName={<MdDirectionsCar size={iconSize} />} antallTrips={carTrips} sumTrips={sumTrips}/>
         
-        {/* Button nedenfor er bare for testing!! fjer den i ferdig versjon*/}
-        <button onClick={() => incrementWalks(walkTrips+1)} > Øk walks </button> {/* hele denne linjen § */}
-        <p>
-            øk walks knappen er bare midlertidig for å vise hvordan disse barene endrer seg. 
-            OBS! bruker (..tall..).toFixed(1) for å få fine tall, bare ett komma. 
-            Det gjør at det kanskje ikke blir 100%. 
-        </p>{/* fjern hele denne paragrafen § */}
     </div>
     )
 }

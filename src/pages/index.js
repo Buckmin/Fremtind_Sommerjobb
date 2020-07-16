@@ -21,11 +21,14 @@ import { HjuletTotalCO2 } from "../components/statistics/hjulet"
 import { ToggleButtonsPeriodeDUMÅ, ToggleButtonsPeriodeDUM  } from "../components/tidsperiodeknapper"
 import { ToggleButtonsFremkomstmiddel } from "../components/fremkomsmiddelknapper"
 import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper"
+import { initalLoadOfData } from "./dev"
 
 
 export default function Home() {
   let userGoalTotCO2 = 100 // denne må komme fra en annen side eller noe sånt
   let totalEmission = 71.1 // denne må regnes ut eller hentes ut fra et annet sted
+
+  initalLoadOfData() // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
   
   
   const [periodeDUMÅ, setRadioValuePeriodeDUMÅ] = useState('Dag'); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien

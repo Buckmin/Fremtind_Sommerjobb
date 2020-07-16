@@ -21,6 +21,7 @@ import "../styles/tidslinje.css"
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState (new Date("2020-04-01"))
   const userEmissions = EmissionsPerDay() // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
+console.log("tidslinje")
   const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(userEmissions, selectedDate) // array med emissions fra og med valgt startsdato
   let totalEmission = sumOfEmissionsInArray(userEmissionsSliced) // dette er nå summen av utslipp fra arrayet i emissions.js
   return ( 
