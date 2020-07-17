@@ -1,4 +1,4 @@
-
+import moment from "moment"
 //export vs export default: https://stackoverflow.com/questions/36426521/what-does-export-default-do-in-jsx/36426988
 
  function RandomArrDateKgCO2 (props){ // returnerer et 2d-array med props.antall dager fra og med props.startdato (2020-06-01 er default)
@@ -35,3 +35,21 @@ export function formatDate(date) { // funksjon som tar inn en dato og returnerer
 
     return [year, month, day].join('.'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
 }
+
+export function dagerSiden(date) {
+    const daysBetween = moment(new Date()).diff(new Date (date), "days")
+    return daysBetween
+}
+
+export function antallDagerMellom (startDate, endDate) {
+    const daysBetween = moment(new Date (endDate)).diff(new Date (startDate), "days")
+    return daysBetween
+}
+// regne ut dager mellom to datoer:
+
+/*
+
+    const daysBetween = moment(new Date("dagens_dato_her")).diff(new Date ("startdato_her"), "days")
+    console.log("her:", daysBetween)
+
+*/

@@ -12,17 +12,16 @@ import { AlleFaktabokser } from "../components/tidslinjeComp/faktabokser"
 import { sliceOnGivenIndexItemIn2dArr, sumOfEmissionsInArray} from "../components/tidslinjeComp/totalEmission"
 import { Datovelger } from "../components/tidslinjeComp/datovelger"
 import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG"
-import { EmissionsPerDay } from "../components/tidslinjeComp/tidslinjeData/emissions"
+import { EmissionsPerDayArray } from "../components/tidslinjeComp/tidslinjeData/emissions"
 
 import "../styles/tidslinje.css"
 
 
 // her er selve funksjonen som kjører komponentene ut på skjermen
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState (new Date("2020-04-01"))
-  const userEmissions = EmissionsPerDay() // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
-console.log("tidslinje")
-  const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(userEmissions, selectedDate) // array med emissions fra og med valgt startsdato
+  const [selectedDate, setSelectedDate] = useState (new Date("2020-04-01")) // datoen som blir valgt i datepicker-tidslinje
+  const userEmissions = EmissionsPerDayArray() // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
+  const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(userEmissions, formatDate(selectedDate)) // array med emissions fra og med valgt startsdato
   let totalEmission = sumOfEmissionsInArray(userEmissionsSliced) // dette er nå summen av utslipp fra arrayet i emissions.js
   return ( 
     <div id="hovedkontainer" className="div__hovedStyle">

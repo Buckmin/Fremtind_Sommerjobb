@@ -9,7 +9,7 @@ import "../../styles/progressBars.css"
 export function TravelProgressBarsKG () { // ta inn dato/tidsperiode? ta inn array(dict?) med utslipp. 
     // OPPDATERING PÅ DENNE OG NESTE FUNKSJON FOR BARER:
     // Nå tar de inn dict fra localStorage og sender ut tall fra det.
-    // localStorage initierers på hjemmesiden
+    // localStorage verdier initierers på hjemmesiden
     let tripsEmissionDict = JSON.parse(localStorage.getItem("CO2SumTransportMeans"))
 
     let walkEmission = tripsEmissionDict["walkEmission"]

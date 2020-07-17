@@ -57,7 +57,6 @@ export function AlleFaktabokser ({selectedDate, totalEmission, userEmissionsSlic
   // dette er funksjonen for de enkelete boksene med fakta om utslipp.
 
   function FaktaBoks (props) {
-    // styling på boksene i 
     return (
       <div id="faktaboks" className="div__faktaboksStyle" style ={{top: props.yVerdi}}>
         <BsArrowLeft /> 

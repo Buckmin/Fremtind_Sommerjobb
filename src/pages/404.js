@@ -7,9 +7,8 @@ import Header from "../components/header"
 export default function ErrorPage () {
     let tekstHeader = "Oi! Her skjedde det noe rart"
 
-    let testerString = ""
+    let testerString = "testerString"
 
-    if (localStorage.getItem("personlia") != null ) {testerString = "funker også!"}
     return (
         <div style={{textAlign: "center"}}>
             <Header headerText={tekstHeader} />

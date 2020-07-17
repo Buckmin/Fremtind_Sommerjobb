@@ -12,6 +12,7 @@ import "../../styles/hjulet.css"
 
 
 export function HjuletTotalCO2 ({totalEmission, userGoalTotCO2}) { 
+    
     let totalEmissionStr = (totalEmission).toFixed(1)
     let fontStrArr = [20, 20, 20, 80, 70, 60, 50, 40, 30, 20] // array for fontSize på totalEmission
     
@@ -20,9 +21,9 @@ export function HjuletTotalCO2 ({totalEmission, userGoalTotCO2}) {
             <p>Mitt CO2-utslipp</p>
             <div id="rundtHjulet" className="div__rundtHjulet">
                 <CircularProgressbarWithChildren
-                    value={totalEmissionStr} 
+                    value={100*totalEmission/userGoalTotCO2} 
                     styles={buildStyles(
-                        {pathColor: "#50E68C", 
+                        {pathColor: totalEmission > userGoalTotCO2 ? "#90352f" : "#50E68C", 
 
                         textColor: "#000000" }
                     )}> 
@@ -38,9 +39,9 @@ export function HjuletTotalCO2 ({totalEmission, userGoalTotCO2}) {
 }
 
 
-function IconLinkToGoals () {    // OBS! Per nå går denne kun til 404, ikke en page hvor brukeren kan sette seg et mål
+function IconLinkToGoals () {    // OBS! Per nå går denne kun til dev-page, ikke en page hvor brukeren kan sette seg et mål
     return (
-        <Link to="/404" style={{color: "#000AFA"}}> 
+        <Link to="/dev" style={{color: "#000AFA"}}> 
             <BsPencil/>
         </Link>
     )

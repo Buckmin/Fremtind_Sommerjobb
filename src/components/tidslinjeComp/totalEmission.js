@@ -1,9 +1,9 @@
-import { formatDate } from "./tidslinjeData/randomDateKG"
-  
-  export function sliceOnGivenIndexItemIn2dArr(arr, itemToFind){ // funksjon for å finne index til 2d array, ie velge riktig startsdato for linja
+    // denne fila har nå litt misvisende navn
+    
+    export function sliceOnGivenIndexItemIn2dArr(arr, itemToFind){ // funksjon for å finne index til 2d array, ie velge riktig startsdato for linja
     let theIndex = 0 
     for (var i = 0; i < arr.length; i++){
-      if (formatDate(arr[i][0]) === formatDate(itemToFind)){                  // itererer over indexene, og ser etter element 0 i hver index
+      if ((arr[i][0]) === (itemToFind)){           // itererer over indexene, og ser etter element 0 i hver index
         theIndex = i                                     // returnerer index hvor element 0 stemmer med itemToFind. Her bør det vel være en break
       }
     }  

@@ -22,14 +22,24 @@ import { ToggleButtonsPeriodeDUMÅ, ToggleButtonsPeriodeDUM  } from "../componen
 import { ToggleButtonsFremkomstmiddel } from "../components/fremkomsmiddelknapper"
 import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper"
 import { initalLoadOfData } from "./dev"
+import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions"
+import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG"
 
 
 export default function Home() {
-  let userGoalTotCO2 = 100 // denne må komme fra en annen side eller noe sånt
-  let totalEmission = 71.1 // denne må regnes ut eller hentes ut fra et annet sted
-
   initalLoadOfData() // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
+
+  let emissionsDict = JSON.parse(localStorage.getItem("emissionsPerDay"))
+  let personlia =  JSON.parse(localStorage.getItem("personlia"))
+  let userGoals =  JSON.parse(localStorage.getItem("userGoals"))
+
+  let userGoalTotCO2 = userGoals["totalGoal"] // denne må komme fra en annen side eller noe sånt
+  console.log(personlia["initialDate"], new Date())
+  //let totalEmission = emissionsBetweenDays(personlia["initialDate"], formatDate(new Date())) // denne må regnes ut eller hentes ut fra et annet sted
+  let totalEmission = emissionsBetweenDays(new Date("2020-01-01"), new Date()) // denne må regnes ut eller hentes ut fra et annet sted
   
+  
+  console.log (totalEmission)
   
   const [periodeDUMÅ, setRadioValuePeriodeDUMÅ] = useState('Dag'); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [periodeDUM, setRadioValuePeriodeDUM] = useState('Dag'); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien

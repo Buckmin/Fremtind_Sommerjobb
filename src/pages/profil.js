@@ -2,30 +2,30 @@ import React from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import "../styles/profil.css"
+import { formatDate, dagerSiden } from "../components/tidslinjeComp/tidslinjeData/randomDateKG"
 
 // lagre til lokal fil: localStorage.setItem({KEY}, JSON.stringify({VARIABEL}))
 // hente ut lokal fil: {VARIABEL} = JSON.parse(localStorage.getItem({KEY}))
 
 export default function Home() {
 
-  const personlia = ["Kari", "Kanari", "Nordmann", "Hammerborgsgate 2, Oslo", "kari@epost.no"]
-  localStorage.setItem("personlia", JSON.stringify(personlia))
-
   let personlia2 = JSON.parse(localStorage.getItem("personlia"))
 
 
 
-  // const personliaKeys = ["Fornavn", "Mellomnavn", "Etternavn", "Adresse", "Epost"]
+  // const personliaKeys = ["Fornavn", "Mellomnavn", "Etternavn", "Adresse", "Epost", dato-lastet-ned-appen]
 
   return ( 
     <div id="hovedkontainer" style={hovedStyle}>
       <Header headerText="Min profil"/> 
       <p className="p__tekstOverPersonlia"> Navn </p>
-      <p className="p__personlia"> {personlia2[0]+ " " + personlia2[1] + " " + personlia2[2]} </p>
+      <p className="p__personlia"> {personlia2["name"]+ " " + personlia2["middleName"] + " " + personlia2["lastName"]} </p>
       <p className="p__tekstOverPersonlia"> Adresse </p>
-      <p className="p__personlia"> {personlia2[3]} </p>
+      <p className="p__personlia"> {personlia2["adress"]} </p>
       <p className="p__tekstOverPersonlia"> Epost </p>
-      <p className="p__personlia"> {personlia2[4]} </p>
+      <p className="p__personlia"> {personlia2["email"]} </p>
+      <p className="p__tekstOverPersonlia"> Lastet ned appen </p>
+      <p className="p__personlia"> {formatDate(personlia2["initialDate"])}, som er {dagerSiden(personlia2["initialDate"])} dager siden </p>
 
  
       <Footer />
