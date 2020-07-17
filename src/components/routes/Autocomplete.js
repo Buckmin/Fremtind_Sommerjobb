@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-//import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { MdLocationOn} from "react-icons/md"
 
 import Grid from '@material-ui/core/Grid';
@@ -61,6 +60,29 @@ export default function GoogleMaps(props) {
     [],
   );
 
+/*   //test
+  function getCoord() {
+  
+    let request = {
+      placeId: value.place_id,
+      fields: ["geometry"]
+    };
+  
+    let service = new window.google.maps.places.PlacesService();
+  
+    service.getDetails(request, function(place, status) {
+      if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+        let location = place.geometry.location
+        console.log('locat', location)
+
+        return location
+      }
+    });
+    
+  }
+  //testferdig */
+
+
   React.useEffect(() => {
     let active = true;
 
@@ -95,7 +117,9 @@ export default function GoogleMaps(props) {
     return () => {
       active = false;
     };
+
   }, [value, inputValue, fetch]);
+
 
   return (
     <Autocomplete
@@ -111,6 +135,7 @@ export default function GoogleMaps(props) {
       onChange={(event, newValue) => {
         setOptions(newValue ? [newValue, ...options] : options);
         setValue(newValue);
+        props.onChange(newValue); //merk denne
       }}
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue);
@@ -140,6 +165,7 @@ export default function GoogleMaps(props) {
               <Typography variant="body2" color="textSecondary">
                 {option.structured_formatting.secondary_text}
               </Typography>
+
             </Grid>
           </Grid>
         );

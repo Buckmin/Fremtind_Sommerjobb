@@ -1,29 +1,74 @@
-import React from "react"
-import createEnturService from '@entur/sdk'
+import React, {useState, useEffect} from "react"
 
 import Header from "../components/header"
 import Footer from "../components/Footer"
 
-import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
-import "@fremtind/jkl-text-input/text-input.min.css";
-
-import '@entur/form/dist/styles.css';
-import { TextField } from '@entur/form';
-
-import '@entur/chip/dist/styles.css';
-import { ChoiceChipGroup } from '@entur/chip';
-import { ChoiceChip } from '@entur/chip';
-
 
 import GoogleMaps from "../components/routes/Autocomplete"
 
+import FindTransitTrips from "../components/routes/FindTransitTrips"
+import AccordionTravel from "../components/routes/AccordionTravel"
+
+import { PrimaryButton } from "@fremtind/jkl-button-react";
+import "@fremtind/jkl-button/button.min.css";
+
+
 export default function Reiseplanlegger() {
+
+    const [origin, setOrigin] = useState('');
+    const [destination, setDestination] = useState('');
+
+    const [showResults, setShowResults] = React.useState(false)
+/* 
+    const submitLocation = () => {
+        setOrigin(origin),
+        setDestination(destination)
+    }
+ */
+
+    //{console.log('origin', origin)}
+    //{console.log('destination', destination)}
+
+    console.log('origin', origin)
+    console.log('destination', destination)
+
+    const Results = () => (
+        <div id="results">
+            {/* MERK: uansett input vil denne vise forhåndsdefinert "location" fram til jeg får fikset koordinater */}
+            <FindTransitTrips
+                origin={origin}
+                destination={destination}
+            />
+            {/* {origin.place_id} */}
+        </div>
+    )
+
+/*     useEffect( () => {
+        const convertInput = async () => {
+            const originFeatures = await service.getFeatures(origin.structured_formatting.main_text)
+            const destFeatures = await service.getFeatures(destination.structured_formatting.main_text)
+    }
+
+    }, []) */
+
+
     return ( 
       <div id="hovedkontainer" style={hovedStyle}>
         <Header headerText="Reiseplanlegger"/>
         <div>
-            <GoogleMaps placeholder="Avreisested"/>
-            <GoogleMaps placeholder="Destinasjon"/>
+            <GoogleMaps placeholder="Avreisested" onChange={ o => setOrigin(o)}/>
+            <GoogleMaps placeholder="Destinasjon" onChange={ d => setDestination(d)}/>
+            {/* MÅ KLARE Å LAGRE INPUT I GoogleMaps HER */}
+            {/* <GoogleMaps placeholder="Avreisested"/>  */}
+            {/* <GoogleMaps placeholder="Destinasjon"/> */}
+
+            <PrimaryButton onClick={() => setShowResults(true)}>Neste</PrimaryButton>
+            
+            { showResults ? <Results /> : null }
+
+            {/* Etter dette skal informasjon om reisen lastes inn -> må lagre origin og destination */}
+            {/* Skal kunne tas inn som props i FindTransitTrips */}
+
         </div>
         <Footer />
       </div>
