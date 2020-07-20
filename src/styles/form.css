@@ -1,0 +1,33 @@
+.PrimaryButon {
+    /* margin-left: 20px; */
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+form  { 
+    display: table;
+    margin-top: 25px;
+}
+
+p     { 
+    display: table-row;  
+}
+
+label { 
+    display: table-cell;
+}
+
+select {
+    display: table-cell; 
+    margin-left: 15px;
+}
+
+input { 
+    display: table-cell; 
+    margin-left: 15px;
+}
+
+input::placeholder {
+    color: gray;
+}

@@ -1,1 +1,0 @@
-/* tidslinjen. Kaja og Brynjar */
