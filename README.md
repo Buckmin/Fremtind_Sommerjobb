@@ -1,4 +1,5 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+
 <p align="center">
   <a href="https://www.fremtind.no">
     <Logo isSymbol/>
@@ -7,6 +8,11 @@
 <h1 align="center">
   CO2 kalkulator
 </h1>
+
+Last ned denne koden og kjør følgende i prosjekt-mappen
+```shell
+gatsby develop
+ ```
 
 Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
