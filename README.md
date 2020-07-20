@@ -1,9 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
 <p align="center">
-  <h1 align="center">
   🐸
-  </h1>
 </p>
 <h1 align="center">
   CO2 kalkulator
