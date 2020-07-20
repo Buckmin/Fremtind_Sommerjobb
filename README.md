@@ -3,9 +3,11 @@
 <p align="center">
   🐸🦖🌿🦖🐸
 </p>
-<h1 align="center">
-  CO2 kalkulator
-</h1>
+<p>
+  <h1 align="center">
+    CO2 kalkulator
+  </h1>
+</p>
 <p align="center">
   🐸🦖🌿🦖🐸
 </p>
