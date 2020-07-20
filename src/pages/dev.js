@@ -9,13 +9,19 @@ import Footer from "../components/footer"
 
 import moment from "moment"
 import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG"
-import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions"
+//import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions"
+import { FormForDailyGoal } from "../components/inputForms"
 
 export default function DevPage () {
         let tekstHeader = "Devpage"
         initalLoadOfData()
 
-        const [dailyGoal, setDailyGoal] = useState((JSON.parse(localStorage.getItem("userGoals"))["dailyGoal"]))
+        //const [dailyGoal, setDailyGoal] = useState((JSON.parse(localStorage.getItem("userGoals"))["dailyGoal"]))
+
+        // handleSubmit = (event) => {
+        //     setDailyGoal(event.target.value)
+        //     updateUserGoal(parseInt(dailyGoal))
+        // }
 
         return (
             <div style={{textAlign: "center"}}>
@@ -29,22 +35,21 @@ export default function DevPage () {
                 <p>  </p>
                 <Button onClick={setInitialPersonlia}> kjør setInitialPersonlia</Button>
                 <p>  </p>
-                <form id="updateDailyGoal">
+
+                <FormForDailyGoal />
+                {/* <form id="updateDailyGoal">
                     <label htmlFor="dailyGoal">
                         Ny dailyGoal:
                         <input id="dailyGoal" type="number" name="dailyGoal" placeholder="tall" onChange={event => setDailyGoal(event.target.value)}/>
                     </label>
                 </form>
                 <Button onClick={updateUserGoal(parseInt(dailyGoal))}>dailyGoal oppdateres momentant</Button>
-                <p>  </p>
-
-                
+                <p>  </p> */}
 
                 <Footer />
             </div>
         )
 }
-
 
 
 
@@ -64,10 +69,6 @@ export function initalLoadOfData() {
     if ((localStorage.getItem("personlia") === null )) {  
         setInitialPersonlia()
     }
-
-    let emSum = emissionsBetweenDays("2020-01-01", "2020-01-10")
-
-    console.log(emSum)
 
     return null
 }
@@ -111,7 +112,7 @@ function updateEmissionsFromDifferentTripTypes() {
     localStorage.setItem("CO2SumTransportMeans", JSON.stringify(tripsEmissionDict))
 }
 
-function updateUserGoal (newDailyGoal) {
+export function updateUserGoal (newDailyGoal) {
     let userGoalsDict = {
         dailyGoal: 0,
         weeklyGoal: 0,

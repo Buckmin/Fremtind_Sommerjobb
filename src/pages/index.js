@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 
-
 // under her importerer vi alle kompontentene vi lager
 import Header from "../components/header"
 import LoremIpsum from "../components/testtext"
@@ -9,7 +8,6 @@ import Footer from "../components/footer"
 // ER: fremtind-fonter -> trengs kun å importeres en gang i prosjektet
 // hvis vi ikke får jøkul-komponenter til å fungere har vi i det minste fontene som gir preg av Fremtind
 import  "../styles/webfonts.css"
-
 
 import { TravelProgressBarsKG, TravelProgressBarsPercentage } from "../components/statistics/progressBars"
 import { HjuletTotalCO2 } from "../components/statistics/hjulet"
@@ -23,13 +21,11 @@ import { ToggleButtonsFremkomstmiddel } from "../components/fremkomsmiddelknappe
 import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper"
 import { initalLoadOfData } from "./dev"
 import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions"
-import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG"
-
 
 export default function Home() {
   initalLoadOfData() // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
 
-  let emissionsDict = JSON.parse(localStorage.getItem("emissionsPerDay"))
+  // let emissionsDict = JSON.parse(localStorage.getItem("emissionsPerDay")) // bruker ikke denne?
   let personlia =  JSON.parse(localStorage.getItem("personlia"))
   let userGoals =  JSON.parse(localStorage.getItem("userGoals"))
 
@@ -38,14 +34,10 @@ export default function Home() {
   //let totalEmission = emissionsBetweenDays(personlia["initialDate"], formatDate(new Date())) // denne må regnes ut eller hentes ut fra et annet sted
   let totalEmission = emissionsBetweenDays(new Date("2020-01-01"), new Date()) // denne må regnes ut eller hentes ut fra et annet sted
   
-  
-  console.log (totalEmission)
-  
   const [periodeDUMÅ, setRadioValuePeriodeDUMÅ] = useState('Dag'); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [periodeDUM, setRadioValuePeriodeDUM] = useState('Dag'); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [middel, setRadioValueMiddel] = useState('Gå') // en del av fremkomstmiddelknapper
   const [sortering, setRadioValueSortering] = useState('Nylig') // en del av fremkomstmiddelknapper
-  
 
   return ( 
     <div id="hovedkontainer" className="div__hovedStyle" >

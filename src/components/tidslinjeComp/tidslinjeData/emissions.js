@@ -28,7 +28,6 @@ export function emissionsBetweenDays (startDate, endDate) {
     let antallDager = antallDagerMellom (startDate, endDate)
     let emissionSum = 0
     let theDay = new Date(startDate)
-    let firstDay = new Date (startDate)
     let emissionsDict = JSON.parse(localStorage.getItem("emissionsPerDay"))
     for (let i = -1; i < antallDager; i++) { // +1 fordi det inkluderer også den siste dagen
         theDay.setDate(theDay.getDate() + 1)
