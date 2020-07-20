@@ -1,11 +1,14 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
 <p align="center">
-  🐸
+  🐸🦖🌿🦖🐸
 </p>
 <h1 align="center">
   CO2 kalkulator
 </h1>
+<p align="center">
+  🐸🦖🌿🦖🐸
+</p>
 
 Denne nettsiden er laget for å gi deg en smakebit på hvordan man kan regne ut utslipp forbundet med kortere, dagligdagse kjøreturer. Informasjonen er igjen ment til å gi deg et forhold til hvor mye utslipp du selv er ansvarlige for, og å gjøre deg beviste på effektene som kan komme av enkle men smartere og grønnere vaner. 
 
@@ -26,6 +29,7 @@ Denne nettsiden er laget for å gi deg en smakebit på hvordan man kan regne ut 
     
 
 1.  **🤓Fyr opp en lokalt hostet versjon av kalkulatoren**
+    For å kunne gjennomføre dette trinnet er du avhegig av å bruke programmet Gatsby. Lær mer om programmet, hvordan det brukes og installeres på deres <a href="https://www.gatsbyjs.org">nettside</a>. 
 
     ```shell
     gatsby develop
