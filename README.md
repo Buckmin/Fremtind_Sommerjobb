@@ -3,14 +3,9 @@
 <p align="center">
   🐸🦖🌿🦖🐸
 </p>
-<p>
-  <h1 align="center">
-    CO2 kalkulator
-  </h1>
-</p>
-<p align="center">
-  🐸🦖🌿🦖🐸
-</p>
+<h1 align="center">
+  CO2 kalkulator
+</h1>
 
 Denne nettsiden er laget for å gi deg en smakebit på hvordan man kan regne ut utslipp forbundet med kortere, dagligdagse kjøreturer. Informasjonen er igjen ment til å gi deg et forhold til hvor mye utslipp du selv er ansvarlige for, og å gjøre deg beviste på effektene som kan komme av enkle men smartere og grønnere vaner. 
 
