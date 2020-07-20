@@ -12,6 +12,7 @@ Denne nettsiden er laget for å gi deg en smakebit på hvordan man kan regne ut 
 ## Kom igang
 
 1.  **🚀 Klon og last ned dette repoet.**
+
     ```shell
     cd folder/to/clone-into/
     git clone https://github.com/emmavrian/fremtind-prototype.git
@@ -26,6 +27,7 @@ Denne nettsiden er laget for å gi deg en smakebit på hvordan man kan regne ut 
     
 
 1.  **🤓 Fyr opp en lokalt hostet versjon av kalkulatoren**
+
     For å kunne gjennomføre dette trinnet er du avhegig av å bruke programmet Gatsby. Lær mer om programmet, hvordan det brukes og installeres på deres <a href="https://www.gatsbyjs.org">nettside</a>. 
 
     ```shell
