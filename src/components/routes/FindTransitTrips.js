@@ -60,7 +60,7 @@ function FindTransitTrips(props) {
         //her slutter galskapen
 
             //inntil videre brukes bare en forhåndsdefinert "Location" her
-            const trips = await getTrips(
+/*             const trips = await getTrips(
                 {name: "Bjerkealleen 5A, Skedsmo",
                     coordinates: {
                         latitude: 59.96050414081307,
@@ -69,7 +69,20 @@ function FindTransitTrips(props) {
                 {
                     place:"NSR:StopPlace:5532",
                     name:"Dyrløkke, Frogn"
-                })
+                }) */
+
+                //NOE ER VELDIG GALT HER. KAN IKKE TRENGE SÅ MANGE BYTTER
+                const trips = await getTrips(
+                {name: "Trondheim Torg",
+                    coordinates: {
+                        latitude: 63.430026,
+                        longitude:10.393367
+                }},
+                {name: "Gløshaugen",
+                coordinates: {
+                    latitude: 63.416764,
+                    longitude:10.407594
+                }})
             trips.forEach(trip => parsedTrips.push(getLegs(trip)));
             //trips.forEach(trip => setParsedTrips(parsedTrips => [... parsedTrips, getLegs(trip)]));
             setParsedTrips(parsedTrips)

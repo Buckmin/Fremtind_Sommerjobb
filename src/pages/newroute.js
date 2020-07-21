@@ -27,9 +27,9 @@ export default function NewRoute() {
         <BackButton iconName={<BsChevronLeft size={25}/>} linkLink="/ruter" buttonText="Tilbake"/>
         <br/>
         <div>
-            <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
+            {/* <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'> */}
                 <CreateRoute/>
-            </LoadScript>
+            {/* </LoadScript> */}
         </div>
         <Footer />
     </div>

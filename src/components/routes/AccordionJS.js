@@ -64,13 +64,18 @@ function AccordionJS(props) {
                         onChange={setSelectedValue}
                     />
                     <br/><br/> */}
-                    <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
+
+{/* fjerner midlertidig siden det ikke går an å kalle LoadScript flere ganger?? */}
+{/*                     <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
                         <ShowRoute
                             orig = {props.orig}
                             dest = {props.dest}
                         />
                     </LoadScript>
-                    <br/><br/>
+                    <br/><br/> */}
+
+
+
                 </div>
             </div>
         

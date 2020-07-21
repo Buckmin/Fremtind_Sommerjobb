@@ -7,7 +7,9 @@ import Footer from "../components/Footer"
 import GoogleMaps from "../components/routes/Autocomplete"
 
 import FindTransitTrips from "../components/routes/FindTransitTrips"
-import AccordionTravel from "../components/routes/AccordionTravel"
+import FindTrips from "../components/routes/FindTrips"
+
+import {LoadScript} from '@react-google-maps/api';
 
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
@@ -32,14 +34,28 @@ export default function Reiseplanlegger() {
     console.log('origin', origin)
     console.log('destination', destination)
 
-    const Results = () => (
-        <div id="results">
+    const NontransitResults = () => (
+        <div id="nontransit-results">
+            <br/><br/>
+            {/* <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'> */}
+                <FindTrips
+                    origin={origin.place_id}
+                    destination={destination.place_id}
+                />
+            {/* </LoadScript> */}
+
+            hei
+        </div>
+    )
+    
+
+    const TransitResults = () => (
+        <div id="transit-results">
             {/* MERK: uansett input vil denne vise forhåndsdefinert "location" fram til jeg får fikset koordinater */}
             <FindTransitTrips
                 origin={origin}
                 destination={destination}
             />
-            {/* {origin.place_id} */}
         </div>
     )
 
@@ -58,13 +74,10 @@ export default function Reiseplanlegger() {
         <div>
             <GoogleMaps placeholder="Avreisested" onChange={ o => setOrigin(o)}/>
             <GoogleMaps placeholder="Destinasjon" onChange={ d => setDestination(d)}/>
-            {/* MÅ KLARE Å LAGRE INPUT I GoogleMaps HER */}
-            {/* <GoogleMaps placeholder="Avreisested"/>  */}
-            {/* <GoogleMaps placeholder="Destinasjon"/> */}
 
             <PrimaryButton onClick={() => setShowResults(true)}>Neste</PrimaryButton>
             
-            { showResults ? <Results /> : null }
+            { showResults ? <NontransitResults /> : null }
 
             {/* Etter dette skal informasjon om reisen lastes inn -> må lagre origin og destination */}
             {/* Skal kunne tas inn som props i FindTransitTrips */}
