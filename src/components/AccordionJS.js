@@ -29,11 +29,11 @@ function AccordionJS(props) {
                     <p className="accordion__title">
                         {props.title}
                     </p>
-{/*                     <p className="accordion__address">
+                    <p className="accordion__address">
                         Fra: {props.fromDest}
                         <br/>
                         Til: {props.toDest}
-                    </p> */}
+                    </p> 
                 </div>
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
             </button>
