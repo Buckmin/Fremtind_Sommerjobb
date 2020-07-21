@@ -9,7 +9,7 @@ export default function Header (props) {
 }
 
 const headerStyle = {
-    margin: "0 auto",
+    margin: "7px",
     fontFamily: "Fremtind Grotesk Display",
     marginBottom: "0.5cm",
     marginTop: "2cm"

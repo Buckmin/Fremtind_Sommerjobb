@@ -2,14 +2,14 @@
 .accordion__section {
     display: flex;
     flex-direction: column;
-    width: 95%;
-    margin: auto;
-    margin-bottom: 0.5cm;
+    width: 100%;
+    /*margin: 0;
+    margin-bottom: 0cm;*/
   }
   
   /* Style the buttons that are used to open and close the accordion panel */
   .accordion {
-    background-color: white;
+    background-color: #ffffff;
     color: black;
     cursor: pointer;
     padding: 5px;
@@ -17,7 +17,7 @@
     padding-right: 20px;
     display: flex;
     align-items: center;
-    border: none;
+    border: 1px solid #DED4C7;
     outline: none;
     transition: background-color 0.6s ease;
   }

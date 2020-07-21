@@ -9,19 +9,13 @@ denne filen er koblet til gatsby-browser.js
 
 /* html er all html, altså ganske generelt */
 html {
-    background-color: black;
-    color: white;
-    /*ER: endret width og height til størrelse på iPhone 11 pro max*/
-    /*Vil automatisk scrolle ned dersom komponentene fyller høyden*/
-/*     min-width: 58.6 mm;
-    min-height: 123.8 mm;
-    max-width: 77.8 mm;
-    max-height: 158 mm; */
+    background-color: #FFFFFF;
+    color: #000000;
     font-family: Fremtind Grotesk;
-    /*ER tester under*/
+    /*ER tester under
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0;*/
 }
 
 /* a er alle linker. linker er også knappene i navbaren! */
