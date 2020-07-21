@@ -5,7 +5,7 @@
 
 import React from "react"
 // import { FormForDailyGoal } from "../components/inputForms"
-import { MinProfilIkon, MineReiserIkon, HjemIkon, ReiseplanleggerIkon, MountainIkon, CowIkon, FremtindLogoIkon } from "../components/customIkoner"
+import { MountainIkon, FremtindLogoIkon } from "../components/customIkoner"
 import { FormForDailyGoalForUser } from "../components/inputForms"
 import Header from "../components/header"
 import { Link } from "gatsby"
@@ -23,10 +23,10 @@ export default function Home() {
 
             <FormForDailyGoalForUser />
 
-            <p>
-                
+            <p style={{textAlign: "center"}}>
+                <MountainIkon />
             </p>
-            <p>
+            <p style={{textAlign: "center"}}>
                 <FremtindLogoIkon resize={true} newWidth={120} />
             </p>
 

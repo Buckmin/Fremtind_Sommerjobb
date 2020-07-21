@@ -1,11 +1,11 @@
 import React from "react"
 import { GoogleMap, DirectionsService, DirectionsRenderer} from '@react-google-maps/api';
 
-import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
-import "@fremtind/jkl-text-input/text-input.min.css";
+// import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
+// import "@fremtind/jkl-text-input/text-input.min.css";
 
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css";
+// import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+// import "@fremtind/jkl-button/button.min.css";
 
 
 

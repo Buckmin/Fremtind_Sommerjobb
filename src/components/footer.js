@@ -10,7 +10,6 @@ lager den som en komponent vi kan hente inn i de ulike sidene
 */
 
 export default function Footer (props) {
-    let iconSize = 30
     return (
         <div>
             <div id="skillelinje" style={skillelinjeStyle}></div>

@@ -3,9 +3,9 @@ import React, {useState, useRef} from "react"
 import "../styles/AccordionJS.css"
 import Chevron from "./Chevron"
 
-import MapContainer from "./MapContainer"
+// import MapContainer from "./MapContainer"
 
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+// import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 
 import Directions from "./Directions";
@@ -18,7 +18,7 @@ function AccordionJS(props) {
     const [setHeight, setHeightState] = useState("0px");
     const [setRotate, setRotateState] = useState("accordion__icon");
     //radio
-    const [selectedValue, setSelectedValue] = useState("bil"); //setter bil som default
+    // const [selectedValue, setSelectedValue] = useState("bil"); //setter bil som default
 
     const content = useRef(null)
 
