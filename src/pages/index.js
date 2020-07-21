@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 // under her importerer vi alle kompontentene vi lager
 import Header from "../components/header"
@@ -22,15 +22,26 @@ import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper"
 import { initalLoadOfData } from "./dev"
 import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions"
 
+
+
 export default function Home() {
   initalLoadOfData() // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
 
   // let emissionsDict = JSON.parse(localStorage.getItem("emissionsPerDay")) // bruker ikke denne?
-  let personlia =  JSON.parse(localStorage.getItem("personlia"))
-  let userGoals =  JSON.parse(localStorage.getItem("userGoals"))
+
+
+  // let personlia =  JSON.parse(localStorage.getItem("personlia"))
+  // let userGoals =  JSON.parse(localStorage.getItem("userGoals"))
+
+  // dette er visst måten å gjøre det på for å få siden til å faktisk builde
+  let [userGoals, setUserGoals] = useState("undefined")
+  useEffect(() => {
+    setUserGoals(JSON.parse(localStorage.getItem("userGoals")))
+  }, [])
+
+
 
   let userGoalTotCO2 = userGoals["totalGoal"] // denne må komme fra en annen side eller noe sånt
-  console.log(personlia["initialDate"], new Date())
   //let totalEmission = emissionsBetweenDays(personlia["initialDate"], formatDate(new Date())) // denne må regnes ut eller hentes ut fra et annet sted
   let totalEmission = emissionsBetweenDays(new Date("2020-01-01"), new Date()) // denne må regnes ut eller hentes ut fra et annet sted
   
@@ -38,6 +49,11 @@ export default function Home() {
   const [periodeDUM, setRadioValuePeriodeDUM] = useState('Dag'); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [middel, setRadioValueMiddel] = useState('Gå') // en del av fremkomstmiddelknapper
   const [sortering, setRadioValueSortering] = useState('Nylig') // en del av fremkomstmiddelknapper
+
+
+  // if (userGoals === "undefined"){
+  //   return null
+  // }
 
   return ( 
     <div id="hovedkontainer" className="div__hovedStyle" >

@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-newroute-js": () => import("./../src/pages/newroute.js" /* webpackChunkName: "component---src-pages-newroute-js" */),
   "component---src-pages-profil-js": () => import("./../src/pages/profil.js" /* webpackChunkName: "component---src-pages-profil-js" */),
   "component---src-pages-ruter-js": () => import("./../src/pages/ruter.js" /* webpackChunkName: "component---src-pages-ruter-js" */),
+  "component---src-pages-settegrense-js": () => import("./../src/pages/settegrense.js" /* webpackChunkName: "component---src-pages-settegrense-js" */),
   "component---src-pages-tidslinje-js": () => import("./../src/pages/tidslinje.js" /* webpackChunkName: "component---src-pages-tidslinje-js" */)
 }
 

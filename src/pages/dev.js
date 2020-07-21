@@ -2,7 +2,7 @@
 // tanken er bare å ha noen knapper for å kunne endre local storage, 
 // s.a. vi viser at det visuelle endrer seg med andre inputs/lagret data
 
-import React, { useState } from "react"
+import React from "react"
 import { Button } from "react-bootstrap"
 import Header from "../components/header"
 import Footer from "../components/footer"
@@ -16,12 +16,6 @@ export default function DevPage () {
         let tekstHeader = "Devpage"
         initalLoadOfData()
 
-        //const [dailyGoal, setDailyGoal] = useState((JSON.parse(localStorage.getItem("userGoals"))["dailyGoal"]))
-
-        // handleSubmit = (event) => {
-        //     setDailyGoal(event.target.value)
-        //     updateUserGoal(parseInt(dailyGoal))
-        // }
 
         return (
             <div style={{textAlign: "center"}}>
@@ -37,14 +31,7 @@ export default function DevPage () {
                 <p>  </p>
 
                 <FormForDailyGoal />
-                {/* <form id="updateDailyGoal">
-                    <label htmlFor="dailyGoal">
-                        Ny dailyGoal:
-                        <input id="dailyGoal" type="number" name="dailyGoal" placeholder="tall" onChange={event => setDailyGoal(event.target.value)}/>
-                    </label>
-                </form>
-                <Button onClick={updateUserGoal(parseInt(dailyGoal))}>dailyGoal oppdateres momentant</Button>
-                <p>  </p> */}
+                <p>  </p>
 
                 <Footer />
             </div>
@@ -63,12 +50,13 @@ export function initalLoadOfData() {
     if ((localStorage.getItem("CO2SumTransportMeans") === null)) {
         updateEmissionsFromDifferentTripTypes()
     }
-    if ((localStorage.getItem("userGoals") === null )){
-        updateUserGoal()
-    }
     if ((localStorage.getItem("personlia") === null )) {  
         setInitialPersonlia()
     }
+    if ((localStorage.getItem("userGoals") === null )){
+        updateUserGoal()
+    }
+
 
     return null
 }

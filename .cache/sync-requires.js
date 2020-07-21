@@ -12,6 +12,7 @@ exports.components = {
   "component---src-pages-newroute-js": hot(preferDefault(require("/Users/a50501w/Desktop/Gatsby_Projects/fremtind-prototype/src/pages/newroute.js"))),
   "component---src-pages-profil-js": hot(preferDefault(require("/Users/a50501w/Desktop/Gatsby_Projects/fremtind-prototype/src/pages/profil.js"))),
   "component---src-pages-ruter-js": hot(preferDefault(require("/Users/a50501w/Desktop/Gatsby_Projects/fremtind-prototype/src/pages/ruter.js"))),
+  "component---src-pages-settegrense-js": hot(preferDefault(require("/Users/a50501w/Desktop/Gatsby_Projects/fremtind-prototype/src/pages/settegrense.js"))),
   "component---src-pages-tidslinje-js": hot(preferDefault(require("/Users/a50501w/Desktop/Gatsby_Projects/fremtind-prototype/src/pages/tidslinje.js")))
 }
 

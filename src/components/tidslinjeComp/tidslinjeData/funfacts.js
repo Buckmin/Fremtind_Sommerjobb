@@ -11,8 +11,8 @@
 export function ManyFunfactsDict() { // tallene er googlet kjapt. bananer og kaffe er fra the Guardian i 2010, antall liter er kjemi-matte
     const funDict =
     {
-        0   :   [   "	bare ingenting slipper ut ingenting	", " 0 er ganske lite", "oi det var lite utslipp "	]	,
-        1	:	[	"	13	bananer	"	,	"	50	kopper kaffe	"	,	"	559	L CO2 i atmosfæren	"	,	]	,
+0   :   [   "	bare ingenting slipper ut ingenting	", " 0 er ganske lite", "oi det var lite utslipp "	]	,
+1	:	[	"	13	bananer	"	,	"	50	kopper kaffe	"	,	"	559	L CO2 i atmosfæren	"	,	]	,
 2	:	[	"	25	bananer	"	,	"	100	kopper kaffe	"	,	"	1118	L CO2 i atmosfæren	"	,	]	,
 3	:	[	"	38	bananer	"	,	"	150	kopper kaffe	"	,	"	1677	L CO2 i atmosfæren	"	,	]	,
 4	:	[	"	50	bananer	"	,	"	200	kopper kaffe	"	,	"	2236	L CO2 i atmosfæren	"	,	]	,
