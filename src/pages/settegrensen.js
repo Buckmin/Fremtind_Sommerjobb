@@ -23,22 +23,8 @@ export default function Home() {
 
             <FormForDailyGoalForUser />
 
-
-            <MinProfilIkon page={"/profil"} />
-            <MineReiserIkon page="/minereiser" />
-            <HjemIkon page="/" />
-            <ReiseplanleggerIkon page="/reiseplanlegger" />
             <p>
-            <MinProfilIkon page={"/profil2"} />
-            <MineReiserIkon page="/minereiser2" />
-            <HjemIkon page="/2" />
-            <ReiseplanleggerIkon page="/reiseplanlegger2" />
-            </p>
-            <p>
-                <MountainIkon />
-            </p>
-            <p>
-                <CowIkon />
+                
             </p>
             <p>
                 <FremtindLogoIkon resize={true} newWidth={120} />

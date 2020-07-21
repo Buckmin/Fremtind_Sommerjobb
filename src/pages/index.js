@@ -74,7 +74,7 @@ export default function Home() {
       <TravelProgressBarsKG />
       <LoremIpsum />
       <TravelProgressBarsPercentage />
-      <Footer />
+      <Footer page="/" />
     </div>
   );
 }

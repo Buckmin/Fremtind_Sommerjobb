@@ -39,7 +39,7 @@ export default function Home() {
         {dagerSiden(personlia2["initialDate"])} dager siden{" "}
       </p>
 
-      <Footer />
+      <Footer page="/profil" />
     </div>
   );
 }

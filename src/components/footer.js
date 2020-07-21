@@ -2,55 +2,63 @@ import React from "react"
 import { Link } from "gatsby"
 
 /* ikonene til navbaren */
-import { BsFillHouseDoorFill, BsFillPersonFill, BsFillCursorFill, BsGraphDown} from "react-icons/bs"
+import { HjemIkon, ReiseplanleggerIkon, MineReiserIkon, MinProfilIkon } from "./customIkoner"
 
 /* 
 dette er footeren med linker mellom de ulike sidene.
 lager den som en komponent vi kan hente inn i de ulike sidene
 */
 
-export default function Footer () {
+export default function Footer (props) {
     let iconSize = 30
     return (
-        <div id="baren" style={footerStyle}>
-            <BarKnapp iconName={<BsFillHouseDoorFill size={iconSize} />} linkLink="/" />
-            <BarKnapp iconName={<BsFillCursorFill size={iconSize}/>} linkLink="/ruter" />
-            <BarKnapp iconName={<BsGraphDown size={iconSize}/>} linkLink="/tidslinje"/>
-            <BarKnapp iconName={<BsFillPersonFill size={iconSize}/>} linkLink="/profil" />
-        </div>
+        <div>
+            <div id="skillelinje" style={skillelinjeStyle}></div>
+            <div id="baren" style={footerStyle}>
+                <BarKnapp iconName={<HjemIkon page={props.page}  />} tekst="Hjem" linkLink="/" />
+                <BarKnapp iconName={<ReiseplanleggerIkon page={props.page}/>} tekst="Reiseplanlegger" linkLink="/reiseplanlegger" />
+                <BarKnapp iconName={<MineReiserIkon page={props.page}/>} tekst="Mine reiser" linkLink="/ruter"/>
+                <BarKnapp iconName={<MinProfilIkon page={props.page}/>} tekst="Min profil" linkLink="/profil" />
+            </div>
+    </div>
     )
 }
 
-/* definerer BarKnapp for å kunne gjenbruke knappene
-vil etterhvert legge inn ikoner
-tror ikoner kan byttes ut med tekst ved {props.linkImg} */
 
 function BarKnapp (props) {
     return (
         <div id="enkeltknapp" style={knappStyle}>
-            <Link to={props.linkLink} activeStyle={linkActive} style={{color: "#3D3D3D"}} >
+            <Link to={props.linkLink} activeStyle={linkActive} style={{color: "#999999"}} >
                 {props.iconName}
+                <p style={ikonTekstStyle}>{props.tekst}</p>
             </Link>
         </div>
     )
 }
 
+const ikonTekstStyle = {
+    fontSize: 10,
+}
+
+const skillelinjeStyle = { // fikk ikke til å fikse at denne linjen kun er på skjermen, så det ser litt teit ut at width: 100%
+    height: 3, 
+    width: "100%", 
+    backgroundColor: "#EBEBEB",
+    position: "fixed",
+    left: 0,
+    bottom: 110 - 3, // 110 - dennes height
+}
 
 /* definerer style med css */ 
 const footerStyle = {
     position: "fixed",
-    left: "0",
     bottom: "0",
-    width: "100%",
-    backgroundColor: "#6F6F6F",
-    height: "60px",
-    padding: "15px 0px 15px 0px", // OBS! HVIS DET BLIR FEIL I NAV-BAREN mtp ikonenes plassering:
-                                  // skal padding top og bottom være lik:  paddingTop: (height - iconSize) / 2
-                                  // fikk ikke til det automatisk uten veldig mye krøll her i denne koden, så ble uten
-
-
+    width: 343,
+    //borderTop: "3px solid #EBEBEB",
+    backgroundColor: "#FFFFFF",
+    height: 110 - skillelinjeStyle.height,
+    padding: "15px 0px 15px 0px",
 }
-// padding over med textAlign under gjør ikonene midtstilt
 // padding er "over høyre under venstre". verticalAlign midstiller eventuell tekst
 
 
@@ -64,7 +72,7 @@ const knappStyle = {
 
 }
 
-// når vi er på gitte siden får knappen fargen under
+// når vi er på gitte siden får teksten fargen under
 const linkActive = {
-    color: "#FFFFFF"
+    color: "#000000"
 }
