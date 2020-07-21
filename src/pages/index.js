@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react"
-=======
 import React, { useState } from "react";
->>>>>>> a48d83c9... refactor: extract json storage helper functions
 
 // under her importerer vi alle kompontentene vi lager
 import Header from "../components/header";

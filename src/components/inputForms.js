@@ -41,10 +41,10 @@ export class FormForDailyGoal extends Component {
 export class FormForDailyGoalForUser extends Component {
     constructor(props){
         super(props)
+        const goal = getJson("userGoals");
         this.state = {
-           dailyGoal: JSON.parse(localStorage.getItem("userGoals"))["dailyGoal"],
-           oldGoals:  JSON.parse(localStorage.getItem("userGoals")) // dict. OBS! feil mtp. localStorage og Victor?
-        }
+          dailyGoal: goal ? goal["dailyGoal"] : undefined,
+        };
     }
 
     handleOnSubmit = (event) => {
@@ -67,17 +67,8 @@ export class FormForDailyGoalForUser extends Component {
                     <p>Nytt ukentlig mål blir da: {this.state.dailyGoal * 7}</p>
                     <p>Nytt månedlig mål blir da: {this.state.dailyGoal * 30}</p>
                     <p>Nytt årlig mål blir da: {this.state.dailyGoal * 365}</p>
-                    <p>Nytt totalt mål blir da: {this.state.dailyGoal * 1}</p>
-
-
                 </form>
             </div>
         )
     }
-}
-          <Button type="submit">Submit</Button>
-        </form>
-      </div>
-    );
-  }
 }

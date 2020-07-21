@@ -9,7 +9,7 @@ import { MinProfilIkon, MineReiserIkon, HjemIkon, ReiseplanleggerIkon, MountainI
 import { FormForDailyGoalForUser } from "../components/inputForms"
 
 
-export default function setteGrense() {
+export default function Home() {
 
     return (
         <div id="hovedkontainer" className="div__hovedStyle">
@@ -34,7 +34,7 @@ export default function setteGrense() {
                 <CowIkon />
             </p>
             <p>
-                <FremtindLogoIkon resize={true} newWidth={100} />
+                <FremtindLogoIkon resize={true} newWidth={120} />
             </p>
         </div>
     )

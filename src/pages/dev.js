@@ -2,10 +2,11 @@
 // tanken er bare å ha noen knapper for å kunne endre local storage,
 // s.a. vi viser at det visuelle endrer seg med andre inputs/lagret data
 
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import { getJson, setJson } from "../getJson"
 
 import moment from "moment";
 import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";

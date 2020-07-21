@@ -29,9 +29,9 @@ export default function Home() {
           personlia2["lastName"]}{" "}
       </p>
       <p className="p__tekstOverPersonlia"> Adresse </p>
-      <p className="p__personlia"> {personlia["adress"]} </p>
+      <p className="p__personlia"> {personlia2["adress"]} </p>
       <p className="p__tekstOverPersonlia"> Epost </p>
-      <p className="p__personlia"> {personlia["email"]} </p>
+      <p className="p__personlia"> {personlia2["email"]} </p>
       <p className="p__tekstOverPersonlia"> Lastet ned appen </p>
       <p className="p__personlia">
         {" "}
