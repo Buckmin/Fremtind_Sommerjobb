@@ -20,10 +20,15 @@ html {
     font-family: Fremtind Grotesk;
     /*ER tester under*/
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-right: 16px auto;
+    margin-left: 16px auto;
     padding: 0;
     /* La til margin-bottom for å unngå problemer med scrolling */
     margin-bottom: 120px;
+    width: 343px; /* 375 - 16 - 16, som er margin left og right*/
+    /* border-style: solid; /* bare for å vise området vi jobber i, skal bort i siste versjon! § */
 }
 
 /* a er alle linker. linker er også knappene i navbaren! */

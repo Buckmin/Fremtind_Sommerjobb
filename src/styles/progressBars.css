@@ -1,7 +1,7 @@
 
 /* diven rundt de fem progresjonsbarene */
 .div__theProgressBars {
-    width: 350px;
+    width: 343px;
     height: auto;
     background-color: #DED4C7;
     margin: auto;
@@ -25,9 +25,10 @@
 }
 
  /* progresjonsbar med prosen, her litt mindre for å få plass til ikon og tall når % -> 100 
- OBS: DET BLIR KRØLL HER PÅ WIDTH NÅR SKJERMSTØRRELSEN ENDRER SEG */
+ OBS: DET BLIR KRØLL HER PÅ WIDTH NÅR SKJERMSTØRRELSEN ENDRER SEG.
+            343 er tatt fra global.css */
 .div__theProgressBarsPercent {
-    width: 350px;                   
+    width: 343px;                   
     height: auto;
     background-color: #FFFFFF;
     margin: auto;

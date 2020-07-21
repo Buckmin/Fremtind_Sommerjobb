@@ -60,13 +60,13 @@ export class FormForDailyGoalForUser extends Component {
         return (
             <div id="divRundtForm">
                 <form  id="updateDailyGoal" className="form" onSubmit={this.handleOnSubmit}>
-                    <label id="dailyGoalInput" htmlFor="dailyGoal" >Sett daglig mål:
-                        <input id="dailyGoal" type="number" name="dailyGoal" value={this.state.dailyGoal} placeholder="tall for daglig mål" onChange={this.handleInputChange}></input>
+                    <label id="dailyGoalInput" htmlFor="dailyGoal" >Sett daglig grense:
+                        <input id="dailyGoal" type="number" name="dailyGoal" value={this.state.dailyGoal} placeholder="tall for daglig grense" onChange={this.handleInputChange}></input>
                     </label>
-                    <Button type="submit" >Endre!</Button>
-                    <p>Nytt ukentlig mål blir da: {this.state.dailyGoal * 7}</p>
-                    <p>Nytt månedlig mål blir da: {this.state.dailyGoal * 30}</p>
-                    <p>Nytt årlig mål blir da: {this.state.dailyGoal * 365}</p>
+                    <p>Ny ukentlig grense blir da: {this.state.dailyGoal * 7}</p>
+                    <p>Ny månedlig grense blir da: {this.state.dailyGoal * 30}</p>
+                    <p>Ny årlig grense blir da: {this.state.dailyGoal * 365}</p>
+                    <p><Button variant="dark" type="submit" >Endre!</Button></p>
                 </form>
             </div>
         )

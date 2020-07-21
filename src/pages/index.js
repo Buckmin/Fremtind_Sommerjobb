@@ -9,19 +9,13 @@ import Footer from "../components/footer";
 // hvis vi ikke får jøkul-komponenter til å fungere har vi i det minste fontene som gir preg av Fremtind
 import "../styles/webfonts.css";
 
-import {
-  TravelProgressBarsKG,
-  TravelProgressBarsPercentage,
-} from "../components/statistics/progressBars";
+import { TravelProgressBarsKG, TravelProgressBarsPercentage } from "../components/statistics/progressBars";
 import { HjuletTotalCO2 } from "../components/statistics/hjulet";
 // importen av ...Bars... gir progresjonsbarene. kall de inn som komponenter
 
 // FJERNES: import 'bootstrap/dist/css/bootstrap.min.css' // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen
 
-import {
-  ToggleButtonsPeriodeDUMÅ,
-  ToggleButtonsPeriodeDUM,
-} from "../components/tidsperiodeknapper";
+import { ToggleButtonsPeriodeDUMÅ, ToggleButtonsPeriodeDUM } from "../components/tidsperiodeknapper";
 import { ToggleButtonsFremkomstmiddel } from "../components/fremkomsmiddelknapper";
 import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper";
 import { initalLoadOfData } from "./dev";
