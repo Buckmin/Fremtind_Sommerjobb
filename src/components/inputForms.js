@@ -13,7 +13,6 @@ export class FormForDailyGoal extends Component {
     }
 
     handleOnSubmit = (event) => {
-        console.log("etter submit:", this.state.dailyGoal)
         updateUserGoal(parseInt(this.state.dailyGoal))
         event.preventDefault();
     }
@@ -25,12 +24,50 @@ export class FormForDailyGoal extends Component {
     render(){
         return (
             <div id="divRundtForm">
-                {console.log(this.state.dailyGoal)}
-                <form id="formDailyGoal" className="form" onSubmit={this.handleOnSubmit}>
-                    <label>Nytt daglig mål: </label>
-                    <input type="number" value={this.state.dailyGoal} placeholder="tall for daglig mål" onChange={this.handleInputChange}></input>
-                    
-                    <Button type="submit" >Submit</Button>
+                <form  id="updateDailyGoal" className="form" onSubmit={this.handleOnSubmit}>
+                    <label id="dailyGoalInput" htmlFor="dailyGoal" >Sett daglig mål:
+                        <input id="dailyGoal" type="number" name="dailyGoal" value={this.state.dailyGoal} placeholder="tall for daglig mål" onChange={this.handleInputChange}></input>
+                    </label>
+                    <Button type="submit" >Endre!</Button>
+                </form>
+            </div>
+        )
+    }
+}
+
+
+export class FormForDailyGoalForUser extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+           dailyGoal: JSON.parse(localStorage.getItem("userGoals"))["dailyGoal"],
+           oldGoals:  JSON.parse(localStorage.getItem("userGoals")) // dict. OBS! feil mtp. localStorage og Victor?
+        }
+    }
+
+    handleOnSubmit = (event) => {
+        updateUserGoal(parseInt(this.state.dailyGoal))
+        event.preventDefault();
+    }
+    handleInputChange = (event) => {
+        this.setState({
+            dailyGoal: event.target.value
+        })
+    }
+    render(){
+        return (
+            <div id="divRundtForm">
+                <form  id="updateDailyGoal" className="form" onSubmit={this.handleOnSubmit}>
+                    <label id="dailyGoalInput" htmlFor="dailyGoal" >Sett daglig mål:
+                        <input id="dailyGoal" type="number" name="dailyGoal" value={this.state.dailyGoal} placeholder="tall for daglig mål" onChange={this.handleInputChange}></input>
+                    </label>
+                    <Button type="submit" >Endre!</Button>
+                    <p>Nytt ukentlig mål blir da: {this.state.dailyGoal * 7}</p>
+                    <p>Nytt månedlig mål blir da: {this.state.dailyGoal * 30}</p>
+                    <p>Nytt årlig mål blir da: {this.state.dailyGoal * 365}</p>
+                    <p>Nytt totalt mål blir da: {this.state.dailyGoal * 1}</p>
+
+
                 </form>
             </div>
         )
