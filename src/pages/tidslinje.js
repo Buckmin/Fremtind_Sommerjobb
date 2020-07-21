@@ -1,40 +1,62 @@
 /* tidslinjen. Brynjar */
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 // under her importerer vi alle kompontentene vi lager
-import Header from "../components/header"
-import Footer from "../components/footer"
-
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 // dette er nå komponentene som er spesifikke for tidslinje
-import { HeleLinjen } from "../components/tidslinjeComp/heleLinjen"  
-import { AlleFaktabokser } from "../components/tidslinjeComp/faktabokser"
-import { sliceOnGivenIndexItemIn2dArr, sumOfEmissionsInArray} from "../components/tidslinjeComp/totalEmission"
-import { Datovelger } from "../components/tidslinjeComp/datovelger"
-import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG"
-import { EmissionsPerDayArray } from "../components/tidslinjeComp/tidslinjeData/emissions"
+import { HeleLinjen } from "../components/tidslinjeComp/heleLinjen";
+import { AlleFaktabokser } from "../components/tidslinjeComp/faktabokser";
+import {
+  sliceOnGivenIndexItemIn2dArr,
+  sumOfEmissionsInArray,
+} from "../components/tidslinjeComp/totalEmission";
+import { Datovelger } from "../components/tidslinjeComp/datovelger";
+import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
+import { EmissionsPerDayArray } from "../components/tidslinjeComp/tidslinjeData/emissions";
 
-import "../styles/tidslinje.css"
-
+import "../styles/tidslinje.css";
 
 // her er selve funksjonen som kjører komponentene ut på skjermen
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState (new Date("2020-04-01")) // datoen som blir valgt i datepicker-tidslinje
-  const userEmissions = EmissionsPerDayArray() // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
-  const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(userEmissions, formatDate(selectedDate)) // array med emissions fra og med valgt startsdato
-  let totalEmission = sumOfEmissionsInArray(userEmissionsSliced) // dette er nå summen av utslipp fra arrayet i emissions.js
-  return ( 
+  const [selectedDate, setSelectedDate] = useState(new Date("2020-04-01")); // datoen som blir valgt i datepicker-tidslinje
+  const userEmissions = EmissionsPerDayArray(); // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
+  const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(
+    userEmissions,
+    formatDate(selectedDate)
+  ); // array med emissions fra og med valgt startsdato
+
+  if (Object.keys(userEmissionsSliced).length === 0) {
+    return null;
+  }
+
+  let totalEmission = sumOfEmissionsInArray(userEmissionsSliced); // dette er nå summen av utslipp fra arrayet i emissions.js
+  return (
     <div id="hovedkontainer" className="div__hovedStyle">
-      <Header headerText="tidslinje"/> 
-      <div id="startsdato"> Startdato nå: {formatDate(new Date(selectedDate))}</div>
-      <div id="tidslinjeinfo"><Datovelger id="dato1" selectedDate={selectedDate} onChange={date => setSelectedDate(date)} /></div>
-      <div id="tidslinjen" >
-          <HeleLinjen totalEmission={totalEmission} />
-          <AlleFaktabokser totalEmission={totalEmission} selectedDate={selectedDate} userEmissionsSliced={userEmissionsSliced}/>
+      <Header headerText="tidslinje" />
+      <div id="startsdato">
+        {" "}
+        Startdato nå: {formatDate(new Date(selectedDate))}
+      </div>
+      <div id="tidslinjeinfo">
+        <Datovelger
+          id="dato1"
+          selectedDate={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+        />
+      </div>
+      <div id="tidslinjen">
+        <HeleLinjen totalEmission={totalEmission} />
+        <AlleFaktabokser
+          totalEmission={totalEmission}
+          selectedDate={selectedDate}
+          userEmissionsSliced={userEmissionsSliced}
+        />
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
 // nytt i denne filen nå er disse som ser slik ut: "totalEmission={totalEmission}"
