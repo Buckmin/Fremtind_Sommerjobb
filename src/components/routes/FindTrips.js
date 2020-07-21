@@ -1,7 +1,7 @@
-import React, {useState} from "react"
+import React, {useState, useRef, useEffect} from "react"
 import { GoogleMap, DirectionsService, DirectionsRenderer} from '@react-google-maps/api';
 
-import {LoadScript} from '@react-google-maps/api';
+//import {LoadScript} from '@react-google-maps/api';
 
 //GOOGLE API ALREADY PRESENTED?
 
@@ -26,12 +26,20 @@ function FindTrips(props) {
     //0 er bil, 1 er sykkel, 2 er kollektiv og 3 er gå
     
     const [response, setResponse] = useState(null);
+    const count = useRef(0);
+
+    //la til count
+    useEffect(() => {
+        count.current = 0;
+      }, []);
     
     function directionsCallback (response) {
         console.log('response 1', response)
 
         if (response !== null) {
-        if (response.status === 'OK') {
+        if (response.status === 'OK' && count.current === 0) {
+            //la inn count
+            count.current += 1;
             setResponse(response)
         } else {
             console.log('response: ', response)
@@ -42,6 +50,7 @@ function FindTrips(props) {
 
     const handleModeChange = (event, newMode) => {
         setTravelMode(newMode);
+        count.current = 0;
         //console.log('travelmode', newMode)
     };
 
@@ -53,11 +62,11 @@ function FindTrips(props) {
     return (
       <div className='map'>
         <div className='map-settings'>
-            <div>
+{/*             <div>
                 Fra: {props.origin}
                 <br/>
                 Til: {props.destination}
-            </div>
+            </div> */}
 
           <div>
             <Paper square className={classes.root}>
@@ -85,7 +94,7 @@ function FindTrips(props) {
 
         <div className='map-container'>
           <br/>
-          <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
+          {/* <LoadScriptNext googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'> */}
             <GoogleMap
                 // required
                 id='direction-example'
@@ -126,7 +135,7 @@ function FindTrips(props) {
                         travelMode: travelMode
                     }}
                     // required
-                    callback={directionsCallback(response)}
+                    callback={directionsCallback}
                     // optional
                     onLoad={ directionsService => {
                         console.log('DirectionsService onLoad directionsService: ', directionsService)
@@ -158,7 +167,7 @@ function FindTrips(props) {
                 )
                 }
             </GoogleMap>
-          </LoadScript>
+          {/* </LoadScriptNext> */}
         </div>
       </div>
     )

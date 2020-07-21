@@ -9,7 +9,9 @@ import GoogleMaps from "../components/routes/Autocomplete"
 import FindTransitTrips from "../components/routes/FindTransitTrips"
 import FindTrips from "../components/routes/FindTrips"
 
-import {LoadScript} from '@react-google-maps/api';
+//LoadScriptNext virket med en gang, men gir også en error på at vi inkluderer Google Maps Javascript API flere ganger
+//import {LoadScript} from '@react-google-maps/api';
+import {LoadScriptNext} from '@react-google-maps/api';
 
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
@@ -37,14 +39,12 @@ export default function Reiseplanlegger() {
     const NontransitResults = () => (
         <div id="nontransit-results">
             <br/><br/>
-            {/* <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'> */}
+            <LoadScriptNext googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
                 <FindTrips
                     origin={origin.place_id}
                     destination={destination.place_id}
                 />
-            {/* </LoadScript> */}
-
-            hei
+            </LoadScriptNext>
         </div>
     )
     
