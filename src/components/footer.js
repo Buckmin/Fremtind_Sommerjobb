@@ -40,12 +40,12 @@ const ikonTekstStyle = {
 }
 
 const skillelinjeStyle = { // fikk ikke til å fikse at denne linjen kun er på skjermen, så det ser litt teit ut at width: 100%
-    height: 3, 
+    height: 2, 
     width: "100%", 
     backgroundColor: "#EBEBEB",
     position: "fixed",
     left: 0,
-    bottom: 110 - 3, // 110 - dennes height
+    bottom: 110 - 2, // 110 - dennes height
 }
 
 /* definerer style med css */ 
