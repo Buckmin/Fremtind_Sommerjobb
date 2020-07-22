@@ -10,7 +10,7 @@ import "@fremtind/jkl-radio-button/radio-button.min.css";
 
 import Directions from "./Directions";
 
-import {LoadScript} from '@react-google-maps/api';
+import {LoadScriptNext} from '@react-google-maps/api';
 
 function AccordionJS(props) {
 
@@ -69,9 +69,9 @@ function AccordionJS(props) {
                         onChange={setSelectedValue}
                     />
                     <br/><br/> */}
-                    <LoadScript googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
+                    <LoadScriptNext googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
                         <Directions/>
-                    </LoadScript>
+                    </LoadScriptNext>
                     <br/><br/>
                 </div>
             </div>
