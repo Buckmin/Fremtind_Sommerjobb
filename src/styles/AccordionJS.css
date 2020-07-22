@@ -3,8 +3,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    /*margin: 0;
-    margin-bottom: 0cm;*/
   }
   
   /* Style the buttons that are used to open and close the accordion panel */
@@ -17,9 +15,10 @@
     padding-right: 20px;
     display: flex;
     align-items: center;
-    border: 1px solid #DED4C7;
+    border: 1px solid #dadada;
     outline: none;
     transition: background-color 0.6s ease;
+    margin-top: 4px;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -33,13 +32,22 @@
     font-weight: 600;
     font-size: 20px;
     font-family: Fremtind Grotesk Display;
-    margin-bottom: auto;
     float: left;
+    margin-top: 15px;
+    margin-bottom: 2px;
   }
   
-  /* Style the accordion chevron icon */
+  /* Style the accordion chevron icon 
   .accordion__icon {
     margin-left: auto;
+    margin-top: 55px;
+    transition: transform 0.6s ease;
+  }*/
+
+  .accordion__icon {
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: 55px;
     transition: transform 0.6s ease;
   }
   
@@ -49,12 +57,13 @@
   }
 
   .accordion__address {
+    float: left;
     color: black;
     font-weight: 400;
     font-size: 14px;
     font-family: Fremtind Grotesk Display;
-    
-    
+    margin-top: 4px;
+    margin-bottom: 15px;
   }
   
   /* Style the accordion content panel. Note: hidden by default */
@@ -70,4 +79,9 @@
     font-weight: 400;
     font-size: 14px;
     padding: 18px;
+  }
+
+  .fav_button {
+    margin-left: auto;
+    margin-top: 55px;
   }

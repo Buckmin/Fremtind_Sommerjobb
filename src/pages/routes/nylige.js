@@ -29,6 +29,16 @@ export default function Nylige () {
                 fromDest="Damstredet 1"
                 toDest="Henrik Ibsens gate 1"
             />
+            <AccordionJS 
+                title="Hjem - Barnehagen" 
+                fromDest="Henrik Ibsens gate 1"
+                toDest="Damstredet 1"
+            />
+            <AccordionJS 
+                title="Barnehagen - Hjem" 
+                fromDest="Damstredet 1"
+                toDest="Henrik Ibsens gate 1"
+            />
         </div>
     )
 

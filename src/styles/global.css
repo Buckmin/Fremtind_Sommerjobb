@@ -8,14 +8,16 @@ denne filen er koblet til gatsby-browser.js
 */
 
 /* html er all html, altså ganske generelt */
+
+body {
+    margin: 0;
+}
+
+
 html {
     background-color: #FFFFFF;
     color: #000000;
     font-family: Fremtind Grotesk;
-    /*ER tester under
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;*/
 }
 
 /* a er alle linker. linker er også knappene i navbaren! */

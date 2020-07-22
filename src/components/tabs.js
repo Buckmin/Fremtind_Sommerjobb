@@ -15,6 +15,7 @@ function TabPanel(props) {
   
     return (
       <div
+        
         role="tabpanel"
         hidden={value !== index}
         id={`scrollable-force-tabpanel-${index}`}
@@ -22,7 +23,7 @@ function TabPanel(props) {
         {...other}
       >
         {value === index && (
-          <Box p={3}>
+          <Box p={3} style = {{padding:0}}>
             <Typography>{children}</Typography>
           </Box>
         )}
@@ -39,18 +40,19 @@ function TabPanel(props) {
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
-      margin: 10,
+      margin: 0,
+      padding: 0,
     },
 });
 
-const AntTabs = withStyles({
+/* const AntTabs = withStyles({
     root: {
       borderBottom: '1px solid #e8e8e8',
     },
     indicator: {
       backgroundColor: '#1890ff',
     },
-})(Tabs);
+})(Tabs); */
 
 export default function TabBar (props) {
     const classes = useStyles();
@@ -72,7 +74,6 @@ export default function TabBar (props) {
                 <Tab label= {props.labelTwo} />
                 <Tab label= {props.labelThree} />
             </Tabs>
-
             <TabPanel value={value} index={0}>
                 <Nylige/>
             </TabPanel>

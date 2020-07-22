@@ -28,7 +28,7 @@ export default function Home() {
 
 const hovedStyle = {
   //maxWidth: "300px",
-  margin: "0 auto",
+  margin: 0,
 };
 
 var startDate = "	2020-06-05	"     // her må det komme en form for input slik at brukeren kan velge startsdato

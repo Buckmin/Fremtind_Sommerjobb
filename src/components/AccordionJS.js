@@ -3,6 +3,9 @@ import React, {useState, useRef} from "react"
 import "../styles/AccordionJS.css"
 import Chevron from "../components/Chevron"
 
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
 
 function AccordionJS(props) {
 
@@ -29,12 +32,16 @@ function AccordionJS(props) {
                     <p className="accordion__title">
                         {props.title}
                     </p>
+                    <br/>
                     <p className="accordion__address">
                         Fra: {props.fromDest}
                         <br/>
                         Til: {props.toDest}
                     </p> 
                 </div>
+                <IconButton aria-label= "FavoriteBorderIcon">
+                    <FavoriteBorderIcon />
+                </IconButton>
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
             </button>
             <div 
