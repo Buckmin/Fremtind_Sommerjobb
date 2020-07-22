@@ -15,7 +15,7 @@ import { MdDirectionsWalk, MdDirectionsBike, MdDirectionsBus, MdDirectionsCar } 
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
-      maxWidth: 500,
+      //maxWidth: 500,
     },
   });
 
@@ -28,21 +28,37 @@ function FindTrips(props) {
     const [response, setResponse] = useState(null);
     const count = useRef(0);
 
+    const [distanceText, setDistanceText] = useState('');
+    const [distanceValue, setDistanceValue] = useState(0);
+
+    const [durationText, setDurationText] = useState('');
+    const [durationValue, setDurationValue] = useState(0);
+
+
     //la til count
     useEffect(() => {
         count.current = 0;
       }, []);
     
     function directionsCallback (response) {
-        console.log('response 1', response)
+        console.log('response: ', response)
 
         if (response !== null) {
         if (response.status === 'OK' && count.current === 0) {
             //la inn count
             count.current += 1;
             setResponse(response)
+
+            //verdier for avstand (tekst+tallverdi)
+            setDistanceText(response.routes[0].legs[0].distance.text)
+            setDistanceValue(response.routes[0].legs[0].distance.value)
+
+            //verdier for tid (tekst+tallverdi)
+            setDurationText(response.routes[0].legs[0].duration.text)
+            setDurationValue(response.routes[0].legs[0].duration.value)
+
         } else {
-            console.log('response: ', response)
+            console.log('response2: ', response)
         }
         }
     }
@@ -78,10 +94,13 @@ function FindTrips(props) {
                     textColor="secondary"
                     aria-label="icon label tabs example"
                 >
-            {/*     <Tab icon={<MdDirectionsCar />} label="Bil" />
-                    <Tab icon={<MdDirectionsBike />} label="Sykkel" />
-                    <Tab icon={<MdDirectionsBus />} label="Kollektiv" />
-                    <Tab icon={<MdDirectionsWalk />} label="Gå" /> */}
+                    {/* Hvis vi vil ha med tekst under ikon, bruk disse */}
+{/*                     <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING" label="Bil"/>
+                    <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING" label="Sykkel"/>
+                    <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT" label="Kollektiv"/>
+                    <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING" label="Gå"/> */}
+
+                    {/* Hvis vi ikke vil ha tekst under ikon, bruk disse */}
                     <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING"/>
                     <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING"/>
                     <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT"/>
@@ -169,6 +188,17 @@ function FindTrips(props) {
             </GoogleMap>
           {/* </LoadScriptNext> */}
         </div>
+
+        <div>
+            {/* Distance og duration har "text" og "value", der value kan brukes i beregninger, mens text er bra til utskriving */}
+            <br/>
+            Informasjon om reisen: 
+            <br/>
+            Avstand: {distanceText}
+            <br/>
+            Tid: {durationText}
+        </div>
+
       </div>
     )
   }

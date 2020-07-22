@@ -36,7 +36,7 @@ export default function Reiseplanlegger() {
     console.log('origin', origin)
     console.log('destination', destination)
 
-    const NontransitResults = () => (
+    const TripResults = () => (
         <div id="nontransit-results">
             <br/><br/>
             <LoadScriptNext googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
@@ -48,16 +48,6 @@ export default function Reiseplanlegger() {
         </div>
     )
     
-
-    const TransitResults = () => (
-        <div id="transit-results">
-            {/* MERK: uansett input vil denne vise forhåndsdefinert "location" fram til jeg får fikset koordinater */}
-            <FindTransitTrips
-                origin={origin}
-                destination={destination}
-            />
-        </div>
-    )
 
 /*     useEffect( () => {
         const convertInput = async () => {
@@ -77,7 +67,7 @@ export default function Reiseplanlegger() {
 
             <PrimaryButton onClick={() => setShowResults(true)}>Neste</PrimaryButton>
             
-            { showResults ? <NontransitResults /> : null }
+            { showResults ? <TripResults /> : null }
 
             {/* Etter dette skal informasjon om reisen lastes inn -> må lagre origin og destination */}
             {/* Skal kunne tas inn som props i FindTransitTrips */}
