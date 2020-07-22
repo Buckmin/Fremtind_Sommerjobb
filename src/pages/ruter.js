@@ -63,7 +63,7 @@ export default function MyRoutes () {
                 toDest="Henrik Ibsens gate 1"
             /> */}
             <NewRouteButton iconName={<BsPlus size={40} color={"white"}/>} linkLink="/newroute" />
-            <Footer/>
+            <Footer page="/minereiser" />
         </div>
         
     )

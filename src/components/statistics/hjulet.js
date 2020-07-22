@@ -41,7 +41,7 @@ export function HjuletTotalCO2 ({totalEmission, userGoalTotCO2}) {
 
 function IconLinkToGoals () {    // OBS! Per nå går denne kun til dev-page, ikke en page hvor brukeren kan sette seg et mål
     return (
-        <Link to="/dev" style={{color: "#000AFA"}}> 
+        <Link to="/settegrensen" style={{color: "#000AFA"}}> 
             <BsPencil/>
         </Link>
     )
