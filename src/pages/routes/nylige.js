@@ -1,11 +1,17 @@
 import React from "react"
 import AccordionJS from "../../components/AccordionJS"
 
+
 export default function Nylige () {
+    let alleTurer= {}
+    alleTurer['2020.03.23-12:12'] = {til: 'testTil', fra: 'testFra'}
+    console.log(alleTurer['2020.03.23-12:12']['til'])
+    let heihei = alleTurer['2020.03.23-12:12']['til']
+
     return (
         <div>
             <AccordionJS 
-                title="test - nylige" 
+                title = {heihei}
                 fromDest="Henrik Ibsens gate 1"
                 toDest="Hammersborggata 2"
             />

@@ -1,14 +1,15 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types'; 
-import Nylige from "../pages/routes/nylige";
+import Nylige from '../pages/routes/nylige';
 import MestReist from '../pages/routes/mestReist';
 import Favoritter from '../pages/routes/favoritter';
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -29,7 +30,7 @@ function TabPanel(props) {
         )}
       </div>
     );
-  }
+}
   
   TabPanel.propTypes = {
     children: PropTypes.node,
@@ -40,19 +41,12 @@ function TabPanel(props) {
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
-      margin: 0,
+      marginBottom: 110,
       padding: 0,
+      backgroundColor: "#F8F8F8",
     },
 });
 
-/* const AntTabs = withStyles({
-    root: {
-      borderBottom: '1px solid #e8e8e8',
-    },
-    indicator: {
-      backgroundColor: '#1890ff',
-    },
-})(Tabs); */
 
 export default function TabBar (props) {
     const classes = useStyles();
@@ -68,7 +62,6 @@ export default function TabBar (props) {
             onChange={handleChange}
             indicatorColor="primary"
             variant="fullWidth"
-            //textColor="primary"
             >
                 <Tab label= {props.labelOne} />
                 <Tab label= {props.labelTwo} />

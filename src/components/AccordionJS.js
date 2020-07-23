@@ -39,7 +39,9 @@ function AccordionJS(props) {
                         Til: {props.toDest}
                     </p> 
                 </div>
-                <IconButton aria-label= "FavoriteBorderIcon">
+                <IconButton 
+                aria-label= "FavoriteBorderIcon" 
+                className='fav_button'>
                     <FavoriteBorderIcon />
                 </IconButton>
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
