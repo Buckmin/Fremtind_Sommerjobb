@@ -14,7 +14,7 @@ export class Form extends Component {
             usage: '',
             fuel: 'diesel',
             emission:'2.68', // kg per unit
-            unit: 'L/km',
+            unit: 'L/mil',
             temp: '',
             result: '0'
 
@@ -31,16 +31,16 @@ export class Form extends Component {
     handleFuelChange = (event) => {
         switch (event.target.value) {
             case "diesel":
-                var unitString= 'L/km'
+                var unitString= 'L/mil'
                 var avgVal = '2.68'
                 break;
             case "petrol":
-                var unitString= 'L/km'
+                var unitString= 'L/mil'
                 var avgVal = '2.31'
                 break;
             case "electricity":
                 var unitString= 'kWh/km'
-                var avgVal = '43'
+                var avgVal = '1.5'
                 break;
             default:
                 break;
@@ -86,7 +86,12 @@ export class Form extends Component {
 
     calculateCO2() {
         let T = this.tempCoeffisient();
-        return (this.state.distance * this.state.usage * this.state.emission * T)
+        if (this.state.fuel == "electricity") {
+            return 0
+        }
+        else {
+        return (this.state.distance * this.state.usage * this.state.emission * T / 10)
+        }
     }
     
 
