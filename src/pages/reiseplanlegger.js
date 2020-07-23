@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 import Header from "../components/header"
-import Footer from "../components/Footer"
+import Footer from "../components/footer"
 
 
 import GoogleMaps from "../components/routes/Autocomplete"
