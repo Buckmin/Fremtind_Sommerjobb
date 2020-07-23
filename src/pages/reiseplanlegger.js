@@ -15,6 +15,7 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
 
 
+
 export default function Reiseplanlegger() {
 
     const [origin, setOrigin] = useState('');

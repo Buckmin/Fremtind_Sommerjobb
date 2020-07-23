@@ -1,0 +1,15 @@
+
+.stats {
+  position: relative;
+  display: inline-block;
+}
+
+.stats-label {
+    font-weight: 500;
+    font-size: medium;
+}
+
+.stats-value {
+    font-size: x-large;
+    font-weight: 300;
+}

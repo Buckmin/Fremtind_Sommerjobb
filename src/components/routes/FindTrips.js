@@ -19,6 +19,9 @@ import Tab from '@material-ui/core/Tab';
 
 import { MdDirectionsWalk, MdDirectionsBike, MdDirectionsBus, MdDirectionsCar } from "react-icons/md";
 
+import "../../styles/findTrips.css"
+
+
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
@@ -41,6 +44,8 @@ function FindTrips(props) {
     const [durationText, setDurationText] = useState('');
     const [durationValue, setDurationValue] = useState(0);
 
+    const [noRoutes, setNoRoutes] = useState(false);
+
     //la til count
     useEffect(() => {
         count.current = 0;
@@ -51,6 +56,10 @@ function FindTrips(props) {
 
         if (response !== null) {
         if (response.status === 'OK' && count.current === 0) {
+            
+            //her har vi tilgjengelige ruter
+            setNoRoutes(false);
+
             //la inn count
             count.current += 1;
             setResponse(response)
@@ -64,6 +73,12 @@ function FindTrips(props) {
             setDurationText(response.routes[0].legs[0].duration.text)
             setDurationValue(response.routes[0].legs[0].duration.value)
 
+        }
+        if (response.status === "ZERO_RESULTS" && count.current === 0) {
+            //her har vi ingen tilgjengelige ruter
+            setNoRoutes(true);
+            count.current += 1;
+
         } else {
             console.log('response2: ', response)
         }
@@ -76,6 +91,143 @@ function FindTrips(props) {
         count.current = 0;
         //console.log('travelmode', newMode)
     };
+
+    const NoRoutes = () => (
+        <div>
+            <br/>
+            <h6>Finner ingen resultater for "{travelMode}"</h6>
+        </div>
+    )
+    
+
+    {/* Dette er veeeeldig feil formler for CO2 og kalorier, prøver bare å vise hvordan vi kan bruke verdiene. Legg inn riktig formel her! */}
+    const BicyclingCals = () => (
+        <div className="stats"> 
+            <div className="stats-label">
+                Kalorier:
+            </div>
+            <div className="stats-value">
+                {Math.round(durationValue/23+distanceValue/1000)} kcal
+            </div>
+        </div>
+
+    )
+
+    const WalkingCals = () => (
+        <div className="stats"> 
+            <div className="stats-label">
+                Kalorier:
+            </div>
+            <div className="stats-value">
+                {Math.round(durationValue/60+distanceValue/1000)} kcal
+            </div>
+        </div>
+    )
+
+    const TransitEmission = () => (
+        <div className="stats"> 
+            <div className="stats-label">
+                CO2:
+            </div>
+            <div className="stats-value">
+                {Math.round(durationValue/500+distanceValue/1000)} kg
+            </div>
+        </div>
+    )
+
+    const CarEmission = () => (
+        <div className="stats"> 
+            <div className="stats-label">
+                CO2:
+            </div>
+            <div className="stats-value">
+                {Math.round(durationValue/50+distanceValue/100)} kg
+            </div>
+        </div>
+    )
+
+
+
+
+    const MapDirections = () => (
+        <div className='map-container'>
+        <br/>
+          <GoogleMap
+              // required
+              id='direction-example'
+              // required
+              mapContainerStyle={{
+              height: '400px',
+              width: '100%'
+              }}
+              // required
+              zoom={12}
+              // required
+              center={{
+              lat: 59.911491,
+              lng: 10.757933
+              }}
+              // optional
+              onClick={() => onMapClick()}
+              // optional
+              onLoad={map => {
+              console.log('DirectionsRenderer onLoad map: ', map)
+              }}
+              // optional
+              onUnmount={map => {
+              console.log('DirectionsRenderer onUnmount map: ', map)
+              }}
+          >
+              {
+                  (
+                  props.destination !== '' &&
+                  props.origin !== ''
+                  ) && (
+                  <DirectionsService
+                  // required
+                  options={{ 
+                      //bruker placeID for å være helt sikker på at vi får riktig sted
+                      destination: {'placeId': props.destination},
+                      origin: {'placeId': props.origin},
+                      travelMode: travelMode
+                  }}
+                  // required
+                  callback={directionsCallback}
+                  // optional
+/*                     onLoad={ directionsService => {
+                      console.log('DirectionsService onLoad directionsService: ', directionsService)
+                  }} */
+                  // optional
+/*                     onUnmount={directionsService => {
+                      console.log('DirectionsService onUnmount directionsService: ', directionsService)
+                  }} */
+                  />
+              )
+              }
+
+              {
+              response !== null && (
+                  <DirectionsRenderer
+                  // required
+                  options={{ 
+                      directions: response
+                  }}
+                  // optional
+/*                     onLoad={directionsRenderer => {
+                      console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
+                  }} */
+                  // optional
+/*                     onUnmount={directionsRenderer => {
+                      console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
+                  }} */
+                  />
+              )
+              }
+
+          </GoogleMap>
+      </div>
+    )
+
 
     function onMapClick (...args) {
         console.log('onClick args: ', args)
@@ -91,119 +243,66 @@ function FindTrips(props) {
                 Til: {props.destination}
             </div> */}
 
-          <div>
-            <Paper square className={classes.root}>
-                <Tabs
-                    value={travelMode}
-                    onChange={handleModeChange}
-                    variant="fullWidth"
-                    indicatorColor="secondary"
-                    textColor="secondary"
-                    aria-label="icon label tabs example"
-                >
-                    {/* Hvis vi vil ha med tekst under ikon, bruk disse */}
-{/*                     <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING" label="Bil"/>
-                    <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING" label="Sykkel"/>
-                    <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT" label="Kollektiv"/>
-                    <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING" label="Gå"/> */}
-
-                    {/* Hvis vi ikke vil ha tekst under ikon, bruk disse */}
-                    <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING"/>
-                    <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING"/>
-                    <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT"/>
-                    <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING"/>
-                </Tabs>
-            </Paper>
-          </div>
-
         </div>
 
         <div>
-            {/* Distance og duration har "text" og "value", der value kan brukes i beregninger, mens text er bra til utskriving */}
-            <br/>
-            Avstand: {distanceText}
-            <br/>
-            Tid: {durationText}
-            <br/>
-            {/* Dette er en veeeeldig feil formel for CO2, prøver bare å vise hvordan vi kan bruke verdiene. Legg inn riktig formel her! */}
-            CO2: {Math.round(durationValue/50+distanceValue/100)} kg
-        </div>
-
-        <div className='map-container'>
-          <br/>
-            <GoogleMap
-                // required
-                id='direction-example'
-                // required
-                mapContainerStyle={{
-                height: '400px',
-                width: '100%'
-                }}
-                // required
-                zoom={12}
-                // required
-                center={{
-                lat: 59.911491,
-                lng: 10.757933
-                }}
-                // optional
-                onClick={() => onMapClick()}
-                // optional
-                onLoad={map => {
-                console.log('DirectionsRenderer onLoad map: ', map)
-                }}
-                // optional
-                onUnmount={map => {
-                console.log('DirectionsRenderer onUnmount map: ', map)
-                }}
+        <Paper square className={classes.root}>
+            <Tabs
+                value={travelMode}
+                onChange={handleModeChange}
+                variant="fullWidth"
+                indicatorColor="secondary"
+                textColor="secondary"
+                aria-label="icon label tabs example"
             >
-                {
-                    (
-                    props.destination !== '' &&
-                    props.origin !== ''
-                    ) && (
-                    <DirectionsService
-                    // required
-                    options={{ 
-                        //bruker placeID for å være helt sikker på at vi får riktig sted
-                        destination: {'placeId': props.destination},
-                        origin: {'placeId': props.origin},
-                        travelMode: travelMode
-                    }}
-                    // required
-                    callback={directionsCallback}
-                    // optional
-/*                     onLoad={ directionsService => {
-                        console.log('DirectionsService onLoad directionsService: ', directionsService)
-                    }} */
-                    // optional
-/*                     onUnmount={directionsService => {
-                        console.log('DirectionsService onUnmount directionsService: ', directionsService)
-                    }} */
-                    />
-                )
-                }
+                {/* Hvis vi vil ha med tekst under ikon, bruk disse */}
+{/*                     <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING" label="Bil"/>
+                <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING" label="Sykkel"/>
+                <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT" label="Kollektiv"/>
+                <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING" label="Gå"/> */}
 
-                {
-                response !== null && (
-                    <DirectionsRenderer
-                    // required
-                    options={{ 
-                        directions: response
-                    }}
-                    // optional
-/*                     onLoad={directionsRenderer => {
-                        console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
-                    }} */
-                    // optional
-/*                     onUnmount={directionsRenderer => {
-                        console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
-                    }} */
-                    />
-                )
-                }
-            </GoogleMap>
+                {/* Hvis vi ikke vil ha tekst under ikon, bruk disse */}
+                <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING"/>
+                <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT"/>
+                <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING"/>
+                <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING"/>
+            </Tabs>
+        </Paper>
+      </div>
+
+        <div>
+            <br/>
+            {/* Distance og duration har "text" og "value", der value kan brukes i beregninger, mens text er bra til utskriving */}
+            <div className="stats"> 
+                <div className="stats-label">
+                    Avstand:
+                </div>
+                <div className="stats-value">
+                    {distanceText} 
+                </div>
+            </div> &emsp;&emsp;
+            <div className="stats"> 
+                <div className="stats-label">
+                    Tid:
+                </div>
+                <div className="stats-value">
+                    {durationText} 
+                </div>
+            </div> &emsp;&emsp;
+            { travelMode==="DRIVING" ? <CarEmission /> : null }
+            { travelMode==="TRANSIT" ? <TransitEmission /> : null }
+            { travelMode==="BICYCLING" ? <BicyclingCals /> : null }
+            { travelMode==="WALKING" ? <WalkingCals /> : null }
+            <br/>
         </div>
+
+        <div>
+            { noRoutes ? <NoRoutes /> : null }
+            {/* { !noRoutes ? <MapDirections /> : null} */}
+            <MapDirections/>
+
+        </div>
+
 
       </div>
     )
