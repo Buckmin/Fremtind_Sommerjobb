@@ -25,15 +25,20 @@ import "../../styles/findTrips.css"
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
+      //overflow: 'hidden',
+      //marginBottom: null,
       //maxWidth: 500,
     },
+    tab: {
+        minWidth: '25%', // a number of your choice
+        //width: 100, // a number of your choice
+    }
   });
 
 function FindTrips(props) {
 
     const classes = useStyles();
     const [travelMode, setTravelMode] = useState("DRIVING");
-    //0 er bil, 1 er sykkel, 2 er kollektiv og 3 er gå
     
     const [response, setResponse] = useState(null);
     const count = useRef(0);
@@ -43,6 +48,9 @@ function FindTrips(props) {
 
     const [durationText, setDurationText] = useState('');
     const [durationValue, setDurationValue] = useState(0);
+
+
+
 
     const [noRoutes, setNoRoutes] = useState(false);
 
@@ -99,135 +107,172 @@ function FindTrips(props) {
         </div>
     )
     
+    
 
-    {/* Dette er veeeeldig feil formler for CO2 og kalorier, prøver bare å vise hvordan vi kan bruke verdiene. Legg inn riktig formel her! */}
+    // Brukt 75kg som vekt
     const BicyclingCals = () => (
         <div className="stats"> 
             <div className="stats-label">
                 Kalorier:
             </div>
             <div className="stats-value">
-                {Math.round(durationValue/23+distanceValue/1000)} kcal
+                {Math.round(310/3600 * durationValue)} kcal
             </div>
         </div>
 
     )
-
+    
+    //Brukt 75kg som vekt
     const WalkingCals = () => (
         <div className="stats"> 
             <div className="stats-label">
                 Kalorier:
             </div>
             <div className="stats-value">
-                {Math.round(durationValue/60+distanceValue/1000)} kcal
+                {Math.round(215/3600 * durationValue)} kcal
             </div>
         </div>
     )
 
+    // INPUT distanceValue [m/1000=km], temp [deg C]
+    // OUTPUT Totale utslipp pr person [g]
+    // Enkel utgave som kun tar hensyn til de faktorene vi får hentet inn pr dags dato
+    // Gjennomsnittlig utslipp 72.5 g/pkm 
+    /////// NB: brukt likning for buss! All transit regnes som buss her i første versjon ///////
     const TransitEmission = () => (
         <div className="stats"> 
             <div className="stats-label">
                 CO2:
             </div>
             <div className="stats-value">
-                {Math.round(durationValue/500+distanceValue/1000)} kg
+                {Math.round(72.5 * distanceValue/1000 * props.tempFactor)} g
             </div>
         </div>
     )
 
+    // INPUT fuelConsum [L/mil], fuel TYPE, dist [m/1000=km], temp [deg C]
+    // OUTPUT Totale utslipp pr person [g]
+    // Enkel utgave som kun tat hensyn til faktorene vi får hentet inn pr dags dato
     const CarEmission = () => (
         <div className="stats"> 
             <div className="stats-label">
                 CO2:
             </div>
             <div className="stats-value">
-                {Math.round(durationValue/50+distanceValue/100)} kg
+                {Math.round(props.fuelConsum * distanceValue/1000 * props.tempFactor)} g 
             </div>
         </div>
     )
 
+        {/* Skal kun vises hvis det er tilgjengelige ruter */}
+        const TravelStats = () => (
+            //vil endre className som toggler informasjon her ut i fra om noRoutes er true eller ikke
+            <div className={noRoutes ? 'info-hidden' : 'info-active'}>
+                <br/>
+                {/* Distance og duration har "text" og "value", der value kan brukes i beregninger, mens text er bra til utskriving */}
+                <div className="stats"> 
+                    <div className="stats-label">
+                        Avstand:
+                    </div>
+                    <div className="stats-value">
+                        {distanceText} 
+                    </div>
+                </div> &emsp;&emsp;
+                <div className="stats"> 
+                    <div className="stats-label">
+                        Tid:
+                    </div>
+                    <div className="stats-value">
+                        {durationText} 
+                    </div>
+                </div> &emsp;&emsp;
+                { travelMode==="DRIVING" ? <CarEmission /> : null }
+                { travelMode==="TRANSIT" ? <TransitEmission /> : null }
+                { travelMode==="BICYCLING" ? <BicyclingCals /> : null }
+                { travelMode==="WALKING" ? <WalkingCals /> : null }
+                <br/>
+            </div>
+        )
 
+        {/* Skal kun vises hvis det er tilgjengelige ruter */}
+        const TravelRoutes = () => (
+            <div className={noRoutes ? 'info-hidden' : 'info-active'}>
+            <br/>
+            <GoogleMap
+                // required
+                id='direction-example'
+                // required
+                mapContainerStyle={{
+                height: '300px',
+                width: '100%'
+                }}
+                // required
+                zoom={12}
+                // required
+                center={{
+                lat: 59.911491,
+                lng: 10.757933
+                }}
+                // optional
+                onClick={() => onMapClick()}
+                // optional
+                onLoad={map => {
+                console.log('DirectionsRenderer onLoad map: ', map)
+                }}
+                // optional
+                onUnmount={map => {
+                console.log('DirectionsRenderer onUnmount map: ', map)
+                }}
+            >
+                {
+                    (
+                    props.destination !== '' &&
+                    props.origin !== ''
+                    ) && (
+                    <DirectionsService
+                    // required
+                    options={{ 
+                        //bruker placeID for å være helt sikker på at vi får riktig sted
+                        destination: {'placeId': props.destination},
+                        origin: {'placeId': props.origin},
+                        travelMode: travelMode
+                    }}
+                    // required
+                    callback={directionsCallback}
+                    // optional
+    /*                     onLoad={ directionsService => {
+                        console.log('DirectionsService onLoad directionsService: ', directionsService)
+                    }} */
+                    // optional
+    /*                     onUnmount={directionsService => {
+                        console.log('DirectionsService onUnmount directionsService: ', directionsService)
+                    }} */
+                    />
+                )
+                }
 
+                {
+                response !== null && (
+                    <DirectionsRenderer
+                    // required
+                    options={{ 
+                        directions: response
+                    }}
+                    // optional
+    /*                     onLoad={directionsRenderer => {
+                        console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
+                    }} */
+                    // optional
+    /*                     onUnmount={directionsRenderer => {
+                        console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
+                    }} */
+                    />
+                )
+                }
 
-    const MapDirections = () => (
-        <div className='map-container'>
-        <br/>
-          <GoogleMap
-              // required
-              id='direction-example'
-              // required
-              mapContainerStyle={{
-              height: '400px',
-              width: '100%'
-              }}
-              // required
-              zoom={12}
-              // required
-              center={{
-              lat: 59.911491,
-              lng: 10.757933
-              }}
-              // optional
-              onClick={() => onMapClick()}
-              // optional
-              onLoad={map => {
-              console.log('DirectionsRenderer onLoad map: ', map)
-              }}
-              // optional
-              onUnmount={map => {
-              console.log('DirectionsRenderer onUnmount map: ', map)
-              }}
-          >
-              {
-                  (
-                  props.destination !== '' &&
-                  props.origin !== ''
-                  ) && (
-                  <DirectionsService
-                  // required
-                  options={{ 
-                      //bruker placeID for å være helt sikker på at vi får riktig sted
-                      destination: {'placeId': props.destination},
-                      origin: {'placeId': props.origin},
-                      travelMode: travelMode
-                  }}
-                  // required
-                  callback={directionsCallback}
-                  // optional
-/*                     onLoad={ directionsService => {
-                      console.log('DirectionsService onLoad directionsService: ', directionsService)
-                  }} */
-                  // optional
-/*                     onUnmount={directionsService => {
-                      console.log('DirectionsService onUnmount directionsService: ', directionsService)
-                  }} */
-                  />
-              )
-              }
-
-              {
-              response !== null && (
-                  <DirectionsRenderer
-                  // required
-                  options={{ 
-                      directions: response
-                  }}
-                  // optional
-/*                     onLoad={directionsRenderer => {
-                      console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
-                  }} */
-                  // optional
-/*                     onUnmount={directionsRenderer => {
-                      console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
-                  }} */
-                  />
-              )
-              }
-
-          </GoogleMap>
-      </div>
-    )
-
+            </GoogleMap>
+            </div>
+        )
 
     function onMapClick (...args) {
         console.log('onClick args: ', args)
@@ -235,15 +280,7 @@ function FindTrips(props) {
   
 
     return (
-      <div className='map'>
-        <div className='map-settings'>
-{/*             <div>
-                Fra: {props.origin}
-                <br/>
-                Til: {props.destination}
-            </div> */}
-
-        </div>
+      <div className='route-options'>
 
         <div>
         <Paper square className={classes.root}>
@@ -256,55 +293,31 @@ function FindTrips(props) {
                 aria-label="icon label tabs example"
             >
                 {/* Hvis vi vil ha med tekst under ikon, bruk disse */}
-{/*                     <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING" label="Bil"/>
-                <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING" label="Sykkel"/>
-                <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT" label="Kollektiv"/>
-                <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING" label="Gå"/> */}
+{/*                 <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING" label="Bil" classes={{ root: classes.tab }}/>
+                <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT" label="Kollektiv" classes={{ root: classes.tab }}/>
+                <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING" label="Sykkel" classes={{ root: classes.tab }}/>
+                <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING" label="Gå" classes={{ root: classes.tab }}/> */}
 
                 {/* Hvis vi ikke vil ha tekst under ikon, bruk disse */}
-                <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING"/>
-                <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT"/>
-                <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING"/>
-                <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING"/>
+                <Tab icon={<MdDirectionsCar />} aria-label="Bil"  value="DRIVING" classes={{ root: classes.tab }}/>
+                <Tab icon={<MdDirectionsBus />} aria-label="Kollektiv" value="TRANSIT" classes={{ root: classes.tab }}/>
+                <Tab icon={<MdDirectionsBike />} aria-label="Sykkel" value="BICYCLING" classes={{ root: classes.tab }}/>
+                <Tab icon={<MdDirectionsWalk />} aria-label="Gå" value="WALKING" classes={{ root: classes.tab }}/>
             </Tabs>
         </Paper>
       </div>
 
-        <div>
-            <br/>
-            {/* Distance og duration har "text" og "value", der value kan brukes i beregninger, mens text er bra til utskriving */}
-            <div className="stats"> 
-                <div className="stats-label">
-                    Avstand:
-                </div>
-                <div className="stats-value">
-                    {distanceText} 
-                </div>
-            </div> &emsp;&emsp;
-            <div className="stats"> 
-                <div className="stats-label">
-                    Tid:
-                </div>
-                <div className="stats-value">
-                    {durationText} 
-                </div>
-            </div> &emsp;&emsp;
-            { travelMode==="DRIVING" ? <CarEmission /> : null }
-            { travelMode==="TRANSIT" ? <TransitEmission /> : null }
-            { travelMode==="BICYCLING" ? <BicyclingCals /> : null }
-            { travelMode==="WALKING" ? <WalkingCals /> : null }
-            <br/>
-        </div>
-
+        {/* Hvis ingen ruter er tilgjengelige, skriv ut dette */}
         <div>
             { noRoutes ? <NoRoutes /> : null }
-            {/* { !noRoutes ? <MapDirections /> : null} */}
-            <MapDirections/>
-
+            {/* { noRoutes ? <TravelStats statsDesign="hidden-stats"/> : <TravelStats statsDesign="active-stats"/> } */}
+            <TravelStats/>
+            <TravelRoutes/>
         </div>
+    
 
+    </div>
 
-      </div>
     )
   }
 
