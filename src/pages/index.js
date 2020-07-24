@@ -36,6 +36,8 @@ export default function Home() {
   let personlia = getJson("personlia");
   let userGoals = getJson("userGoals") || {};
 
+
+
   // let userGoalTotCO2 = userGoals ? userGoals["totalGoal"] : -1; // denne må komme fra en annen side eller noe sånt
   // let totalEmission = emissionsBetweenDaysLS(new Date("2020-01-01"), new Date()); // denne må regnes ut eller hentes ut fra et annet sted
 
@@ -45,26 +47,35 @@ export default function Home() {
   // const [middel, setRadioValueMiddel] = useState("Gå"); // en del av fremkomstmiddelknapper
   // const [sortering, setRadioValueSortering] = useState("Nylig"); // en del av fremkomstmiddelknapper
 
-  return (
-    <div id="hovedkontainer" className="div__hovedStyle">
-      <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
+  if (userGoals["dailyGoal"] === undefined || userGoals["dailyGoal"] === 0 || userGoals["dailyGoal"] ===  null ){
+    return (
+      <div id="hovedkontainer" className="div__hovedStyle">
+        <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
+        <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
+        <DashboardUtenUserGoal />
+        <Footer page="/" />
+      </div> 
+    );
+  }
 
-      
-      <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> <p></p>
-      <DashboardUtenUserGoal />
+  else {
+    return (
+      <div id="hovedkontainer" className="div__hovedStyle">
+        <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
+        <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
+        <DashboardMedUserGoalLS userGoals={userGoals} />        
+        <Footer page="/" />
+      </div> 
+    );
+  }
+ 
 
-     <p></p>
-     <p></p>
-     <p></p>
-     <p></p>
 
-     <DashboardMedUserGoalLS userGoals={userGoals} />
 
-     <p></p>
-     <p></p>
-     <p></p>
-     <p></p>
-{/*       
+}
+
+
+/*       
       <ToggleButtonsSorterEtter
         sortering={sortering}
         onChange={(e) => setRadioValueSortering(e.currentTarget.value)}
@@ -97,8 +108,4 @@ export default function Home() {
       <TravelProgressBarsKG />
       <LoremIpsum />
       <TravelProgressBarsPercentage /> 
-      */}
-      <Footer page="/" />
-    </div> 
-  );
-}
+      */

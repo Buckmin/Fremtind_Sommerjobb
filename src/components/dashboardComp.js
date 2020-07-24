@@ -20,8 +20,8 @@ export function DashboardUtenUserGoal () {
             <p id="tekstOver">Du har ikke satt deg en utslippsgrense enda</p>
             <p style={{textAlign: "center"}}> <MountainIkon /> </p>
             <p style={{textAlign: "center"}}>
-                <Link>
-                    <Button > Sett en utslippsgrense </Button>
+                <Link id="setteGrensenLink" to="/settegrensen">
+                    <Button id="bareKnappForDesing"> Sett en utslippsgrense </Button>
                 </Link>
             </p>
             <p style={{width: "80%", fontSize: 12, fontWeight: 600}}>Start med å sette en grense for CO2 utslipp. Ut i fra forbruk kan du justere grensen din for å redusere utslippet ditt.</p>

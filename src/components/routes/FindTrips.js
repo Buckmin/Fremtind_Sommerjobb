@@ -164,7 +164,7 @@ function FindTrips(props) {
         </div>
     )
 
-        {/* Skal kun vises hvis det er tilgjengelige ruter */}
+        /* Skal kun vises hvis det er tilgjengelige ruter */
         const TravelStats = () => (
             //vil endre className som toggler informasjon her ut i fra om noRoutes er true eller ikke
             <div className={noRoutes ? 'info-hidden' : 'info-active'}>
@@ -194,7 +194,7 @@ function FindTrips(props) {
             </div>
         )
 
-        {/* Skal kun vises hvis det er tilgjengelige ruter */}
+        /* Skal kun vises hvis det er tilgjengelige ruter */
         const TravelRoutes = () => (
             <div className={noRoutes ? 'info-hidden' : 'info-active'}>
             <br/>
