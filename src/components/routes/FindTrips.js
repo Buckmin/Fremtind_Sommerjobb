@@ -424,8 +424,8 @@ function FindTrips(props) {
         <br/><br/>
         
         {/* Litt dårlig error handling, men får holde for nå */}
-        {saved=="YES" ? <SuccessMessage title="Lagring fullført">Reisen ble lagret i Mine Reiser</SuccessMessage> : null}
-        {saved=="NO" ? <ErrorMessage title="Lagring feilet">Vennligst oppgi en gyldig dato</ErrorMessage> : null}
+        {saved==="YES" ? <SuccessMessage title="Lagring fullført">Reisen ble lagret i Mine Reiser</SuccessMessage> : null}
+        {saved==="NO" ? <ErrorMessage title="Lagring feilet">Vennligst oppgi en gyldig dato</ErrorMessage> : null}
 
 
     </div>
