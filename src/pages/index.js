@@ -25,6 +25,7 @@ import { BsPencil } from "react-icons/bs";
 import { Link } from "gatsby";
 // import { CowIkon, FremtindLogoIkon } from "../components/customIkoner";
 import { DashboardUtenUserGoal, DashboardMedUserGoalLS } from "../components/dashboardComp";
+import { ManyFunfactCards } from "../components/statistics/funfactCards";
 
 
 
@@ -52,7 +53,12 @@ export default function Home() {
       <div id="hovedkontainer" className="div__hovedStyle">
         <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
         <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
+        
+        <br/><br/>
         <DashboardUtenUserGoal />
+
+        <br/><br/><br/>
+        <ManyFunfactCards />
         <Footer page="/" />
       </div> 
     );
@@ -63,7 +69,12 @@ export default function Home() {
       <div id="hovedkontainer" className="div__hovedStyle">
         <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
         <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
-        <DashboardMedUserGoalLS userGoals={userGoals} />        
+        <br/><br/>
+        <DashboardMedUserGoalLS userGoals={userGoals} />  
+
+        <br/><br/><br/>
+        
+        <ManyFunfactCards />
         <Footer page="/" />
       </div> 
     );
