@@ -23,7 +23,7 @@ export function HjuletTotalCO2 ({theEmission, theGoal}) {
                 <CircularProgressbarWithChildren
                     value={100*theEmission/theGoal} 
                     styles={buildStyles(
-                        {pathColor: theEmission > theGoal ? "#90352f" : "#50E68C", 
+                        {pathColor: theEmission > theGoal ? "#90352f" : "#0A3166", 
 
                         textColor: "#000000" }
                     )}> 

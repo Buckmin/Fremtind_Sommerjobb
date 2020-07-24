@@ -7,7 +7,7 @@ import {
   dagerSiden,
 } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
 import { getJson } from "../getJson";
-import { ManyFunfactCards } from "../components/statistics/funfactCards";
+//import { ManyFunfactCards } from "../components/statistics/funfactCards";
 
 // lagre til lokal fil: setJson({KEY}, {VARIABEL})
 // hente ut lokal fil: {VARIABEL} = getJson({KEY})
