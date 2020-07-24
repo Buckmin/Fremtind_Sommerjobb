@@ -34,7 +34,7 @@ export default function Home() {
 
   
 
-  let personlia = getJson("personlia");
+  let personlia = getJson("personlia") || {};
   let userGoals = getJson("userGoals") || {};
 
 
@@ -53,7 +53,7 @@ export default function Home() {
       <div id="hovedkontainer" className="div__hovedStyle">
         <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
         <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
-        
+
         <br/><br/>
         <DashboardUtenUserGoal />
 
