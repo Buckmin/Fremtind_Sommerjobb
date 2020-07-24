@@ -29,10 +29,10 @@ function AccordionJS(props) {
         <div className="accordion__section">
             <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
                 <div>
-                    <p className="accordion__title">
-                        {props.title}
+                    <p className="accordion_date">
+                        {props.date}
                     </p>
-                    <br/>
+                    
                     <p className="accordion__address">
                         Fra: {props.fromDest}
                         <br/>
