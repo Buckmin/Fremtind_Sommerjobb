@@ -13,27 +13,31 @@ import { TravelProgressBarsKG, TravelProgressBarsPercentage } from "../component
 import { HjuletTotalCO2 } from "../components/statistics/hjulet";
 // importen av ...Bars... gir progresjonsbarene. kall de inn som komponenter
 
-import { ToggleButtonsPeriodeDUMÅ, ToggleButtonsPeriodeDUM } from "../components/tidsperiodeknapper";
+import { ToggleButtonsPeriodeDUMÅ, ToggleButtonsPeriodeDUM, ToggleButtonsPeriodeDUMÅT } from "../components/tidsperiodeknapper";
 import { ToggleButtonsFremkomstmiddel } from "../components/fremkomsmiddelknapper";
 import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper";
 import { initalLoadOfData } from "./dev";
-import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions";
+import { emissionsBetweenDaysLS } from "../components/tidslinjeComp/tidslinjeData/emissions";
 import { getJson } from "../getJson";
 import { BsPencil } from "react-icons/bs";
 import { Link } from "gatsby";
-import { CowIkon, FremtindLogoIkon } from "../components/customIkoner";
+// import { CowIkon, FremtindLogoIkon } from "../components/customIkoner";
+import { DashboardUtenUserGoal, DashboardMedUserGoalLS } from "../components/dashboardComp";
 
 
 
 export default function Home() {
   initalLoadOfData(); // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
 
-  //let personlia = getJson("personlia");
+  
+
+  let personlia = getJson("personlia");
   let userGoals = getJson("userGoals") || {};
 
   let userGoalTotCO2 = userGoals ? userGoals["totalGoal"] : -1; // denne må komme fra en annen side eller noe sånt
-  let totalEmission = emissionsBetweenDays(new Date("2020-01-01"), new Date()); // denne må regnes ut eller hentes ut fra et annet sted
+  let totalEmission = emissionsBetweenDaysLS(new Date("2020-01-01"), new Date()); // denne må regnes ut eller hentes ut fra et annet sted
 
+  const [periodeDUMÅT, setRadioValuePeriodeDUMÅT] = useState("Dag"); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [periodeDUMÅ, setRadioValuePeriodeDUMÅ] = useState("Dag"); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [periodeDUM, setRadioValuePeriodeDUM] = useState("Dag"); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
   const [middel, setRadioValueMiddel] = useState("Gå"); // en del av fremkomstmiddelknapper
@@ -41,10 +45,24 @@ export default function Home() {
 
   return (
     <div id="hovedkontainer" className="div__hovedStyle">
-      <Header headerText="Velkommen til Vanir" />
-      <CowIkon />
-      <Link to="/dev" style={{color: "#000AFA"}}> Dev-page<BsPencil/>  </Link>
-      <FremtindLogoIkon resize={true} newWidth={120}/>
+      <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
+
+      
+      <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> <p></p>
+      <DashboardUtenUserGoal />
+
+     <p></p>
+     <p></p>
+     <p></p>
+     <p></p>
+
+     <DashboardMedUserGoalLS userGoals={userGoals} />
+
+     <p></p>
+     <p></p>
+     <p></p>
+     <p></p>
+{/*       
       <ToggleButtonsSorterEtter
         sortering={sortering}
         onChange={(e) => setRadioValueSortering(e.currentTarget.value)}
@@ -55,25 +73,29 @@ export default function Home() {
         onChange={(e) => setRadioValueMiddel(e.currentTarget.value)}
       />
       <h5>Fremkomstmiddel valgt: {middel} </h5>
+
+      <ToggleButtonsPeriodeDUMÅT periodeDUMÅT={periodeDUMÅT}
+        onChange={(e) => setRadioValuePeriodeDUMÅT(e.currentTarget.value)}
+      />{" "}
+      <h5>periode valgt: {periodeDUMÅT}</h5>
       <ToggleButtonsPeriodeDUMÅ
         periodeDUMÅ={periodeDUMÅ}
         onChange={(e) => setRadioValuePeriodeDUMÅ(e.currentTarget.value)}
       />{" "}
-      {/* husk useState variabel og funksjon! */}
       <h5>periode valgt: {periodeDUMÅ}</h5>
       <ToggleButtonsPeriodeDUM
         periodeDUM={periodeDUM}
         onChange={(e) => setRadioValuePeriodeDUM(e.currentTarget.value)}
       />{" "}
-      {/* husk useState variabel og funksjon! */}
       <h5>periode valgt: {periodeDUM}</h5>
       <HjuletTotalCO2
-        totalEmission={totalEmission}
-        userGoalTotCO2={userGoalTotCO2}
+        theEmission={totalEmission}
+        theGoal={userGoalTotCO2}
       />
       <TravelProgressBarsKG />
       <LoremIpsum />
-      <TravelProgressBarsPercentage />
+      <TravelProgressBarsPercentage /> 
+      */}
       <Footer page="/" />
     </div>
   );

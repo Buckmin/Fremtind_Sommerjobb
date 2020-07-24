@@ -22,7 +22,7 @@ export function StringOfRandomArrDateKgCO2(){ //
     return newArr // returnerer et array med [[dato1, kg CO2], [dato2, kg CO2], ...], hvor dato1 osv er en string på formen YYYY-MM-DD
 }
 
-export function formatDate(date) { // funksjon som tar inn en dato og returnerer en string på formen YYYY-MM-DD
+export function formatDate(date) { // funksjon som tar inn en dato og returnerer en string på formen YYYY.MM.DD
     let d = new Date(date)
     let month = '' + (d.getMonth() + 1) // måneder begynner med index 0
     let day = '' + d.getDate()
@@ -34,6 +34,28 @@ export function formatDate(date) { // funksjon som tar inn en dato og returnerer
         day = '0' + day;
 
     return [year, month, day].join('.'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
+}
+
+export function formatDateWithTime(date) { // funksjon som tar inn en dato og returnerer en string på formen YYYY.MM.DD
+    let d = new Date(date)
+    let month = '' + (d.getMonth() + 1) // måneder begynner med index 0
+    let day = '' + d.getDate()
+    let year = d.getFullYear()
+    let hour = '' + d.getHours()
+    let minutes = '' + d.getMinutes()
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+    
+    let finDato = "" // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
+    let finTidspunkt = ""
+    finDato = [year, month, day].join('.'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
+    finTidspunkt = [hour, minutes].join(':');
+
+
+    return [finDato, finTidspunkt].join('-'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
 }
 
 export function dagerSiden(date) {

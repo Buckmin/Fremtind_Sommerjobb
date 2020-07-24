@@ -11,29 +11,29 @@ import { BsPencil } from "react-icons/bs"
 import "../../styles/hjulet.css"
 
 
-export function HjuletTotalCO2 ({totalEmission, userGoalTotCO2}) { 
+export function HjuletTotalCO2 ({theEmission, theGoal}) { 
     
-    let totalEmissionStr = (totalEmission).toFixed(1)
-    let fontStrArr = [20, 20, 20, 80, 70, 60, 50, 40, 30, 20] // array for fontSize på totalEmission
+    let theEmissionStr = (theEmission).toFixed(1)
+    let fontStrArr = [20, 20, 20, 80, 70, 60, 50, 40, 30, 20] // array for fontSize på theEmission
     
     return (
         <div id="heleDivRundtHjulet" className="div__heleDivRundtHjulet">
             <p>Mitt CO2-utslipp</p>
             <div id="rundtHjulet" className="div__rundtHjulet">
                 <CircularProgressbarWithChildren
-                    value={100*totalEmission/userGoalTotCO2} 
+                    value={100*theEmission/theGoal} 
                     styles={buildStyles(
-                        {pathColor: totalEmission > userGoalTotCO2 ? "#90352f" : "#50E68C", 
+                        {pathColor: theEmission > theGoal ? "#90352f" : "#50E68C", 
 
                         textColor: "#000000" }
                     )}> 
                     <div> 
-                        <span style={{fontSize: fontStrArr[totalEmissionStr.length], fontWeight: 200}}>{totalEmissionStr}</span>
+                        <span style={{fontSize: fontStrArr[theEmissionStr.length], fontWeight: 200}}>{theEmissionStr}</span>
                         <p style={{marginTop: 0, marginBottom: 0, }}>kg</p>
                     </div>
                 </CircularProgressbarWithChildren>
             </div>
-                    <p>av {userGoalTotCO2}kg  { <IconLinkToGoals />}</p>
+                    <p>av {theGoal}kg  { <IconLinkToGoals />}</p>
         </div>
     )
 }

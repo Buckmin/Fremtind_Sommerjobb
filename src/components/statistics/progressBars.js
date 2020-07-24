@@ -34,6 +34,10 @@ export function TravelProgressBarsKG() {
 
   return (
     <div id="theProgressBars" className="div__theProgressBars">
+
+      <p style={{fontSize: 16, fontWeight: 300}}>Utslipp fra ulike transportmidler</p>
+
+
       <OneBarWithIconAndTekst
         id="walk"
         IconName={<MdDirectionsWalk size={iconSize} />}
@@ -96,7 +100,11 @@ export function TravelProgressBarsPercentage() {
   let iconSize = 24; // størrelsen på ikonene
 
   return (
-    <div id="theProgressBars" className="div__theProgressBarsPercent">
+    <div id="theProgressBars" style={{}} className="div__theProgressBarsPercent">
+      <p style={{fontSize: 16, fontWeight: 300}}>Reisevaner</p>
+      <p style={{fontSize: 21, fontWeight: 600}}>{sumTrips}</p>
+      <p style={{fontSize: 12, fontWeight: 600}}>Reiser totalt</p>
+
       <OneBarWithMovingIconAndTextPercentage
         id="walk"
         IconName={<MdDirectionsWalk size={iconSize} />}

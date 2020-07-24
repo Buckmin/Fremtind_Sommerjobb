@@ -25,13 +25,23 @@ export function EmissionsPerDayArray() {
   return emissionsArray;
 }
 
-export function emissionsBetweenDays(startDate, endDate) {
-  let antallDager = antallDagerMellom(startDate, endDate);
+export function emissionsBetweenDaysLS(startDate, endDate) { // new Date, ikke format date!
   let emissionSum = 0;
   let theDay = new Date(startDate);
   let emissionsDict = getJson("emissionsPerDay") || {};
-  for (let i = -1; i < antallDager; i++) {
-    // +1 fordi det inkluderer også den siste dagen
+  let whileControlVariable = 0
+  while (emissionsDict[formatDate(theDay)] === undefined) { // errorhandling
+    theDay.setDate(theDay.getDate() + 1)
+    whileControlVariable += 1
+    if (whileControlVariable > 500) {
+      alert("Start date too far back! Use something else than: ", startDate)
+      return null
+    }
+  }
+
+  let antallDager = antallDagerMellom(theDay, endDate);
+
+  for (let i = -1; i < antallDager - 1; i++) { // i = -1 fordi theDay inkrementeres fra første runde. antallDager -1 for å stoppe på riktig dag
     theDay.setDate(theDay.getDate() + 1);
     emissionSum += emissionsDict[formatDate(theDay)];
   }
