@@ -2,33 +2,43 @@ import React from "react"
 import AccordionJS from "../../components/AccordionJS"
 
 export default function Favoritter () {
-    return (
+
+    const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
+
+    // OBS!!! alleTurer2 må bli byttet til: const alleTurer2 = getJson("alleTurer")          !!!!!!!!!!!!!!!!!!!!!
+
+    const cardArray = [] // array for cards/AcordionJs greiene
+    const cardKeyArray = [] // array kun for key i dict alleTurer for å få sortering
+    
+    for (const key in alleTurer2){
+        if (alleTurer2[key]["favoritt"]){ // her blir kun de som er favoritter lagt til. OBS: eneste endringer fra nylige.js
+            cardKeyArray.push(key)
+        }
+
+    }
+    cardKeyArray.sort() // sortert på dato og reversert for å få nyeste rett under
+    cardKeyArray.reverse()
+
+    for (let i = 0; i < cardKeyArray.length; i++){
+//console.log("dette er ", i, alleTurer2[cardKeyArray[i]]["til"])
+
+    cardArray.push(<AccordionJS 
+            date = {[cardKeyArray[i]]}
+            fromDest = {alleTurer2[cardKeyArray[i]]["fra"]}
+            toDest = {alleTurer2[cardKeyArray[i]]["til"]}
+            />)
+    }
+    if (cardKeyArray.length === 0){
+        return(
+            <div>
+                Oisann! Ser ikke ut til at du har noen favoritter :(
+            </div>
+        )
+    }
+
+    return ( // skriver ut alle greiene (komponentene) i arrayet
         <div>
-            <AccordionJS 
-                title="test - favoritter" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Hammersborggata 2"
-            />
-            <AccordionJS 
-                title="Hjem - Jobb" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Hammersborggata 2"
-            />
-            <AccordionJS 
-                title="Jobb - Hjem" 
-                fromDest="Hammersborggata 2"
-                toDest="Henrik Ibsens gate 1"
-            />
-            <AccordionJS 
-                title="Hjem - Barnehagen" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Damstredet 1"
-            />
-            <AccordionJS 
-                title="Barnehagen - Hjem" 
-                fromDest="Damstredet 1"
-                toDest="Henrik Ibsens gate 1"
-            />
+            {cardArray}
         </div>
     )
 

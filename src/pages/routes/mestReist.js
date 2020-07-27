@@ -1,9 +1,13 @@
 import React from "react"
 import AccordionJS from "../../components/AccordionJS"
 
+
+// I VÅR POC HAR VI DROPPET Å IMPLEMENTERE SORTERING PÅ MEST REIST
+
 export default function MestReist () {
     return (
         <div>
+            Sortering på mest reist er ikke implementert i denne versjonen av Vanir
             <AccordionJS 
                 title="test - mest reist" 
                 fromDest="Henrik Ibsens gate 1"
