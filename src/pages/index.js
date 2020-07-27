@@ -29,7 +29,7 @@ import { ManyFunfactCards } from "../components/statistics/funfactCards";
 
 
 
-export default function HomeLS() {
+export default function HomeLS() { 
   initalLoadOfDataLS(); // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
 
   

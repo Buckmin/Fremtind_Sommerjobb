@@ -1,11 +1,9 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="fremtind.no">
     <h1> Vanir </h1>
     <h3> Sommerstudentene under SPINN </h3>
     <h3> Fremtind </h3>
 
-  </a>
 </p>
 
 ## 🚀 Intro
@@ -16,7 +14,7 @@
 
   Du finner prosjeket på LINK, eller du kan laste ned GatsbyJS, deretter dette repoet og kjøre:
 
-    ```shell
+    ```
     npm install
     gatsby develop
     ```
@@ -25,10 +23,15 @@
 
 ## 🚀 Strukturen på filene
 
-  src/
-    components - de enkelte komponentene vi har implementert. Inneholder både komponenter vi bruker og noen vi har skrotet
-    pages - alle sidene som repoet har. altså feks http://localhost:8000/profil
-    styles - standard styling i css-filer for komponentene. en del er stylet in-line i react-stil, mens mye ligger her i styles
+  ├──src/
+
+  ├──├────components - de enkelte komponentene vi har implementert. Inneholder både komponenter vi bruker og noen vi har skrotet
+
+  ├──├────pages - alle sidene som repoet har. altså feks http://localhost:8000/profil
+
+  ├──├────styles - standard styling i css-filer for komponentene. en del er stylet in-line i react-stil, mens mye ligger her i styles
+
+
 
 
 ## 🚀 Strukturen på koden
