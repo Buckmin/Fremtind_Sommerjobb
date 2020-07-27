@@ -16,7 +16,7 @@ export default function EndreBilinfo() {
 
     const [brand, setBrand] = useState(carInfo["brand"]);
     const [model, setModel] = useState(carInfo["model"]);
-    const [fuel, setFuel] = useState(carInfo["fuel"]);
+    const [fuel, setFuel] = useState(carInfo["fuel"]); //må være enten "Bensin", "Diesel" eller "El"
     const [year, setYear] = useState(carInfo["year"]);
     const [registration, setRegistration] = useState(carInfo["registration"]);
     const [co2consum, setCo2consum] = useState(carInfo["co2consum"]);
