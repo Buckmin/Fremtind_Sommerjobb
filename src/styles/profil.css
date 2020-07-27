@@ -1,3 +1,4 @@
+
 .p__tekstOverPersonlia {
     font-size: 10;
     padding-left: 25px;
@@ -10,5 +11,10 @@
     font-size: 16;
     font-weight: 500;
     padding-left: 35px;
+    
+}
 
+.edit {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }

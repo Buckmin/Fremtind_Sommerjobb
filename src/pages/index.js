@@ -37,6 +37,9 @@ export default function Home() {
   let personlia = getJson("personlia") || {};
   let userGoals = getJson("userGoals") || {};
 
+  //ER tester:
+  //let carInfo = getJson("carInfo") || {};
+
 
 
   // let userGoalTotCO2 = userGoals ? userGoals["totalGoal"] : -1; // denne må komme fra en annen side eller noe sånt
