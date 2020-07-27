@@ -9,11 +9,16 @@ import Footer from "../components/footer";
 import { getJson, setJson } from "../getJson"
 
 import moment from "moment";
-import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
-//import { emissionsBetweenDays } from "../components/tidslinjeComp/tidslinjeData/emissions"
+import { formatDate, formatDateWithTime } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
+//import { emissionsBetweenDaysLS } from "../components/tidslinjeComp/tidslinjeData/emissions"
 import { FormForDailyGoal } from "../components/inputForms";
 
 export default function DevPage() {
+  let falseBool = false
+  if (falseBool) {
+      setInitialAlleTurer() // to-do: lage eksempelturer for lagring
+  }
+
   let tekstHeader = "Devpage";
   initalLoadOfData();
 
@@ -57,9 +62,25 @@ export function initalLoadOfData() {
   if (getJson("userGoals") === null) {
     updateUserGoal();
   }
+  if (getJson("alleTurer") === null) {
+    setInitialAlleTurer();
+  }
 
   return null;
 }
+
+function setInitialAlleTurer() {
+  // dictionary med dato for reiser. dato er key, dato med klokkeslett
+  let dato1 = formatDateWithTime(new Date("2020-01-01 12:25")) // datoformat: YYYY.MM.DD-hh:mm
+  let alleTurer = {}
+  alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "tog", CO2: 5, favoritt: false}
+
+  setJson("alleTurer", alleTurer)
+
+}
+
+
+
 
 export function oppdaterDagligUtslipp() {
   // denne funksjonen oppdaterer arrayet med summen av daglige utslipp. Er per nå bare random tall.

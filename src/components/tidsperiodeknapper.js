@@ -6,6 +6,43 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 
 // her er det knapper for DUM og DUMÅ
 
+export function ToggleButtonsPeriodeDUMÅT({periodeDUMÅT, onChange}) {
+  
+  const radios = [
+    { name: 'Dag',   value: 'Dag' },
+    { name: 'Uke',   value: 'Uke' },
+    { name: 'Måned', value: 'Måned' },
+    { name: 'År',    value: 'År' },
+    { name: 'Total', value: 'Total'},
+
+  ];
+  return (
+      <div id="knappene" style={{textAlign: "center"}}>
+      <br />
+      <ButtonGroup toggle>
+        {radios.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            type="radio"
+            variant={periodeDUMÅT === radio.value ? "dark" : "secondary"}
+            name="radio"
+            value={radio.value}
+            checked={periodeDUMÅT === radio.value}
+            onChange={onChange}
+
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+      <br />
+
+    </div>
+    
+  );
+}
+
+
 // DUMÅ = dag, uke, måned, år
 export function ToggleButtonsPeriodeDUMÅ({periodeDUMÅ, onChange}) {
   
