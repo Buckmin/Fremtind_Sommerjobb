@@ -1,5 +1,5 @@
 import React from "react"
-import { CowIkon } from "../customIkoner"
+import { CowIkon, GullringIkon, BurgerIkon } from "../customIkoner"
 
 // <p id="kildeFunfacts">Kilde: https://www.framtiden.no/gronne-tips/fritid/21-klimafotavtrykk-av-forbruket-vart.html</p>
 
@@ -30,10 +30,10 @@ export function ManyFunfactCards () {
         <div id="divRundtFFcards">
       <OneFunfactCard ikon={<CowIkon/>} kgCO2={0.75} factText="Produksjon av en halvliter øl." />
       <OneFunfactCard ikon={<CowIkon/>} kgCO2={1.3} factText="Produksjon av en vannmelon." />
-      <OneFunfactCard ikon={<CowIkon/>} kgCO2={4} factText="Produksjon av en cheeseburger." />
+      <OneFunfactCard ikon={<BurgerIkon/>} kgCO2={4} factText="Produksjon av en cheeseburger." />
       <OneFunfactCard ikon={<CowIkon/>} kgCO2={14} factText="Produksjon av 1 kg smør." />
       <OneFunfactCard ikon={<CowIkon/>} kgCO2={22.7} factText="Produksjon av 1kg storfekjøtt." />
-      <OneFunfactCard ikon={<CowIkon/>} kgCO2={117} factText="Produksjon av en gullring." />
+      <OneFunfactCard ikon={<GullringIkon/>} kgCO2={117} factText="Produksjon av en gullring." />
       <OneFunfactCard ikon={<CowIkon/>} kgCO2={15000} factText="Produksjon av en stor elbil." />
 
         </div>

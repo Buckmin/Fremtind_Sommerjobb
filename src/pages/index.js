@@ -19,7 +19,7 @@ import "../styles/webfonts.css";
 // import { ToggleButtonsSorterEtter } from "../components/sorterEtterKnapper";
 // import { emissionsBetweenDaysLS } from "../components/tidslinjeComp/tidslinjeData/emissions";
 
-import { initalLoadOfData } from "./dev";
+import { initalLoadOfDataLS } from "./dev";
 import { getJson } from "../getJson";
 import { BsPencil } from "react-icons/bs";
 import { Link } from "gatsby";
@@ -29,8 +29,8 @@ import { ManyFunfactCards } from "../components/statistics/funfactCards";
 
 
 
-export default function Home() {
-  initalLoadOfData(); // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
+export default function HomeLS() {
+  initalLoadOfDataLS(); // denne funksjonen oppretter lagret (per nå tilfeldig) data i localStorage
 
   
 

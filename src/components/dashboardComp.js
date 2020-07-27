@@ -7,7 +7,7 @@ import { HjuletTotalCO2 } from "./statistics/hjulet"
 import { getJson } from "../getJson"
 import { emissionsBetweenDaysLS } from "./tidslinjeComp/tidslinjeData/emissions"
 import { formatDate } from "./tidslinjeComp/tidslinjeData/randomDateKG"
-import { TravelProgressBarsPercentage, TravelProgressBarsKG } from "./statistics/progressBars"
+import { TravelProgressBarsPercentageLS, TravelProgressBarsKgLS } from "./statistics/progressBars"
 
 // i denne fila er de ulike visningene av dashboard, avhengig om user har mål eller ikke.
 // dropper nå muligheten for å ikke velge et mål.
@@ -44,9 +44,9 @@ export function DashboardMedUserGoalLS ({userGoals}) { // markerer alle funksjon
             <p></p>
             <HjuletTotalCO2 theEmission={emissionsInAPeriodLS(periodeDUMÅT, emissionsDict)} theGoal={userGoals[translationGoalDict[periodeDUMÅT]]} />
         
-            <TravelProgressBarsPercentage />
+            <TravelProgressBarsPercentageLS />
 
-            <TravelProgressBarsKG />
+            <TravelProgressBarsKgLS />
         
         </div>
   )

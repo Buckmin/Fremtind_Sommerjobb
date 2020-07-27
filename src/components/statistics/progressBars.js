@@ -13,7 +13,7 @@ import { getJson } from "../../getJson";
 import "bootstrap/dist/css/bootstrap.min.css"; // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen
 import "../../styles/progressBars.css";
 
-export function TravelProgressBarsKG() {
+export function TravelProgressBarsKgLS() {
   // ta inn dato/tidsperiode? ta inn array(dict?) med utslipp.
   // OPPDATERING PÅ DENNE OG NESTE FUNKSJON FOR BARER:
   // Nå tar de inn dict fra localStorage og sender ut tall fra det.
@@ -89,7 +89,7 @@ function OneBarWithIconAndTekst(props) {
 // DETTE ER BAR NUMMER TO, den med prosentvis fordeling av antall trips. Denne justerer seg også
 // OBS! denne funksjonen er nå ganske avhengig av skjermstørrelsen
 
-export function TravelProgressBarsPercentage() {
+export function TravelProgressBarsPercentageLS() {
   let tripsDict = getJson("amountOfTrips") || {};
   let walkTrips = tripsDict["walkTrips"];
   let bikeTrips = tripsDict["bikeTrips"];

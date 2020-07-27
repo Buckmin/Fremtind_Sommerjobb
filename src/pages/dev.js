@@ -11,34 +11,34 @@ import { getJson, setJson } from "../getJson"
 import moment from "moment";
 import { formatDate, formatDateWithTime } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
 //import { emissionsBetweenDaysLS } from "../components/tidslinjeComp/tidslinjeData/emissions"
-import { FormForDailyGoal } from "../components/inputForms";
+import { FormForDailyGoalLS } from "../components/inputForms";
 
-export default function DevPage() {
+export default function DevPageLS() {
   let falseBool = false
   if (falseBool) {
-      setInitialAlleTurer() // to-do: lage eksempelturer for lagring
+      setInitialAlleTurerLS() // to-do: lage eksempelturer for lagring
   }
 
   let tekstHeader = "Devpage";
-  initalLoadOfData();
+  initalLoadOfDataLS();
 
   return (
     <div style={{ textAlign: "center" }}>
       <Header headerText={tekstHeader} />
 
-      <Button onClick={oppdaterDagligUtslipp}> set ny emissionsPerDay</Button>
+      <Button onClick={oppdaterDagligUtslippLS}> set ny emissionsPerDay</Button>
       <p> </p>
-      <Button onClick={updateAmountOfTrips}> set ny amountOfTrips</Button>
+      <Button onClick={updateAmountOfTripsLS}> set ny amountOfTrips</Button>
       <p> </p>
-      <Button onClick={updateEmissionsFromDifferentTripTypes}>
+      <Button onClick={updateEmissionsFromDifferentTripTypesLS}>
         {" "}
         set ny CO2SumTransportMeans
       </Button>
       <p> </p>
-      <Button onClick={setInitialPersonlia}> kjør setInitialPersonlia</Button>
+      <Button onClick={setInitialPersonliaLS}> kjør setInitialPersonliaLS</Button>
       <p> </p>
 
-      <FormForDailyGoal />
+      <FormForDailyGoalLS />
       <p> </p>
 
       <Footer />
@@ -46,30 +46,30 @@ export default function DevPage() {
   );
 }
 
-export function initalLoadOfData() {
+export function initalLoadOfDataLS() {
   if (getJson("emissionsPerDay") === null) {
-    oppdaterDagligUtslipp();
+    oppdaterDagligUtslippLS();
   }
   if (getJson("amountOfTrips") === null) {
-    updateAmountOfTrips();
+    updateAmountOfTripsLS();
   }
   if (getJson("CO2SumTransportMeans") === null) {
-    updateEmissionsFromDifferentTripTypes();
+    updateEmissionsFromDifferentTripTypesLS();
   }
   if (getJson("personlia") === null) {
-    setInitialPersonlia();
+    setInitialPersonliaLS();
   }
   if (getJson("userGoals") === null) {
-    updateUserGoal();
+    updateUserGoalLS();
   }
   if (getJson("alleTurer") === null) {
-    setInitialAlleTurer();
+    setInitialAlleTurerLS();
   }
 
   return null;
 }
 
-function setInitialAlleTurer() {
+function setInitialAlleTurerLS() {
   // dictionary med dato for reiser. dato er key, dato med klokkeslett
   let dato1 = formatDateWithTime(new Date("2020-01-01 12:25")) // datoformat: YYYY.MM.DD-hh:mm
   let alleTurer = {}
@@ -82,7 +82,7 @@ function setInitialAlleTurer() {
 
 
 
-export function oppdaterDagligUtslipp() {
+export function oppdaterDagligUtslippLS() {
   // denne funksjonen oppdaterer arrayet med summen av daglige utslipp. Er per nå bare random tall.
   let currentDag = new Date("2020-01-01");
   let emissionOnDay = 0;
@@ -98,7 +98,7 @@ export function oppdaterDagligUtslipp() {
   setJson("emissionsPerDay", emissionsDict);
 }
 
-function updateAmountOfTrips() {
+function updateAmountOfTripsLS() {
   let tripsDict = {
     walkTrips: Math.floor(Math.random() * (20 - 0 + 1)),
     bikeTrips: Math.floor(Math.random() * (20 - 0 + 1)),
@@ -109,7 +109,7 @@ function updateAmountOfTrips() {
   setJson("amountOfTrips", tripsDict);
 }
 
-function updateEmissionsFromDifferentTripTypes() {
+function updateEmissionsFromDifferentTripTypesLS() {
   let tripsEmissionDict = {
     walkEmission: Math.floor(Math.random() * (100 - 0 + 1)),
     bikeEmission: Math.floor(Math.random() * (100 - 0 + 1)),
@@ -120,7 +120,7 @@ function updateEmissionsFromDifferentTripTypes() {
   setJson("CO2SumTransportMeans", tripsEmissionDict);
 }
 
-export function updateUserGoal(newDailyGoal) {
+export function updateUserGoalLS(newDailyGoal) {
   let userGoalsDict = {
     dailyGoal: 0,
     weeklyGoal: 0,
@@ -147,7 +147,7 @@ export function updateUserGoal(newDailyGoal) {
   setJson("userGoals", userGoalsDict);
 }
 
-function setInitialPersonlia() {
+function setInitialPersonliaLS() {
   let personliaDict = {
     name: "Kari",
     middleName: "Kanari",
