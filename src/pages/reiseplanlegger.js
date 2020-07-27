@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 import Header from "../components/header"
-import Footer from "../components/Footer"
+import Footer from "../components/footer"
 
 
 import GoogleMaps from "../components/routes/Autocomplete"
@@ -42,7 +42,6 @@ export default function Reiseplanlegger() {
     // OUTPUT Utslipp pr passasjer [g/pkm]
     function findFuelConsum (fuel, consum) {
         if (fuel === "PETROL") {
-            console.log('fuelconsum: ', (consum * 2.32 * 100 / 1.7))
             return (consum * 2.32 * 100 / 1.7)
         }
         else if (fuel === "DIESEL") {
@@ -76,6 +75,8 @@ export default function Reiseplanlegger() {
                 <FindTrips
                     origin={origin.place_id}
                     destination={destination.place_id}
+                    originText={origin.structured_formatting.main_text}
+                    destinationText={destination.structured_formatting.main_text}
                     fuelConsum={fuelConsum}
                     tempFactor={tempFactor}
                 />
