@@ -22,6 +22,7 @@ export default function EndreBilinfo() {
     const [co2consum, setCo2consum] = useState(carInfo["co2consum"]);
     const [fuelconsum, setFuelconsum] = useState(carInfo["fuelconsum"]);
 
+
     function handleSubmit() {
         let carDict = {
             brand: brand,
@@ -49,32 +50,40 @@ export default function EndreBilinfo() {
 
             <form  id="updateCarInfo" className="form">
 
-                <label id="brandInput" htmlFor="brand" style={{marginBottom:"10px", marginTop:"5px"}}>Merke:&emsp;
+                <label id="brandInput" htmlFor="brand" style={{marginBottom:"10px", marginTop:"5px"}}>Merke:
                     <br/><input id="brand" type="text" name="Merke" placeholder={brand} onChange={e => setBrand(e.target.value)}></input>
                 </label>
 
-                <label id="modelInput" htmlFor="model" style={{marginBottom:"10px"}}>Modell:&emsp;
+                <label id="modelInput" htmlFor="model" style={{marginBottom:"10px"}}>Modell:
                     <br/><input id="model" type="text" name="Modell" placeholder={model} onChange={e => setModel(e.target.value)}></input>
                 </label>
 
-                <label id="fuelInput" htmlFor="fuel" style={{marginBottom:"10px"}}>Drivstoff:&emsp;
-                    <br/><input id="fuel" type="text" name="Drivstoff" placeholder={fuel} onChange={e => setFuel(e.target.value)}></input>
+                <br/>
+                <label id="fuelLabel" htmlFor="fuel" style={{marginBottom:"10px"}}>Drivstoff:
+                    {/* <br/><input id="fuel" type="text" name="Drivstoff" placeholder={fuel} onChange={e => setFuel(e.target.value)}></input> */}
+                    <br/>
+                    <select name="fuel" id="fuelSelect" value={fuel} onChange={e => setFuel(e.target.value)}>
+                        <option value="Bensin" selected>Bensin</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="El">El</option>
+                    </select>
                 </label>
+                <br/>
 
-                <label id="yearInput" htmlFor="year" style={{marginBottom:"10px"}}>Årsmodell:&emsp;
+                <label id="yearInput" htmlFor="year" style={{marginBottom:"10px", marginTop:"5px"}}>Årsmodell:
                     <br/><input id="year" type="number" name="Årsmodell" placeholder={year} onChange={e => setYear(parseInt(e.target.value))}></input>
                 </label>
 
-                <label id="registrationInput" htmlFor="registration" style={{marginBottom:"10px"}}>Registreringsnummer:&emsp;
+                <label id="registrationInput" htmlFor="registration" style={{marginBottom:"10px"}}>Registreringsnummer:
                     <br/><input id="registration" type="text" name="Registreringsnummer" placeholder={registration} onChange={e => setRegistration(e.target.value)}></input>
                 </label>
 
-                <label id="co2consumInput" htmlFor="co2consum" style={{marginBottom:"10px"}}>CO2 forbruk:&emsp;
-                    <br/><input id="co2consum" type="float" name="CO2 forbruk" placeholder={co2consum} onChange={e => setCo2consum(parseFloat(e.target.value))}></input>
+                <label id="co2consumInput" htmlFor="co2consum" style={{marginBottom:"10px"}}>CO2 forbruk:
+                    <br/><input id="co2consum" type="number" step="0.01" name="CO2 forbruk" placeholder={co2consum} onChange={e => setCo2consum(parseFloat(e.target.value))}></input>
                 </label>
 
-                <label id="fuelconsumInput" htmlFor="fuelconsum" style={{marginBottom:"10px"}}>Drivstofforbruk:&emsp;
-                    <br/><input id="fuelconsum" type="float" name="Drivstofforbruk" placeholder={fuelconsum} onChange={e => setFuelconsum(parseFloat(e.target.value))}></input>
+                <label id="fuelconsumInput" htmlFor="fuelconsum" style={{marginBottom:"10px"}}>Drivstofforbruk:
+                    <br/><input id="fuelconsum" type="number" step="0.01" name="Drivstofforbruk" placeholder={fuelconsum} onChange={e => setFuelconsum(parseFloat(e.target.value))}></input>
                 </label>
 
                 <br/><br/>
