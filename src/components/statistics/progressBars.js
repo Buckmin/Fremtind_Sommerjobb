@@ -3,7 +3,7 @@ import ProgressBar from "react-bootstrap/ProgressBar"; // https://react-bootstra
 import {
   MdDirectionsWalk,
   MdDirectionsBike,
-  MdTrain,
+  MdDirectionsBus,
   MdDirectionsCar,
 } from "react-icons/md";
 
@@ -50,7 +50,7 @@ export function TravelProgressBarsKgLS() {
       />
       <OneBarWithIconAndTekst
         id="train"
-        IconName={<MdTrain size={iconSize} />}
+        IconName={<MdDirectionsBus size={iconSize} />}
         CO2number={transitEmission}
         sumEmissions={sumEmissions}
       />
@@ -122,7 +122,7 @@ export function TravelProgressBarsPercentageLS() {
       />
       <OneBarWithMovingIconAndTextPercentage
         id="train"
-        IconName={<MdTrain size={iconSize} />}
+        IconName={<MdDirectionsBus size={iconSize} />}
         antallTrips={transitTrips}
         sumTrips={sumTrips}
       />
@@ -203,7 +203,7 @@ export function TravelProgressBarsCaloriesLS() {
       />
       <OneBarWithIconAndTekstCALORIES
         id="train"
-        IconName={<MdTrain size={iconSize} />}
+        IconName={<MdDirectionsBus size={iconSize} />}
         CO2number={transitCalories}
         sumCalories={sumCalories}
       />

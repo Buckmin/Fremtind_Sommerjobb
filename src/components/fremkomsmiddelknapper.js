@@ -4,7 +4,7 @@ import React from "react"
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 
-import { MdDirectionsWalk, MdDirectionsBike, MdTrain, MdDirectionsCar } from "react-icons/md"; // ikonene
+import { MdDirectionsWalk, MdDirectionsBike, MdDirectionsBus, MdDirectionsCar } from "react-icons/md"; // ikonene
 
 
 export function ToggleButtonsFremkomstmiddel({middel, onChange}) {
@@ -12,7 +12,7 @@ export function ToggleButtonsFremkomstmiddel({middel, onChange}) {
     const radios = [
       { name: <MdDirectionsWalk size={iconSize} />,   value: 'Gå' },
       { name: <MdDirectionsBike size={iconSize} />,   value: 'Sykkel' },
-      { name: <MdTrain size={iconSize} />,            value: 'Kollektivt' },
+      { name: <MdDirectionsBus size={iconSize} />,            value: 'Kollektivt' },
       { name: <MdDirectionsCar size={iconSize} />,    value: 'Bil' },
 
     ];

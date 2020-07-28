@@ -8,7 +8,7 @@
 
 **Oppstart.**
 
-  Prosjektet er skrevet i React, og vi har brukt GatsbyJS for alt backend. Starteren er hentet fra https://github.com/gatsbyjs/gatsby-starter-hello-world.
+  Prosjektet er skrevet i React, og vi har brukt GatsbyJS som rammeverk. Starteren er hentet fra https://github.com/gatsbyjs/gatsby-starter-hello-world.
 
   Du finner prosjeket på LINK, eller du kan laste ned GatsbyJS, deretter dette repoet og kjøre:
 
