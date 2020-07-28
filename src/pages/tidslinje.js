@@ -14,14 +14,14 @@ import {
 } from "../components/tidslinjeComp/totalEmission";
 import { Datovelger } from "../components/tidslinjeComp/datovelger";
 import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
-import { EmissionsPerDayArray } from "../components/tidslinjeComp/tidslinjeData/emissions";
+import { EmissionsPerDayArrayLS } from "../components/tidslinjeComp/tidslinjeData/emissions";
 
 import "../styles/tidslinje.css";
 
 // her er selve funksjonen som kjører komponentene ut på skjermen
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState(new Date("2020-04-01")); // datoen som blir valgt i datepicker-tidslinje
-  const userEmissions = EmissionsPerDayArray(); // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
+  const userEmissions = EmissionsPerDayArrayLS(); // hentet fra emissions.js, 2D array [[dato, kg], ...]. Alle utslipp til brukeren
   const userEmissionsSliced = sliceOnGivenIndexItemIn2dArr(
     userEmissions,
     formatDate(selectedDate)

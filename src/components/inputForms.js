@@ -1,10 +1,10 @@
 // dette er en fil for forskjellige input-komponenter
 import React, { Component } from "react";
-import { updateUserGoal } from "../pages/dev";
+import { updateUserGoalLS } from "../pages/dev";
 import { Button } from "react-bootstrap";
 import { getJson } from "../getJson";
 
-export class FormForDailyGoal extends Component {
+export class FormForDailyGoalLS extends Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +15,7 @@ export class FormForDailyGoal extends Component {
   }
 
   handleOnSubmit = (event) => {
-      updateUserGoal(parseInt(this.state.dailyGoal))
+      updateUserGoalLS(parseInt(this.state.dailyGoal))
       event.preventDefault();
   }
   handleInputChange = (event) => {
@@ -38,7 +38,7 @@ export class FormForDailyGoal extends Component {
 }
 
 
-export class FormForDailyGoalForUser extends Component {
+export class FormForDailyGoalForUserLS extends Component {
     constructor(props){
         super(props)
         const goal = getJson("userGoals");
@@ -48,7 +48,7 @@ export class FormForDailyGoalForUser extends Component {
     }
 
     handleOnSubmit = (event) => {
-        updateUserGoal(parseInt(this.state.dailyGoal))
+        updateUserGoalLS(parseInt(this.state.dailyGoal))
         event.preventDefault();
     }
     handleInputChange = (event) => {

@@ -2,11 +2,11 @@
         Dette er fila hvor fake testutslipp BLE generert. NÅ er det bare en dict->array + sjekk om emissionsPerDay eksisterer.
 */
 
-import { oppdaterDagligUtslipp } from "../../../pages/dev";
+import { oppdaterDagligUtslippLS } from "../../../pages/dev";
 import { antallDagerMellom, formatDate } from "./randomDateKG";
 import { getJson } from "../../../getJson";
 
-export function EmissionsPerDayArray() {
+export function EmissionsPerDayArrayLS() {
   // tanken med denne blir så å sette alle emissions til 0 for alle dager, så fylles de opp etterhvert.
   //let dag1utslipp = new Date ("2020-01-01") // første dag i brukerens informasjon om utslipp
   let emissionsArray = [];
@@ -15,7 +15,7 @@ export function EmissionsPerDayArray() {
   if (getJson("emissionsPerDay") !== null) {
     emissionsDict = getJson("emissionsPerDay") || {};
   } else {
-    oppdaterDagligUtslipp();
+    oppdaterDagligUtslippLS();
     emissionsDict = {};
   }
   for (let key in emissionsDict) {

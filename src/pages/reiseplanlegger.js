@@ -45,6 +45,7 @@ export default function Reiseplanlegger() {
 
     // INPUT fuelConsum = forbruk [L/mil], fuel = drivstofftype (BENSIN, DIESEL, EL)
     // OUTPUT Utslipp pr passasjer [g/pkm]
+    // consum * abc
     function findFuelConsum (fuel, consum) {
         if (fuel === "Bensin") {
             return (consum * 2.32 * 100 / 1.7)

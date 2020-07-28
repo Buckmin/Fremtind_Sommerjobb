@@ -29,11 +29,11 @@ export function HjuletTotalCO2 ({theEmission, theGoal}) {
                     )}> 
                     <div> 
                         <span style={{fontSize: fontStrArr[theEmissionStr.length], fontWeight: 200}}>{theEmissionStr}</span>
-                        <p style={{marginTop: 0, marginBottom: 0, }}>kg</p>
+                        <p style={{marginTop: 0, marginBottom: 0, }}>g</p>
                     </div>
                 </CircularProgressbarWithChildren>
             </div>
-                    <p>av {theGoal}kg  { <IconLinkToGoals />}</p>
+                    <p>av {theGoal}g  { <IconLinkToGoals />}</p>
         </div>
     )
 }

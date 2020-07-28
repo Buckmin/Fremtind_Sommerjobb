@@ -143,7 +143,7 @@ function FindTrips(props) {
     )
 
     
-    function SaveRoute() {
+    function SaveRouteLS() {
 
         //må initialisere "alleTurer" et sted, skal fikses i en annen komponent, men måtte legge inn her første gang man kjører lokalt
         //setJson("alleTurer", {})
@@ -419,7 +419,7 @@ function FindTrips(props) {
         {/* <PrimaryButton onClick={() => {SaveRoute(); navigate('/ruter')}}>Lagre Reise</PrimaryButton> */} 
         
         {/* Denne knappen vil kun lagre ruten og ikke redirecte */}
-        <PrimaryButton onClick={() => SaveRoute() }>Lagre Reise</PrimaryButton>
+        <PrimaryButton onClick={() => SaveRouteLS() }>Lagre Reise</PrimaryButton>
 
         <br/><br/>
         

@@ -4,9 +4,8 @@
 // og så se hva de nye grensene blir for uke, mnd, år og totalt automatisk
 
 import React from "react"
-// import { FormForDailyGoal } from "../components/inputForms"
 import { MountainIkon, FremtindLogoIkon } from "../components/customIkoner"
-import { FormForDailyGoalForUser } from "../components/inputForms"
+import { FormForDailyGoalForUserLS } from "../components/inputForms"
 import Header from "../components/header"
 import { Link } from "gatsby"
 import Footer from "../components/footer"
@@ -21,7 +20,7 @@ export default function Home() {
             <Link to="/">Gå hjem</Link>
             <p> </p>
 
-            <FormForDailyGoalForUser />
+            <FormForDailyGoalForUserLS />
 
             <p style={{textAlign: "center"}}>
                 <MountainIkon />

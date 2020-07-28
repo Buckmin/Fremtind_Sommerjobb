@@ -23,7 +23,7 @@ import { MdEdit } from "react-icons/md";
 // hente ut lokal fil: {VARIABEL} = getJson({KEY})
 
 
-export default function Home() {
+export default function HomeLS() {
   let personlia2 = getJson("personlia") || {};
   let carInfo = getJson("carInfo") || {};
 
