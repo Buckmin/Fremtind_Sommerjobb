@@ -7,7 +7,7 @@ import TabBar from "../components/tabs"
 
 export default function MyRoutes () {
     return (
-        <div>
+        <div id = 'MineRuter page'>
             <Header headerText="Mine Ruter"/>
             <TabBar labelOne = "Nylig" labelTwo = "Mest reist" labelThree = "Favoritter"/>
             <Footer/>

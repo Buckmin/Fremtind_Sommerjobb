@@ -1,35 +1,27 @@
 import React from "react"
 import AccordionJS from "../../components/AccordionJS"
 
-export default function Favoritter () {
-    return (
-        <div>
-            <AccordionJS 
-                title="test - favoritter" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Hammersborggata 2"
-            />
-            <AccordionJS 
-                title="Hjem - Jobb" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Hammersborggata 2"
-            />
-            <AccordionJS 
-                title="Jobb - Hjem" 
-                fromDest="Hammersborggata 2"
-                toDest="Henrik Ibsens gate 1"
-            />
-            <AccordionJS 
-                title="Hjem - Barnehagen" 
-                fromDest="Henrik Ibsens gate 1"
-                toDest="Damstredet 1"
-            />
-            <AccordionJS 
-                title="Barnehagen - Hjem" 
-                fromDest="Damstredet 1"
-                toDest="Henrik Ibsens gate 1"
-            />
-        </div>
-    )
+function sortByFav(arr) {
+    const cardArray = [] // array for cards/AcordionJs greiene
+    const cardKeyArray = [] // array kun for key i dict alleTurer for å få sortering
+    
+    for (const key in arr){
+        if (arr[key]["favoritt"]){ // her blir kun de som er favoritter lagt til. OBS: eneste endringer fra nylige.js
+            cardKeyArray.push(key)
+        }
 
+    }
+    cardKeyArray.sort() // sortert på dato og reversert for å få nyeste rett under
+    return cardKeyArray.reverse()
+}
+
+export default function Favoritter () {
+    const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
+    alleTurer2 = sortByFav(alleTurer2)
+
+    return (
+        <div className="container">
+            {alleTurer2.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))}
+        </div>
+    ) 
 }

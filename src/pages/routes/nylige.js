@@ -2,28 +2,34 @@ import React from "react"
 import AccordionJS from "../../components/AccordionJS"
 
 
+/* let alleTurer= [
+    {'2020.04.23-12:12' : {til: 'TilAdresse1', fra: 'fraAdresse1', tid: 20, lengde:37, middel: 'gå', CO2: 0, kal: 3456}},
+    {'2020.03.23-12:12' : {til: 'TilAdresse2', fra: 'fraAdresse2', tid: 45, lengde:34, middel: 'sykkel', CO2: 0, kal: 386}},
+    {'2020.03.26-12:42' : {til: 'TilAdresse3', fra: 'fraAdresse3', tid: 93, lengde:57, middel: 'bil', CO2: 456, kal: 0}},
+    {'2020.06.26-12:42' : {til: 'TilAdresse4', fra: 'fraAdresse4', tid: 27, lengde:39, middel: 'kollektivt', CO2: 2345, kal: 0}},
+]; */
+
+function sortByDate(arr) {
+    const cardArray = [] // array for cards/AcordionJs greiene
+    const cardKeyArray = [] // array kun for key i dict alleTurer for å få sortering
+    
+    for (const key in arr){
+        cardKeyArray.push(key)
+    }
+    cardKeyArray.sort() // sortert på dato og reversert for å få nyeste rett under
+    return cardKeyArray.reverse()
+}
+
+
 export default function Nylige () {
-    let alleTurer= {}
-    alleTurer['2020.03.23-12:12'] = {til: 'dette er en til test 1', fra: 'dette er fra test 1'}
-    alleTurer['2020.04.23-12:12'] = {til: 'dette er en til test 2', fra: 'dette er fra test 2'}
-    alleTurer['2020.03.26-12:42'] = {til: 'dette er en til test 3', fra: 'dette er fra test 3'}
-    
-    let tilTest = alleTurer['2020.03.23-12:12']['til']
-    let fraTest = alleTurer['2020.03.23-12:12']['fra']
-    let keysTest = (Object.keys(alleTurer)).sort()
-    console.log(keysTest[1])
-    console.log(alleTurer[keysTest[1]])
-    
+    const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
+    alleTurer2 = sortByDate(alleTurer2)
 
     return (
-        <div>
-            <AccordionJS 
-                date = {keysTest[0]}
-                fromDest= {tilTest}
-                toDest= {fraTest}
-            />
-
+        <div className="container">
+            {/* {alleTurer.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))} */}
+            {alleTurer2.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))}
         </div>
-    )
-
+    ) 
 }
+

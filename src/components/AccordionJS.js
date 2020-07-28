@@ -5,9 +5,13 @@ import Chevron from "../components/Chevron"
 
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
+import dummyMap from '../images/dummyMap.png';
+import InfoSectionUpper from "../components/InfoSectionUpper"
+import InfoSectionLower from "../components/InfoSectionLower"
 
 function AccordionJS(props) {
+    let tur = props.tur
+    console.log(tur)
 
     const [setActive, setActiveState] = useState("");
     const [setHeight, setHeightState] = useState("0px");
@@ -25,21 +29,27 @@ function AccordionJS(props) {
         );
     }
 
+    /* handleFavChange = (event) => {
+        tur[Object.keys(tur)].fav === true ? false : true
+    } */
+
     return(
-        <div className="accordion__section">
+        <div id = 'Single Accordion' className="accordion__section">
             <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
-                <div>
+                <div id = 'Compact Accordion' className = "test">
                     <p className="accordion_date">
-                        {props.date}
+                        {Object.keys(tur)}
                     </p>
                     
                     <p className="accordion__address">
-                        Fra: {props.fromDest}
+                        Fra: {tur[Object.keys(tur)].fra}
                         <br/>
-                        Til: {props.toDest}
+                        Til: {tur[Object.keys(tur)].til}
                     </p> 
                 </div>
                 <IconButton 
+                /* onClick = {this.handleFavChange} */
+                style= {{position: 'absolute', right: 0, top: 0,}}
                 aria-label= "FavoriteBorderIcon" 
                 className='fav_button'>
                     <FavoriteBorderIcon />
@@ -47,23 +57,14 @@ function AccordionJS(props) {
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
             </button>
             <div 
+                id = 'Extended Accordion'
                 ref={content} 
                 style={{ maxHeight: `${setHeight}` }} 
                 className="accordion__content"
             >
-                <div className="accordion__text">
-                    {/* ER: Her bruker de noe kalt dangerouslySetInnerHTML i tutorial, prøver å unngå i første omgang */}
-                    Fra: {props.fromDest}
-                    <br/>
-                    Til: {props.toDest}
-                    <br/>
-                    {/* ER: Ikke implementert props under enda, usikker på om vi kan ta inn komponent som prop? */}
-                    {props.transport}
-                    <br/>
-                    {props.CO2Bar}
-                    <br/>
-                    {props.travelDetails}
-                </div>
+                <InfoSectionUpper turInfo = {tur}/>
+                <img src={dummyMap} alt="dummyMap" className="photo"/>
+                <InfoSectionLower turInfo = {tur}/>
             </div>
         
         </div>
