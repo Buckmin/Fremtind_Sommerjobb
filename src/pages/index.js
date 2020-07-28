@@ -49,6 +49,8 @@ export default function HomeLS() {
   // const [middel, setRadioValueMiddel] = useState("Gå"); // en del av fremkomstmiddelknapper
   // const [sortering, setRadioValueSortering] = useState("Nylig"); // en del av fremkomstmiddelknapper
 
+  const Test = DashboardUtenUserGoal;
+
   if (userGoals["dailyGoal"] === undefined || userGoals["dailyGoal"] === 0 || userGoals["dailyGoal"] ===  null ){
     return (
       <div id="hovedkontainer" className="div__hovedStyle">
@@ -56,7 +58,7 @@ export default function HomeLS() {
         <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
 
         <br/><br/>
-        <DashboardUtenUserGoal />
+        <Test />
         
         <br/><br/><br/>
         <VisualizedTotalStatsLS />
@@ -79,7 +81,7 @@ export default function HomeLS() {
 
         <br/><br/><br/>
         <VisualizedTotalStatsLS />
-        
+
         <br/><br/><br/>
         <ManyFunfactCards />
         <Footer page="/" />

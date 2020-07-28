@@ -3,7 +3,7 @@ import { getJson } from "../../getJson"
 
 
 export function VisualizedTotalStatsLS() {
-    let totalStats = getJson ("totalStats")
+    let totalStats = getJson ("totalStats") || {};
     return (
         <div id="hovedkontainer" style={{color: "#FFC880", padding: 10, backgroundColor: "#765D4B"}}>
             <div id="enkeltInfoboks"  >
