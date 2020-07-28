@@ -16,13 +16,13 @@ function sortByFav(arr) {
 }
 
 export default function Favoritter () {
-    // OBS!!! alleTurer2 må bli byttet til: const alleTurer2 = getJson("alleTurer")
-    const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
-    alleTurer2 = sortByFav(alleTurer2)
+    // OBS!!! alleTurerKopi må bli byttet til: const alleTurer2 = getJson("alleTurer")
+    const alleTurerKopi = JSON.parse(localStorage.getItem("alleTurer"))
+    alleTurerKopi = sortByFav(alleTurerKopi)
 
     return (
         <div className="container">
-            {alleTurer2.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))}
+            {alleTurerKopi.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))}
         </div>
     ) 
 }
