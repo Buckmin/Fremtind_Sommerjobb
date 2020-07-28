@@ -12,16 +12,16 @@ function InfoSectionUpper(props) {
         let trvlMeans = tur[Object.keys(tur)].middel
         let icon = ''
         switch (trvlMeans) {
-            case "gå":
+            case "WALKING":
                 icon = <DirectionsWalkIcon fontSize="large"/>
                 break;
-            case "sykkel":
+            case "BICYCLING":
                 icon = <DirectionsBikeIcon fontSize="large"/>
                 break;
-            case "kollektivt":
+            case "TRANSIT":
                 icon = <CommuteIcon/>
                 break;
-            case "bil":
+            case "DRIVING":
                 icon = <DriveEtaIcon/>
                 break;
             default:

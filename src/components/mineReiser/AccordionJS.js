@@ -1,10 +1,10 @@
 import React, {useState, useRef} from "react"
-
+/* import { getJson, setJson } from "../../getJson"; */
 import "../../styles/AccordionJS.css"
 import Chevron from "./Chevron"
-
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import dummyMap from '../../images/dummyMap.png';
 import InfoSectionUpper from "./infoSectionUpper"
 import InfoSectionLower from "./infoSectionLower"
@@ -27,10 +27,15 @@ function AccordionJS(props) {
         setRotateState(
             setActive === "active" ? "accordion__icon" : "accordion__icon rotate"
         );
-    }
+    }    
 
     /* handleFavChange = (event) => {
         tur[Object.keys(tur)].fav === true ? false : true
+
+        alleTurer[date] = {fra : props.originText, til: props.destinationText, lengde: distanceValue, tid: durationValue, middel: travelMode, CO2: emission, kcal: calories, favoritt: false}
+        setJson("alleTurer", alleTurer);
+        setSaved("YES");
+        FavoriteIcon(tur)
     } */
 
     return(
@@ -47,13 +52,16 @@ function AccordionJS(props) {
                         Til: {tur[Object.keys(tur)].til}
                     </p> 
                 </div>
+                
                 <IconButton 
-                /* onClick = {this.handleFavChange} */
+                onClick = {this.handleFavChange}
                 style= {{position: 'absolute', right: 0, top: 0,}}
                 aria-label= "FavoriteBorderIcon" 
                 className='fav_button'>
-                    <FavoriteBorderIcon />
+                    {tur[Object.keys(tur)].favoritt ? <FavoriteIcon/> : <FavoriteBorderIcon />}
                 </IconButton>
+
+                {selectFavIcon(tur)}
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
             </button>
             <div 
