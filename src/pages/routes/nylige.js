@@ -1,7 +1,6 @@
 import React from "react"
 import AccordionJS from "../../components/AccordionJS"
 
-
 /* let alleTurer= [
     {'2020.04.23-12:12' : {til: 'TilAdresse1', fra: 'fraAdresse1', tid: 20, lengde:37, middel: 'gå', CO2: 0, kal: 3456}},
     {'2020.03.23-12:12' : {til: 'TilAdresse2', fra: 'fraAdresse2', tid: 45, lengde:34, middel: 'sykkel', CO2: 0, kal: 386}},
@@ -22,14 +21,13 @@ function sortByDate(arr) {
 
 
 export default function Nylige () {
-    const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
-    alleTurer2 = sortByDate(alleTurer2)
+    const alleTurerKopi = JSON.parse(localStorage.getItem("alleTurer"))
+    alleTurerKopi = sortByDate(alleTurerKopi)
 
     return (
         <div className="container">
             {/* {alleTurer.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))} */}
-            {alleTurer2.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))}
+            {alleTurerKopi.map((tur,i) => (<AccordionJS tur= {tur} key = {i} />))}
         </div>
     ) 
 }
-

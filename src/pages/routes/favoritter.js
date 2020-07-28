@@ -16,6 +16,7 @@ function sortByFav(arr) {
 }
 
 export default function Favoritter () {
+    // OBS!!! alleTurer2 må bli byttet til: const alleTurer2 = getJson("alleTurer")
     const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
     alleTurer2 = sortByFav(alleTurer2)
 
