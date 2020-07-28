@@ -2,7 +2,7 @@
 import React from "react"
 import Header from "../components/header"
 import Footer from "../components/Footer"
-import TabBar from "../components/tabs"
+import TabBar from "../components/mineReiser/tabs"
 
 
 export default function MyRoutes () {

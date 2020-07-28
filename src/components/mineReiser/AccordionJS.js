@@ -1,11 +1,11 @@
 import React, {useState, useRef} from "react"
 
-import "../styles/AccordionJS.css"
+import "../../styles/AccordionJS.css"
 import Chevron from "./Chevron"
 
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import dummyMap from '../images/dummyMap.png';
+import dummyMap from '../../images/dummyMap.png';
 import InfoSectionUpper from "./infoSectionUpper"
 import InfoSectionLower from "./infoSectionLower"
 
