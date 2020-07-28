@@ -2,7 +2,7 @@ import React from "react"
 import AccordionJS from "../../components/mineReiser/AccordionJS"
 
 function sortByFav(arr) {
-    const cardArray = [] // array for cards/AcordionJs greiene
+    const sortedArray = [] // array for cards/AcordionJs greiene
     const cardKeyArray = [] // array kun for key i dict alleTurer for å få sortering
     
     for (const key in arr){
@@ -12,13 +12,18 @@ function sortByFav(arr) {
 
     }
     cardKeyArray.sort() // sortert på dato og reversert for å få nyeste rett under
-    return cardKeyArray.reverse()
+    cardKeyArray.reverse()
+
+    for (let i = 0; i < cardKeyArray.length; i++){
+        sortedArray.push(arr[i])
+    }
+    return sortedArray
 }
 
 export default function Favoritter () {
     // OBS!!! alleTurerKopi må bli byttet til: const alleTurer2 = getJson("alleTurer")
-    const alleTurerKopi = JSON.parse(localStorage.getItem("alleTurer"))
-    alleTurerKopi = sortByFav(alleTurerKopi)
+    const alleTurer2 = JSON.parse(localStorage.getItem("alleTurer"))
+    let alleTurerKopi = sortByFav(alleTurer2)
 
     return (
         <div className="container">
