@@ -26,6 +26,7 @@ import { Link } from "gatsby";
 // import { CowIkon, FremtindLogoIkon } from "../components/customIkoner";
 import { DashboardUtenUserGoal, DashboardMedUserGoalLS } from "../components/dashboardComp";
 import { ManyFunfactCards } from "../components/statistics/funfactCards";
+import { VisualizedTotalStatsLS } from "../components/statistics/totalStatsVisualized";
 
 
 
@@ -56,9 +57,13 @@ export default function HomeLS() {
 
         <br/><br/>
         <DashboardUtenUserGoal />
+        
+        <br/><br/><br/>
+        <VisualizedTotalStatsLS />
 
         <br/><br/><br/>
         <ManyFunfactCards />
+
         <Footer page="/" />
       </div> 
     );
@@ -73,7 +78,9 @@ export default function HomeLS() {
         <DashboardMedUserGoalLS userGoals={userGoals} />  
 
         <br/><br/><br/>
+        <VisualizedTotalStatsLS />
         
+        <br/><br/><br/>
         <ManyFunfactCards />
         <Footer page="/" />
       </div> 
@@ -86,7 +93,8 @@ export default function HomeLS() {
 }
 
 
-/*       
+/*       // viser hvordan disse skal bli brukt. trenger hooks deklarert litt lenger opp i fila
+
       <ToggleButtonsSorterEtter
         sortering={sortering}
         onChange={(e) => setRadioValueSortering(e.currentTarget.value)}

@@ -12,6 +12,7 @@ import moment from "moment";
 import { formatDate, formatDateWithTime } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
 //import { emissionsBetweenDaysLS } from "../components/tidslinjeComp/tidslinjeData/emissions"
 import { FormForDailyGoalLS } from "../components/inputForms";
+import { upddateLSfromAlleTurerLS } from "../components/statistics/dataFunksjoner";
 
 export default function DevPageLS() {
   let falseBool = false
@@ -41,6 +42,11 @@ export default function DevPageLS() {
       <FormForDailyGoalLS />
       <p> </p>
 
+      <p> </p>
+      <Button onClick={upddateLSfromAlleTurerLS}> Bruk data fra alleTurer</Button>
+      <p> </p>
+       
+
       <Footer />
     </div>
   );
@@ -65,6 +71,12 @@ export function initalLoadOfDataLS() {
   if (getJson("alleTurer") === null) {
     setInitialAlleTurerLS();
   }
+  if (getJson("kCalSumTransportMeans") === null) {
+    updateCaloriesFromDifferentTripTypesLS();
+  }
+  if (getJson("totalStats") === null){
+    setEmptyTotalStatsLS()
+  }
 
   return null;
 }
@@ -73,7 +85,7 @@ function setInitialAlleTurerLS() {
   // dictionary med dato for reiser. dato er key, dato med klokkeslett
   let dato1 = formatDateWithTime(new Date("2020-01-01 12:25")) // datoformat: YYYY.MM.DD-hh:mm
   let alleTurer = {}
-  alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "tog", CO2: 5, favoritt: false}
+  alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "Kollektivt", CO2: 5, favoritt: false}
 
   setJson("alleTurer", alleTurer)
 
@@ -102,8 +114,7 @@ function updateAmountOfTripsLS() {
   let tripsDict = {
     walkTrips: Math.floor(Math.random() * (20 - 0 + 1)),
     bikeTrips: Math.floor(Math.random() * (20 - 0 + 1)),
-    trainTrips: Math.floor(Math.random() * (20 - 0 + 1)),
-    busTrips: Math.floor(Math.random() * (20 - 0 + 1)),
+    transitTrips: Math.floor(Math.random() * (20 - 0 + 1)),
     carTrips: Math.floor(Math.random() * (20 - 0 + 1)),
   };
   setJson("amountOfTrips", tripsDict);
@@ -113,11 +124,20 @@ function updateEmissionsFromDifferentTripTypesLS() {
   let tripsEmissionDict = {
     walkEmission: Math.floor(Math.random() * (100 - 0 + 1)),
     bikeEmission: Math.floor(Math.random() * (100 - 0 + 1)),
-    trainEmission: Math.floor(Math.random() * (100 - 0 + 1)),
-    busEmission: Math.floor(Math.random() * (100 - 0 + 1)),
+    transitEmission: Math.floor(Math.random() * (100 - 0 + 1)),
     carEmission: Math.floor(Math.random() * (100 - 0 + 1)),
   };
   setJson("CO2SumTransportMeans", tripsEmissionDict);
+}
+
+function updateCaloriesFromDifferentTripTypesLS() {
+  let tripsCaloriesDict = {
+    walkCalories: Math.floor(Math.random() * (100 - 0 + 1)),
+    bikeCalories: Math.floor(Math.random() * (100 - 0 + 1)),
+    transitCalories: Math.floor(Math.random() * (100 - 0 + 1)),
+    carCalories: Math.floor(Math.random() * (100 - 0 + 1)),
+  };
+  setJson("kCalSumTransportMeans", tripsCaloriesDict);
 }
 
 export function updateUserGoalLS(newDailyGoal) {
@@ -157,4 +177,15 @@ function setInitialPersonliaLS() {
     initialDate: new Date("2020-01-01"),
   };
   setJson("personlia", personliaDict);
+}
+
+function setEmptyTotalStatsLS() {
+  let totalStats = {
+    totalEmission: 0,
+    totalCalories: 0,
+    totalLength: 0,
+    totalTrips: 0,
+    totalTime: 0,
+}
+  setJson("totalStats", totalStats)
 }
