@@ -1,5 +1,5 @@
 import React from "react"
-import AccordionJS from "../../components/AccordionJS"
+import AccordionJS from "../../components/mineReiser/AccordionJS"
 
 function sortByFav(arr) {
     const cardArray = [] // array for cards/AcordionJs greiene

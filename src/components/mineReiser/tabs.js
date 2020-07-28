@@ -6,9 +6,9 @@ import Tabs from '@material-ui/core/Tabs'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types'; 
-import Nylige from '../pages/routes/nylige';
-import MestReist from '../pages/routes/mestReist';
-import Favoritter from '../pages/routes/favoritter';
+import Nylige from '../../pages/routes/nylige';
+import MestReist from '../../pages/routes/mestReist';
+import Favoritter from '../../pages/routes/favoritter';
 
 
 function TabPanel(props) {

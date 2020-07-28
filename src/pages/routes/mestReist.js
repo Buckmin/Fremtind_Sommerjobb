@@ -1,5 +1,5 @@
 import React from "react"
-import AccordionJS from "../../components/AccordionJS"
+import AccordionJS from "../../components/mineReiser/AccordionJS"
 
 
 // I VÅR POC HAR VI DROPPET Å IMPLEMENTERE SORTERING PÅ MEST REIST

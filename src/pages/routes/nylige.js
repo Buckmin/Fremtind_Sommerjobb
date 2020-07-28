@@ -1,5 +1,5 @@
 import React from "react"
-import AccordionJS from "../../components/AccordionJS"
+import AccordionJS from "../../components/mineReiser/AccordionJS"
 
 /* let alleTurer= [
     {'2020.04.23-12:12' : {til: 'TilAdresse1', fra: 'fraAdresse1', tid: 20, lengde:37, middel: 'gå', CO2: 0, kal: 3456}},
