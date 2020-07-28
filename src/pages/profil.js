@@ -12,7 +12,7 @@ import { getJson } from "../getJson";
 // lagre til lokal fil: setJson({KEY}, {VARIABEL})
 // hente ut lokal fil: {VARIABEL} = getJson({KEY})
 
-export default function Home() {
+export default function HomeLS() {
   let personlia2 = getJson("personlia") || {};
 
   // const personliaKeys = ["Fornavn", "Mellomnavn", "Etternavn", "Adresse", "Epost", dato-lastet-ned-appen]
