@@ -9,7 +9,7 @@ export default function Results(props) {
     return(
         <div>
             <p className = 'resultprint'>Ved å kjøre denne strekningen kommer du til å slippe ut </p>
-            <p className = 'co2'> {emitRounded} kg CO2</p>
+            <p className = 'co2'> {emitRounded} kg CO<sub>2</sub></p>
         </div>
     )
     

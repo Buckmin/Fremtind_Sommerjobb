@@ -32,11 +32,11 @@ export class Form extends Component {
         switch (event.target.value) {
             case "diesel":
                 var unitString= 'L/mil'
-                var avgVal = '2.68'
+                var avgVal = '2.66'
                 break;
             case "petrol":
                 var unitString= 'L/mil'
-                var avgVal = '2.31'
+                var avgVal = '2.32'
                 break;
             case "electricity":
                 var unitString= 'kWh/km'
