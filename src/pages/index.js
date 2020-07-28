@@ -26,8 +26,7 @@ export default function HomeLS() {
 
   let personlia = getJson("personlia") || {};
   let userGoals = getJson("userGoals") || {};
-
-  const Test = DashboardUtenUserGoal;
+  //let carInfo = getJson("carInfo") || {};
 
   if (userGoals["dailyGoal"] === undefined || userGoals["dailyGoal"] === 0 || userGoals["dailyGoal"] ===  null ){
     return (
@@ -36,7 +35,7 @@ export default function HomeLS() {
         <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
 
         <br/><br/>
-        <Test />
+        <DashboardUtenUserGoal />
         
         <br/><br/><br/>
         <VisualizedTotalStatsLS />

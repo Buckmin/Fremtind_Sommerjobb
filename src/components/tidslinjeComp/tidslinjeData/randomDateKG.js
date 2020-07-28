@@ -36,6 +36,21 @@ export function formatDate(date) { // funksjon som tar inn en dato og returnerer
     return [year, month, day].join('.'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
 }
 
+// ER: trengte dato på formatet YYYY-MM-DD
+export function formatDateDash(date) {
+    let d = new Date(date)
+    let month = '' + (d.getMonth() + 1)
+    let day = '' + d.getDate()
+    let year = d.getFullYear()
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
 export function formatDateWithTime(date) { // funksjon som tar inn en dato og returnerer en string på formen YYYY.MM.DD
     let d = new Date(date)
     let month = '' + (d.getMonth() + 1) // måneder begynner med index 0

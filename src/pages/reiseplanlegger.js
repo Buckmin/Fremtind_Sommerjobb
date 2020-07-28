@@ -14,6 +14,8 @@ import {LoadScriptNext} from '@react-google-maps/api';
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
 
+import { getJson } from "../getJson";
+
 
 
 export default function Reiseplanlegger() {
@@ -21,12 +23,15 @@ export default function Reiseplanlegger() {
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
 
+    let carInfo = getJson("carInfo") || {};
 
-    //legg inn riktig drivstoff (og forbruk?) fra lagret bil her, vet ikke om vi skal bry oss om temperatur
-    //kan også si at forbruket er statisk, men tipper det vil variere ut i fra biltype
-    let fuel = "PETROL"
+
+    //temperatur er statisk inntil videre
     let temp = 19
-    let consum = 0.67
+
+    let fuel = carInfo["fuel"]
+    let consum = carInfo["fuelconsum"] //litt misvisende navngivning her med fuel/consum/fuelconsum, se over senere?
+
 
     //disse blir generert ut i fra variablene over som må hentes inn via noe lagring
     let fuelConsum = findFuelConsum(fuel, consum)
@@ -42,13 +47,13 @@ export default function Reiseplanlegger() {
     // OUTPUT Utslipp pr passasjer [g/pkm]
     // consum * abc
     function findFuelConsum (fuel, consum) {
-        if (fuel === "PETROL") {
+        if (fuel === "Bensin") {
             return (consum * 2.32 * 100 / 1.7)
         }
-        else if (fuel === "DIESEL") {
+        else if (fuel === "Diesel") {
             return (consum * 2.66 * 100 / 1.7)
         }
-        else if (fuel === "EL") {
+        else if (fuel === "El") {
             return (0)
         }
     }
@@ -90,8 +95,8 @@ export default function Reiseplanlegger() {
       <div id="hovedkontainer" style={hovedStyle}>
         <Header headerText="Reiseplanlegger"/>
         <div>
-            <GoogleMaps placeholder="Avreisested" onChange={ o => {setOrigin(o); setShowResults(false)}}/>
-            <GoogleMaps placeholder="Destinasjon" onChange={ d => {setDestination(d); setShowResults(false)}}/>
+            <GoogleMaps id="originInput" placeholder="Avreisested" onChange={ o => {setOrigin(o); setShowResults(false)}}/>
+            <GoogleMaps id="destinationInput" placeholder="Destinasjon" onChange={ d => {setDestination(d); setShowResults(false)}}/>
 
             <PrimaryButton onClick={() => setShowResults(true)}>Beregn</PrimaryButton>
             

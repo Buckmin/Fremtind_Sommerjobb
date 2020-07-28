@@ -38,6 +38,8 @@ export default function DevPageLS() {
       <p> </p>
       <Button onClick={setInitialPersonliaLS}> kjør setInitialPersonliaLS</Button>
       <p> </p>
+      <Button onClick={setInitialCarInfo}> kjør setInitialCarInfo</Button>
+      <p> </p>
 
       <FormForDailyGoalLS />
       <p> </p>
@@ -64,6 +66,9 @@ export function initalLoadOfDataLS() {
   }
   if (getJson("personlia") === null) {
     setInitialPersonliaLS();
+  }
+  if (getJson("carInfo") === null) {
+    setInitialCarInfo();
   }
   if (getJson("userGoals") === null) {
     updateUserGoalLS();
@@ -172,11 +177,25 @@ function setInitialPersonliaLS() {
     name: "Kari",
     middleName: "Kanari",
     lastName: "Nordmann",
-    adress: "Hammerborgsgate 2, Oslo",
+    birthday: new Date("1995-08-25"),
+    address: "Hammersborggata 2, Oslo",
     email: "kari@email.com",
     initialDate: new Date("2020-01-01"),
   };
   setJson("personlia", personliaDict);
+}
+
+function setInitialCarInfo() {
+  let carDict = {
+    brand: "Audi",
+    model: "Q5 (SUV)",
+    fuel: "Diesel",
+    year: 2016,
+    registration: "AB12345",
+    co2consum: 149, //g/km
+    fuelconsum: 0.67,  //L/mil
+  };
+  setJson("carInfo", carDict);
 }
 
 function setEmptyTotalStatsLS() {
