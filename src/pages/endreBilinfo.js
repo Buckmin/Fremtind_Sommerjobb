@@ -62,8 +62,8 @@ export default function EndreBilinfo() {
                 <label id="fuelLabel" htmlFor="fuel" style={{marginBottom:"10px"}}>Drivstoff:
                     {/* <br/><input id="fuel" type="text" name="Drivstoff" placeholder={fuel} onChange={e => setFuel(e.target.value)}></input> */}
                     <br/>
-                    <select name="fuel" id="fuelSelect" value={fuel} onChange={e => setFuel(e.target.value)}>
-                        <option value="Bensin" selected>Bensin</option>
+                    <select name="fuel" id="fuelSelect" defaultValue={fuel} onBlur={e => setFuel(e.target.value)}>
+                        <option value="Bensin">Bensin</option>
                         <option value="Diesel">Diesel</option>
                         <option value="El">El</option>
                     </select>

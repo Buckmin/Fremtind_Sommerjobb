@@ -40,8 +40,6 @@ export default function EndrePersonalia() {
 
     const classesTime = useStylesTime();
 
-    console.log('birth', birthday)
-
 
     function handleSubmit() {
         let personaliaDict = {
@@ -82,18 +80,28 @@ export default function EndrePersonalia() {
                     <br/><input id="lastName" type="text" name="Etternavn" placeholder={lastName} onChange={e => setLastName(e.target.value)}></input>
                 </label>
 
+                <label id="addressInput" htmlFor="address" style={{marginBottom:"10px"}}>Adresse:
+                    <br/><input id="address" type="text" name="Adresse" placeholder={address} onChange={e => setAddress(e.target.value)}></input>
+                </label>
+
+                <label id="emailInput" htmlFor="email" style={{marginBottom:"10px"}}>E-post:
+                    <br/><input id="email" type="email" name="E-post" placeholder={email} onChange={e => setEmail(e.target.value)}></input>
+                </label>
+                
+    
                 <label id="birthdayInput" htmlFor="birthday" style={{marginBottom:"10px"}}>Fødselsdato:
                     <br/>
                     <TextField
-                        id="date-birthday"
+                        id="birthday"
                         type="date"
                         defaultValue={formatDateDash(birthday)}
-                        onChange={event => setBirthday(event.target.value)}
+                        onChange={event => setBirthday(new Date(event.target.value))}
                         className={classesTime.textField}
                         InputLabelProps={{
                         shrink: true,
                         }}
                     />
+                    <br/>
                 </label>
 
 

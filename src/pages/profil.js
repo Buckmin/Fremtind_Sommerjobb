@@ -49,7 +49,7 @@ export default function Home() {
             className={buttonClasses.button}
             startIcon={<MdEdit />}
             size="small"
-            onClick={() => { navigate('/EndrePersonalia') }}
+            onClick={() => { navigate('/endrePersonalia') }}
           >
             Rediger profil
 
@@ -89,7 +89,7 @@ export default function Home() {
             className={buttonClasses.button}
             startIcon={<MdEdit />}
             size="small"
-            onClick={() => { navigate('/EndreBilinfo') }}
+            onClick={() => { navigate('/endreBilinfo') }}
           >
             Rediger bilopplysninger
 

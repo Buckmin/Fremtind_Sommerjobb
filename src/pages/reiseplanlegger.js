@@ -94,8 +94,8 @@ export default function Reiseplanlegger() {
       <div id="hovedkontainer" style={hovedStyle}>
         <Header headerText="Reiseplanlegger"/>
         <div>
-            <GoogleMaps placeholder="Avreisested" onChange={ o => {setOrigin(o); setShowResults(false)}}/>
-            <GoogleMaps placeholder="Destinasjon" onChange={ d => {setDestination(d); setShowResults(false)}}/>
+            <GoogleMaps id="originInput" placeholder="Avreisested" onChange={ o => {setOrigin(o); setShowResults(false)}}/>
+            <GoogleMaps id="destinationInput" placeholder="Destinasjon" onChange={ d => {setDestination(d); setShowResults(false)}}/>
 
             <PrimaryButton onClick={() => setShowResults(true)}>Beregn</PrimaryButton>
             
