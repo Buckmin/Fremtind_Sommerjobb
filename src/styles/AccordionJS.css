@@ -2,24 +2,26 @@
 .accordion__section {
     display: flex;
     flex-direction: column;
-    width: 95%;
-    margin: auto;
-    margin-bottom: 0.5cm;
+    width: 100%;
+    position: relative;
   }
   
   /* Style the buttons that are used to open and close the accordion panel */
   .accordion {
-    background-color: #D6D6D6;
+    background-color: #ffffff;
     color: black;
     cursor: pointer;
     padding: 5px;
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
-    align-items: center;
-    border: none;
+    /* align-items: left; */
+    border: 1px solid #dadada;
     outline: none;
     transition: background-color 0.6s ease;
+    margin-top: 4px;
+    
+    
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -27,20 +29,7 @@
   .active {
     background-color: #EBEBEB;
   }
-  
-  /* Style the accordion content title */
-  .accordion__title {
-    font-weight: 600;
-    font-size: 20px;
-    font-family: Fremtind Grotesk Display;
-  }
-  
-  /* Style the accordion chevron icon */
-  .accordion__icon {
-    margin-left: auto;
-    transition: transform 0.6s ease;
-  }
-  
+
   /* Style to rotate icon when state is active */
   .rotate {
     transform: rotate(90deg);
@@ -51,19 +40,49 @@
     font-weight: 400;
     font-size: 14px;
     font-family: Fremtind Grotesk Display;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 25px;
+    text-align: justify;
   }
   
+   /* Style the accordion content title */
+   .accordion_date {
+    font-weight: 800;
+    font-size: 10px;
+    font-family: Fremtind Grotesk Display;
+    margin-top: 15px;
+    margin-bottom: 2px;
+    margin-right: 90px;
+  }
+
   /* Style the accordion content panel. Note: hidden by default */
   .accordion__content {
-    background-color:#EBEBEB;
+    max-height: none;
+    background-color: white;
     overflow: hidden;
     transition: max-height 0.6s ease;
     color: black;
-  }
-  
-  /* Style the accordion content text */
-  .accordion__text {
+    font-family: Fremtind Grotesk Display;
     font-weight: 400;
     font-size: 14px;
-    padding: 18px;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .accordion__icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 15px;
+    transition: transform 0.6s ease;
+  }
+
+
+
+  .photo {
+    height: 206.8px;
+    width: 365.2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
