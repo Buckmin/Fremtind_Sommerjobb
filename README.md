@@ -1,8 +1,9 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-    <h1> Vanir </h1>
-    <h3> Sommerstudentene under SPINN, Fremtind Forsikring </h3>
-</p>
+<h1> Vanir </h1>
+<h3> Sommerstudentene under SPINN, Fremtind Forsikring </h3>
+
+**Utviklere:** [Emma Valen Rian](https://github.com/emmavrian) | [Brynjar Morka Mæhlum](https://github.com/Buckmin) | [Kaja Juel Solheim](https://github.com/Kajajs) | [Emma Skarnes](https://github.com/emmaskarnes) <br/>
+**Designere:** [Chetana Pandit Karande](https://github.com/ChetanaKarande) | [Rebecca Vatnebryn](https://github.com/rebeccavatnebryn)
+
 
 - [:rocket: Introduksjon](#rocket-introduksjon)
   * [Oppstart](#oppstart)
