@@ -46,11 +46,26 @@ export function formatDateWithTime(date) { // funksjon som tar inn en dato og re
     
     let finDato = "" // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
     let finTidspunkt = ""
-    finDato = [year, month, day].join('.'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
+    finDato = [year, month, day].join('.'); 
     finTidspunkt = [hour, minutes].join(':');
 
 
-    return [finDato, finTidspunkt].join('-'); // her kan vi enkelt stokke om til feks DD-MM-YY, DD.MM.YYYY els.
+    return [finDato, finTidspunkt].join('-'); 
+}
+
+export function formatDateWithTimeForHumans(date) { // funksjon for datoutskrift i Mine Reiser på kortene
+    let d = new Date(date)
+    let month = '' + (d.getMonth() + 1) // måneder begynner med index 0
+    let day = '' + d.getDate()
+    let year = d.getFullYear()
+    let hour = '' + d.getHours()
+    let minutes = '' + d.getMinutes()
+    let finDato = "" 
+    let finTidspunkt = ""
+    finDato = [day, month, year].join('.'); 
+    finTidspunkt = [hour, minutes].join(':');
+    let finOutput = finDato + " " + finTidspunkt
+    return finOutput
 }
 
 export function dagerSiden(date) {
