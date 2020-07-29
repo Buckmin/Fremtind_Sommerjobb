@@ -1,11 +1,17 @@
 import React, {useState, useEffect} from "react"
 import createEnturService from '@entur/sdk'
-import AccordionTravel from "./AccordionTravel"
 import moment from "moment"
 
 const service = createEnturService({ 
     clientName: 'fremtind - summerproject2020' 
 })
+
+
+// NOTATER:
+// Brukte denne funksjonen til å filtrere ut nyttig info fra den gigantiske json-filen som createEnturService gir oss.
+// Endte ikke opp med å bruke fordi det var vanskelig å få origin og destination på riktig inputform i getTripPatterns (location),
+//   og det var litt for mye info om bytter o.l. å holde styr på i koden nå i første iterasjon.
+// Absolutt en idé å bruke Enturs API for kollektivreiser senere, ettersom Google maps har dårlig dekning for kollektivtransport i Norge, mens Entur dekker hele Norge.
 
 
 
@@ -57,7 +63,6 @@ function FindTransitTrips(props) {
         console.log('originLOC', originLocation)
         console.log('destLOC', destinationLocation) */
 
-        //her slutter galskapen
 
             //inntil videre brukes bare en forhåndsdefinert "Location" her
 /*             const trips = await getTrips(
@@ -71,7 +76,7 @@ function FindTransitTrips(props) {
                     name:"Dyrløkke, Frogn"
                 }) */
 
-                //NOE ER VELDIG GALT HER. KAN IKKE TRENGE SÅ MANGE BYTTER
+                //NOE ER VELDIG GALT HER. KAN IKKE TRENGE SÅ MANGE BYTTER??
                 const trips = await getTrips(
                 {name: "Trondheim Torg",
                     coordinates: {
@@ -106,13 +111,9 @@ function FindTransitTrips(props) {
         //<div>{parsedTrips[0][0].mode}</div> --> tur 1, første del, transportmiddel
     
         <div style={{marginTop: 30}}>
-{/*             <AccordionTravel
-                mode={parsedTrips[0][0].mode}
-                time={moment(new Date(parsedTrips[0][0].endTime)).diff(new Date (parsedTrips[0][0].startTime), "minutes")}
-                distance={parsedTrips[0][0].distance}
-                co2={10} //midlertidig verdi fram til kalkulatoren er oppe og kjører
-            /> */}
-            Heihei
+                mode: {parsedTrips[0][0].mode}
+                time: {moment(new Date(parsedTrips[0][0].endTime)).diff(new Date (parsedTrips[0][0].startTime), "minutes")}
+                distance: {parsedTrips[0][0].distance}
         </div>
 
         )
