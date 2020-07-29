@@ -61,7 +61,7 @@ export default function AccordionJS(props) {
                 style={{ maxHeight: `${setHeight}` }} 
                 className="accordion__content"
             >
-                <InfoSectionUpper middel={props.middel} tid={props.tid} lengde={props.lengde}/>
+                <InfoSectionUpper middel={props.middel} tid={Math.round(props.tid/60)} lengde={(props.lengde/1000).toFixed(1)}/>
                 <img src={dummyMap} alt="dummyMap" className="photo"/>
                 <InfoSectionLower kcal={props.kcal} CO2={props.CO2}/>
             </div>
