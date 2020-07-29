@@ -38,7 +38,7 @@ export default function DevPageLS() {
       <p> </p>
       <Button onClick={setInitialPersonliaLS}> kjør setInitialPersonliaLS</Button>
       <p> </p>
-      <Button onClick={setInitialCarInfo}> kjør setInitialCarInfo</Button>
+      <Button onClick={setInitialCarInfoLS}> kjør setInitialCarInfoLS</Button>
       <p> </p>
 
       <FormForDailyGoalLS />
@@ -68,7 +68,7 @@ export function initalLoadOfDataLS() {
     setInitialPersonliaLS();
   }
   if (getJson("carInfo") === null) {
-    setInitialCarInfo();
+    setInitialCarInfoLS();
   }
   if (getJson("userGoals") === null) {
     updateUserGoalLS();
@@ -190,7 +190,7 @@ function setInitialPersonliaLS() {
   setJson("personlia", personliaDict);
 }
 
-function setInitialCarInfo() {
+function setInitialCarInfoLS() {
   let carDict = {
     brand: "Audi",
     model: "Q5 (SUV)",

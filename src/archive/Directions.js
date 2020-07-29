@@ -1,13 +1,8 @@
 import React from "react"
 import { GoogleMap, DirectionsService, DirectionsRenderer} from '@react-google-maps/api';
 
-// import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
-// import "@fremtind/jkl-text-input/text-input.min.css";
-
-// import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-// import "@fremtind/jkl-button/button.min.css";
-
-
+// ELDRE VERSJON AV FindTrips.js
+// FindTrips bruker hooks i stedet og lagger ikke like mye, pluss bedre design
 
 class Directions extends React.Component {
   constructor (props) {

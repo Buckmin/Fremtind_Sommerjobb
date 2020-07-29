@@ -45,6 +45,9 @@ const useStyles = makeStyles({
       padding: 0,
       backgroundColor: "#F8F8F8",
     },
+    tab: {
+      minWidth: '33%'
+  }
 });
 
 
@@ -63,9 +66,9 @@ export default function TabBar (props) {
             indicatorColor="primary"
             variant="fullWidth"
             >
-                <Tab label= {props.labelOne} />
-                <Tab label= {props.labelTwo} />
-                <Tab label= {props.labelThree} />
+                <Tab label= {props.labelOne} classes={{ root: classes.tab }}/>
+                <Tab label= {props.labelTwo} classes={{ root: classes.tab }}/>
+                <Tab label= {props.labelThree} classes={{ root: classes.tab }}/>
             </Tabs>
             <TabPanel value={value} index={0}>
                 <Nylige/>

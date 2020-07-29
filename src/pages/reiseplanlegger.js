@@ -4,8 +4,8 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 
 
-import GoogleMaps from "../components/routes/Autocomplete"
-import FindTrips from "../components/routes/FindTrips"
+import GoogleMaps from "../components/reiseplanlegger/Autocomplete"
+import FindTrips from "../components/reiseplanlegger/FindTrips"
 
 //LoadScriptNext virket med en gang, men gir også en error på at vi inkluderer Google Maps Javascript API flere ganger
 //import {LoadScript} from '@react-google-maps/api';
