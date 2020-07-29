@@ -62,6 +62,10 @@ export function formatDateWithTimeForHumans(date) { // funksjon for datoutskrift
     let minutes = '' + d.getMinutes()
     let finDato = "" 
     let finTidspunkt = ""
+    if (hour.length < 2) 
+        hour = '0' + hour;
+    if (minutes.length < 2) 
+        minutes = '0' + minutes;
     finDato = [day, month, year].join('.'); 
     finTidspunkt = [hour, minutes].join(':');
     let finOutput = finDato + " " + finTidspunkt

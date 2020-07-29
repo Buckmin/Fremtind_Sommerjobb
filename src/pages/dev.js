@@ -83,6 +83,8 @@ export function initalLoadOfDataLS() {
     setEmptyTotalStatsLS()
   }
 
+  upddateLSfromAlleTurerLS()
+
   return null;
 }
 
@@ -90,12 +92,25 @@ function setInitialAlleTurerLS() {
   // dictionary med dato for reiser. dato er key, dato med klokkeslett
   //let dato1 = formatDateWithTime(new Date("2020-01-01 12:25")) // datoformat: YYYY.MM.DD-hh:mm
   let alleTurer = {}
-  //alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "TRANSIT", CO2: 5, favoritt: false}
 
+  alleTurer["2020-07-22T08:01"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 3900, tid : 660, middel : "DRIVING", CO2 : 408, kcal : 0, favoritt : true}
   alleTurer["2020-07-22T08:00"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 3900, tid : 660, middel : "DRIVING", CO2 : 408, kcal : 0, favoritt : false}
-  alleTurer["2020-07-23T08:00"] = { fra :  "Hammerborgsgata 3", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
-  alleTurer["2020-07-24T08:00"] = { fra :  "Hammerborgsgata 4", til : "Hasleveien 3", lengde : 3500, tid : 720, middel : "BICYCLING", CO2 : 0, kcal : 61, favoritt : false}
-  alleTurer["2020-07-25T08:00"] = { fra :  "Hammerborgsgata 5", til : "Hasleveien 3", lengde : 2300, tid : 1680, middel : "WALKING", CO2 : 0, kcal : 100, favoritt : false}
+  alleTurer["2020-07-23T08:00"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : true}
+  alleTurer["2020-07-24T08:00"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-25T08:00"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-26T08:01"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-27T08:02"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-28T08:03"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-29T08:04"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-30T08:05"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-31T08:06"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-08-01T08:07"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-08-02T08:08"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 3500, tid : 720, middel : "BICYCLING", CO2 : 0, kcal : 61, favoritt : true}
+  alleTurer["2020-08-03T08:09"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 3500, tid : 720, middel : "BICYCLING", CO2 : 0, kcal : 61, favoritt : false}
+  alleTurer["2020-08-04T08:10"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2300, tid : 1680, middel : "WALKING", CO2 : 0, kcal : 100, favoritt : true}
+  alleTurer["2020-08-05T08:11"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2300, tid : 1680, middel : "WALKING", CO2 : 0, kcal : 100, favoritt : false}
+  alleTurer["2020-08-06T08:12"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2300, tid : 1680, middel : "WALKING", CO2 : 0, kcal : 100, favoritt : false}
+  alleTurer["2020-08-07T08:13"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 2300, tid : 1680, middel : "WALKING", CO2 : 0, kcal : 100, favoritt : false}
   
   setJson("alleTurer", alleTurer)
 
@@ -161,7 +176,7 @@ export function updateUserGoalLS(newDailyGoal) {
   if (newDailyGoal !== undefined) {
     userGoalsDict["dailyGoal"] = newDailyGoal;
   } else {
-    userGoalsDict["dailyGoal"] = 7;
+    userGoalsDict["dailyGoal"] = 100;
   } // hvis det er en inputprop velger den den, hvis ikke velger den 7 kg CO2 per dag
   userGoalsDict["weeklyGoal"] = userGoalsDict["dailyGoal"] * 7; // weekly
   userGoalsDict["monthlyGoal"] = userGoalsDict["dailyGoal"] * 30; // monthly. egt 30,42 dager i ikke-skuddår
