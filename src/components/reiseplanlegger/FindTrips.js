@@ -24,7 +24,7 @@ import "../../styles/findTrips.css";
 
 ///// INFORMASJON ///////
 
-// NYTTIG: Dersom travelMode = TRANSIT (og det fins tilgjengelige kollektivreiser) vil vi få info om bytter fra APIet <3
+// NYTTIG: Dersom travelMode = TRANSIT (og det fins tilgjengelige kollektivreiser) vil vi få info om bytter fra APIet
 // Litt usikker på hvordan vi skal få ut infoen siden dette kun er tilgjengelig for kollektiv, men det er uansett ikke aktuelt før en senere versjon
 // finner ved å gå via: response -> routes -> 0 -> legs -> 0 -> steps (steps er array med gå/buss/trikk/gå ol. bytter)
 

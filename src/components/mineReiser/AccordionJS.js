@@ -56,8 +56,8 @@ export default function AccordionJS(props) {
                 id = 'Extended Accordion'
                 ref={content} 
                 style={{ maxHeight: `${setHeight}` }} 
-                className="accordion__content"
->
+                className="accordion__content">
+
                 <InfoSectionUpper middel={props.middel} tid={props.tid} lengde={props.lengde}/>
                 <img src={dummyMap} alt="dummyMap" className="photo"/>
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"} /> 
