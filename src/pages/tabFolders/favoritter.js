@@ -10,7 +10,7 @@ export default function Favoritter () {
     return (
         <div className="container">
             {Object.keys(alleTurerKopi).map((dato, i) => (
-                
+
                 <AccordionJS 
                     key={`${dato.label}${i}`}
                     label={dato.label} 
