@@ -10,7 +10,7 @@ export default function MyRoutes () {
         <div id = 'MineRuter page'>
             <Header headerText="Mine Ruter"/>
             <TabBar labelOne = "Nylig" labelTwo = "Mest reist" labelThree = "Favoritter"/>
-            <Footer/>
+            <Footer page="/ruter"/>
         </div>
         
     )

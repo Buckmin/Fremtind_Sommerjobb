@@ -3,7 +3,6 @@ import { MdDirectionsWalk, MdDirectionsBike, MdDriveEta, MdDirectionsBus } from 
 
 
 function InfoSectionUpper(props) {
-    
     function selectMeansIcon() {
         let trvlMeans = props.middel
         let icon = <MdDirectionsBus/>
@@ -25,8 +24,8 @@ function InfoSectionUpper(props) {
                 break;
         }  
         return icon
-    }  
-
+    } 
+    
 
     return(
         <div id = 'Info Section Upper' style={{marginTop:15}}>

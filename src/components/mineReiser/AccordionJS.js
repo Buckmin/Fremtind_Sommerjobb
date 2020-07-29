@@ -1,23 +1,13 @@
 import React, {useState, useRef} from "react";
-import { setJson } from "../../getJson";
 import "../../styles/AccordionJS.css";
 import Chevron from "./Chevron";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import IconButton from '@material-ui/core/IconButton';
-import dummyMap from '../../images/dummyMap.png';
+import dummyMap from '../../../static/images/dummyMap.png';
 import InfoSectionUpper from "./infoSectionUpper";
 import InfoSectionLower from "./infoSectionLower";
 
-function AccordionJS(props) {
-    console.log("er i accordion")
-
-    let lengde = props.lengde
-    let middel = props.middel
-    let tid = props.tid
-    let CO2 = props.CO2
-    let favoritt = props.favoritt
-    let kcal = props.kcal
-
+export default function AccordionJS(props) {
     const [setActive, setActiveState] = useState("");
     const [setHeight, setHeightState] = useState("0px");
     const [setRotate, setRotateState] = useState("accordion__icon");
@@ -58,7 +48,7 @@ function AccordionJS(props) {
                     aria-label= "FavoriteBorderIcon" 
                     className='fav_button'
                     /* onClick={handleFavChange()} */>
-                        {favoritt ? <MdFavorite/> : <MdFavoriteBorder />}
+                        {props.favoritt ? <MdFavorite/> : <MdFavoriteBorder />}
                 </IconButton>
             
                 <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
@@ -71,13 +61,11 @@ function AccordionJS(props) {
                 style={{ maxHeight: `${setHeight}` }} 
                 className="accordion__content"
             >
-                <InfoSectionUpper middel={middel} tid={tid} lengde={lengde}/>
+                <InfoSectionUpper middel={props.middel} tid={props.tid} lengde={props.lengde}/>
                 <img src={dummyMap} alt="dummyMap" className="photo"/>
-                <InfoSectionLower kcal={kcal} CO2={CO2}/>
+                <InfoSectionLower kcal={props.kcal} CO2={props.CO2}/>
             </div>
         
         </div>
     )
 }
-
-export default AccordionJS

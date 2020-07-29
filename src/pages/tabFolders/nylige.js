@@ -20,15 +20,15 @@ function sortByDate(arr) {
 
 
 export default function Nylige () {
-    const alleTurerKopi = getJson("alleTurer")
+    const alleTurerKopi = getJson("alleTurer") || {};
     //let alleTurerKopi = sortByDate(alleTurer2)
 
     return (
         <div className="container">
             {Object.keys(alleTurerKopi).map((dato, i) => (
-                
                 <AccordionJS 
-                    key={i} 
+                    key={`${dato.label}${i}`}
+                    label={dato.label}
                     dato={dato} 
                     fra={alleTurerKopi[dato]['fra']} 
                     til={alleTurerKopi[dato]['til']} 
@@ -37,7 +37,7 @@ export default function Nylige () {
                     middel={alleTurerKopi[dato]['middel']} 
                     CO2={alleTurerKopi[dato]['CO2']} 
                     favoritt={alleTurerKopi[dato]['favoritt']}
-                    kcal = {alleTurerKopi[dato]['kcal']}
+                    kcal = {alleTurerKopi[dato]['kcal'] ? alleTurerKopi[dato]['kcal'] : 0}
                 /> ))}
         </div>
     ) 

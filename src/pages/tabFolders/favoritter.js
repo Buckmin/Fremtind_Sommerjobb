@@ -22,7 +22,7 @@ function sortByFav(arr) {
 }
 
 export default function Favoritter () {
-    const alleTurerKopi = getJson("alleTurer")
+    const alleTurerKopi = getJson("alleTurer") || {};
     //let alleTurerKopi = sortByFav(alleTurer2)
 
     return (
@@ -30,7 +30,8 @@ export default function Favoritter () {
             {Object.keys(alleTurerKopi).map((dato, i) => (
                 
                 <AccordionJS 
-                    key={i} 
+                    key={`${dato.label}${i}`}
+                    label={dato.label} 
                     dato={dato} 
                     fra={alleTurerKopi[dato]['fra']} 
                     til={alleTurerKopi[dato]['til']} 
@@ -39,6 +40,7 @@ export default function Favoritter () {
                     middel={alleTurerKopi[dato]['middel']} 
                     CO2={alleTurerKopi[dato]['CO2']} 
                     favoritt={alleTurerKopi[dato]['favoritt']}
+                    kcal = {alleTurerKopi[dato]['kcal'] ? alleTurerKopi[dato]['kcal'] : 0}
                 /> ))}
          </div>
     ) 
