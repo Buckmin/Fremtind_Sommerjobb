@@ -28,45 +28,32 @@ export default function HomeLS() {
   let userGoals = getJson("userGoals") || {};
   //let carInfo = getJson("carInfo") || {};
 
+  let dashboardArr = []
+
+  // velger Dashboard utfra usergoal eller ikke
   if (userGoals["dailyGoal"] === undefined || userGoals["dailyGoal"] === 0 || userGoals["dailyGoal"] ===  null ){
-    return (
-      <div id="hovedkontainer" className="div__hovedStyle">
-        <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
-        <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
-
-        <br/><br/>
-        <DashboardUtenUserGoal />
-        
-        <br/><br/><br/>
-        <VisualizedTotalStatsLS />
-
-        <br/><br/><br/>
-        <ManyFunfactCards />
-
-        <Footer page="/" />
-      </div> 
-    );
+    dashboardArr.push(<DashboardUtenUserGoal key="uten"/>)
   }
-
   else {
+    dashboardArr.push(<DashboardMedUserGoalLS userGoals={userGoals} key="med"/>)
+
+  }
     return (
       <div id="hovedkontainer" className="div__hovedStyle">
         <Header headerText={"Hei, " + personlia["name"]} headerLogo={true}/>
         <Link to="/dev" style={{color: "#000AFA"}}> [ Dev-page<BsPencil/> ]  </Link> 
-        <br/><br/>
-        <DashboardMedUserGoalLS userGoals={userGoals} />  
 
-        <br/><br/><br/>
+        <br/><br/>
+        {dashboardArr}
+        
+        <br/><br/>
         <VisualizedTotalStatsLS />
 
-        <br/><br/><br/>
+        <br/><br/>
         <ManyFunfactCards />
+
         <Footer page="/" />
       </div> 
     );
-  }
- 
-
-
 
 }

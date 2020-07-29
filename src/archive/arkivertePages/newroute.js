@@ -3,10 +3,10 @@ import { BsChevronLeft } from "react-icons/bs";
 import { Link } from "gatsby"
 
 // under her importerer vi alle kompontentene vi lager
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Header from "../../components/header"
+import Footer from "../../components/footer"
 
-import Directions from "../components/Directions";
+import Directions from "../../components/Directions";
 import {LoadScript} from '@react-google-maps/api';
 
 export default function NewRoute() {

@@ -9,8 +9,8 @@ import Footer from "../components/footer";
 import { getJson, setJson } from "../getJson"
 
 import moment from "moment";
-import { formatDate, formatDateWithTime } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
-//import { emissionsBetweenDaysLS } from "../components/tidslinjeComp/tidslinjeData/emissions"
+import { formatDate } from "../components/statistics/formatDateFunctions";
+
 import { FormForDailyGoalLS } from "../components/inputForms";
 import { upddateLSfromAlleTurerLS } from "../components/statistics/dataFunksjoner";
 
@@ -88,9 +88,9 @@ export function initalLoadOfDataLS() {
 
 function setInitialAlleTurerLS() {
   // dictionary med dato for reiser. dato er key, dato med klokkeslett
-  let dato1 = formatDateWithTime(new Date("2020-01-01 12:25")) // datoformat: YYYY.MM.DD-hh:mm
+  //let dato1 = formatDateWithTime(new Date("2020-01-01 12:25")) // datoformat: YYYY.MM.DD-hh:mm
   let alleTurer = {}
-  alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "Kollektivt", CO2: 5, favoritt: false}
+  //alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "TRANSIT", CO2: 5, favoritt: false}
 
   setJson("alleTurer", alleTurer)
 

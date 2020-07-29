@@ -5,8 +5,8 @@ import { Link } from "gatsby"
 import { ToggleButtonsPeriodeDUMÅT } from "./tidsperiodeknapper"
 import { HjuletTotalCO2 } from "./statistics/hjulet"
 import { getJson } from "../getJson"
-import { emissionsBetweenDaysLS } from "./tidslinjeComp/tidslinjeData/emissions"
-import { formatDate } from "./tidslinjeComp/tidslinjeData/randomDateKG"
+import { emissionsBetweenDaysLS } from "./statistics/emissionsAndDates"
+import { formatDate } from "./statistics/formatDateFunctions"
 import { TravelProgressBarsPercentageLS, TravelProgressBarsKgLS, TravelProgressBarsCaloriesLS } from "./statistics/progressBars"
 
 // i denne fila er de ulike visningene av dashboard, avhengig om user har mål eller ikke.
@@ -40,7 +40,7 @@ export function DashboardMedUserGoalLS ({userGoals}) { // markerer alle funksjon
     return (
         <div>
             <ToggleButtonsPeriodeDUMÅT periodeDUMÅT={periodeDUMÅT} onChange={(e) => setRadioValuePeriodeDUMÅT(e.currentTarget.value)}/> {" "}
-            {/* <HjuletTotalCO2 /> */}
+
             <br/>
             <HjuletTotalCO2 theEmission={emissionsInAPeriodLS(periodeDUMÅT, emissionsDict)} theGoal={userGoals[translationGoalDict[periodeDUMÅT]]} />
         

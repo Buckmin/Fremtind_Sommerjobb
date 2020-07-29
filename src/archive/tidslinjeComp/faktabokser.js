@@ -2,7 +2,7 @@ import React from "react"
 import { ManyFunfactsDict } from "./tidslinjeData/funfacts"
 import { BsArrowLeft } from "react-icons/bs"
 import "../../styles/tidslinje.css"
-import { formatDate } from "../tidslinjeComp/tidslinjeData/randomDateKG"
+import { formatDate } from "../statistics/formatDateFunctions"
 
 
 

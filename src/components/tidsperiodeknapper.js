@@ -42,6 +42,10 @@ export function ToggleButtonsPeriodeDUMÅT({periodeDUMÅT, onChange}) {
   );
 }
 
+//         DISSE TO FUNKSJONENE UNDER ER SAMME SOM OVER, men uten valg for total og uten valg for total+år.
+//         Koden under er kommentert ut, fordi disse komponentene ikke ble brukt allikavel.
+
+/*
 
 // DUMÅ = dag, uke, måned, år
 export function ToggleButtonsPeriodeDUMÅ({periodeDUMÅ, onChange}) {
@@ -115,3 +119,61 @@ export function ToggleButtonsPeriodeDUM({periodeDUM, onChange}) {
     
   );
 }
+
+
+*/
+
+
+
+
+/*
+// denne kommentarsekvensen er kun bruk for å vise bruk av komponentene for valg av tidsperiode, fremkomstmiddel
+
+  // let userGoalTotCO2 = userGoals ? userGoals["totalGoal"] : -1; // denne må komme fra en annen side eller noe sånt
+  // let totalEmission = emissionsBetweenDaysLS(new Date("2020-01-01"), new Date()); // denne må regnes ut eller hentes ut fra et annet sted
+
+  // const [periodeDUMÅT, setRadioValuePeriodeDUMÅT] = useState("Dag"); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
+  // const [periodeDUMÅ, setRadioValuePeriodeDUMÅ] = useState("Dag"); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
+  // const [periodeDUM, setRadioValuePeriodeDUM] = useState("Dag"); // denne må brukes for ToggleButtonsPeriode, periodevelger. da er 'Dag' standardverdien
+  // const [middel, setRadioValueMiddel] = useState("Gå"); // en del av fremkomstmiddelknapper
+  // const [sortering, setRadioValueSortering] = useState("Nylig"); // en del av fremkomstmiddelknapper
+
+*/
+
+
+
+/*       // viser hvordan disse skal bli brukt. trenger hooks deklarert litt lenger opp i fila
+
+      <ToggleButtonsSorterEtter
+        sortering={sortering}
+        onChange={(e) => setRadioValueSortering(e.currentTarget.value)}
+      />
+      <h5>Fremkomstmiddel valgt: {sortering} </h5>
+
+      
+      <ToggleButtonsFremkomstmiddel
+        middel={middel}
+        onChange={(e) => setRadioValueMiddel(e.currentTarget.value)}
+      />
+      <h5>Fremkomstmiddel valgt: {middel} </h5>
+
+      <ToggleButtonsPeriodeDUMÅT periodeDUMÅT={periodeDUMÅT}
+        onChange={(e) => setRadioValuePeriodeDUMÅT(e.currentTarget.value)}
+      />{" "}
+      <h5>periode valgt: {periodeDUMÅT}</h5>
+
+
+      <ToggleButtonsPeriodeDUMÅ
+        periodeDUMÅ={periodeDUMÅ}
+        onChange={(e) => setRadioValuePeriodeDUMÅ(e.currentTarget.value)}
+      />{" "}
+      <h5>periode valgt: {periodeDUMÅ}</h5>
+
+
+      <ToggleButtonsPeriodeDUM
+        periodeDUM={periodeDUM}
+        onChange={(e) => setRadioValuePeriodeDUM(e.currentTarget.value)}
+      />{" "}
+      <h5>periode valgt: {periodeDUM}</h5>
+
+      */

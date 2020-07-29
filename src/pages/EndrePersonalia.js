@@ -10,11 +10,9 @@ import {getJson, setJson} from "../getJson";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-import {
-    formatDateDash,
-  } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
 
 import { Link } from "gatsby"
+import { formatDateDash } from '../components/statistics/formatDateFunctions';
 
 const useStylesTime = makeStyles((theme) => ({
     textField: {
@@ -91,6 +89,7 @@ export default function EndrePersonalia() {
     
                 <label id="birthdayInput" htmlFor="birthday" style={{marginBottom:"10px"}}>Fødselsdato:
                     <br/>
+                    {/* blir en warning her på label/htmlFor/input fordi TextField er brukt istedenfor en valig "input" */}
                     <TextField
                         id="birthday"
                         type="date"
@@ -116,6 +115,5 @@ export default function EndrePersonalia() {
         <Footer page="/profil" />
         </div>
     );
-
 
     }
