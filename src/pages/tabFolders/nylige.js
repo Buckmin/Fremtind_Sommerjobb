@@ -2,21 +2,22 @@ import React from "react"
 import AccordionJS from "../../components/mineReiser/AccordionJS"
 import {getJson} from "../../getJson";
 
-function sortByDate(arr) {
-    const sortedArray = [] // array for cards/AcordionJs greiene
-    const cardKeyArray = [] // array kun for key i dict alleTurer for å få sortering
+// gammel testkode
+// function sortByDate(arr) {
+//     const sortedArray = [] // array for cards/AcordionJs greiene
+//     const cardKeyArray = [] // array kun for key i dict alleTurer for å få sortering
     
-    for (const key in arr){
-        cardKeyArray.push(key)
-    }
-    cardKeyArray.sort() // sortert på dato og reversert for å få nyeste rett under
-    cardKeyArray.reverse()
+//     for (const key in arr){
+//         cardKeyArray.push(key)
+//     }
+//     cardKeyArray.sort() // sortert på dato og reversert for å få nyeste rett under
+//     cardKeyArray.reverse()
 
-    for (let i = 0; i < cardKeyArray.length; i++){
-        sortedArray.push(arr[i])
-    }
-    return sortedArray
-}
+//     for (let i = 0; i < cardKeyArray.length; i++){
+//         sortedArray.push(arr[i])
+//     }
+//     return sortedArray
+// }
 
 
 export default function Nylige () {
