@@ -4,7 +4,19 @@
     <h3> Sommerstudentene under SPINN, Fremtind Forsikring </h3>
 </p>
 
-[TOC]
+- [:rocket: Introduksjon](#rocket-introduksjon)
+  * [Oppstart](#oppstart)
+  * [Prosjektet](#prosjektet)
+- [:paperclip: Strukturen på filene](#paperclip-strukturen-på-filene)
+- [:bookmark_tabs: Strukturen på koden](#bookmark_tabs-strukturen-på-koden)
+- [:inbox_tray: Lagret data](#inbox_tray-lagret-data)
+- [:mag: Sidene i navigasjonsbaren](#mag-sidene-i-navigasjonsbaren)
+  * [Hjem](#hjem)
+  * [Reiseplanlegger](#reiseplanlegger)
+  * [Mine reiser](#mine-reiser)
+  * [Min profil](#min-profil)
+- [Vedlegg: Filer generert fra Gatsby Starter](#vedlegg-filer-generert-fra-gatsby-starter)
+
 
 ## :rocket: Introduksjon
 
