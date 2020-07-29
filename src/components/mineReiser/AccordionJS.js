@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import dummyMap from '../../../static/images/dummyMap.png';
 import InfoSectionUpper from "./infoSectionUpper";
 import InfoSectionLower from "./infoSectionLower";
+import { formatDateWithTimeForHumans } from "../statistics/formatDateFunctions"
 
 export default function AccordionJS(props) {
     const [setActive, setActiveState] = useState("");
@@ -33,7 +34,7 @@ export default function AccordionJS(props) {
             <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
                 <div id = 'Compact Accordion' className = "test">
                     <p className="accordion_date">
-                        {props.dato}
+                        {formatDateWithTimeForHumans (new Date(props.dato))}
                     </p>
                     
                     <p className="accordion__address">
