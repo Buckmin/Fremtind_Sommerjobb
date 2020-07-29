@@ -1,40 +1,31 @@
 import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar"; // https://react-bootstrap.github.io/components/progress/
-import {
-  MdDirectionsWalk,
-  MdDirectionsBike,
-  MdDirectionsBus,
-  MdDirectionsCar,
-} from "react-icons/md";
-
+import { MdDirectionsWalk, MdDirectionsBike, MdDirectionsBus, MdDirectionsCar } from "react-icons/md";
 import { getJson } from "../../getJson";
 
 import "bootstrap/dist/css/bootstrap.min.css"; // styling på alle bootstrap-greier. Uten denne blir de kjedelige/borte fra skjermen
 import "../../styles/progressBars.css";
 
+// i denne fila er det tre funksjoner/komponenter for tre ulike statistikkbarer.
+// Hvis du leser én, har du lest alle. Det er kun litt forskjell i innhold,
+// samt at den ene har ikoner som begever seg når barn blir fylt opp.
+// de tre funskjonene er de som blir eksportert, de andre er hjelpefunksjoner
+
 export function TravelProgressBarsKgLS() {
-  // ta inn dato/tidsperiode? ta inn array(dict?) med utslipp.
-  // OPPDATERING PÅ DENNE OG NESTE FUNKSJON FOR BARER:
-  // Nå tar de inn dict fra localStorage og sender ut tall fra det.
-  // localStorage verdier initierers på hjemmesiden
   let tripsEmissionDict = getJson("CO2SumTransportMeans") || {};
 
   let walkEmission = tripsEmissionDict["walkEmission"];
   let bikeEmission = tripsEmissionDict["bikeEmission"];
   let transitEmission = tripsEmissionDict["transitEmission"];
   let carEmission = tripsEmissionDict["carEmission"];
-  let sumEmissions =
-    walkEmission + bikeEmission + carEmission + transitEmission;
-  // disse variablene burde være i et array, men fordi det er usikkert hvordan data inn blir seende ut,
-  // så er de per denne iterasjonen kun satt som konstanter med navn.
-  // er enkelt å bytte ut og legge inn disse som props i return-callet under.
+  let sumEmissions = walkEmission + bikeEmission + carEmission + transitEmission;
+
   let iconSize = 24; // størrelsen på ikonene
 
   return (
     <div id="theProgressBars" className="div__theProgressBars">
 
       <p style={{fontSize: 16, fontWeight: 300}}>Utslipp fra ulike transportmidler</p>
-
 
       <OneBarWithIconAndTekst
         id="walk"
@@ -77,18 +68,7 @@ function OneBarWithIconAndTekst(props) {
   );
 }
 
-function OneBarWithIconAndTekstCALORIES(props) {
-  let andelAvBar = ((props.CO2number / props.sumCalories) * 100).toFixed(1);
-  return (
-    <div id="enBarMedIkonOgTekst" className="div__enBarMedIkonOgTekst">
-      {props.IconName}
-      <span className="span__tekstOverBaren"> {props.CO2number} kcal </span>
-      <div id="bareBaren" className="div__bareBaren">
-        <ProgressBar animated striped variant="info" now={andelAvBar} />
-      </div>
-    </div>
-  );
-}
+
 // _________________________________________________________________________________________
 // DETTE ER BAR NUMMER TO, den med prosentvis fordeling av antall trips. Denne justerer seg også
 // OBS! denne funksjonen er nå ganske avhengig av skjermstørrelsen
@@ -136,6 +116,9 @@ export function TravelProgressBarsPercentageLS() {
   );
 }
 
+
+
+// dette er en del av  TravelProgressBarsPercentageLS  for å få til bevegende ikoner
 function OneBarWithMovingIconAndTextPercentage(props) {
   let andelAvBar = ((props.antallTrips / props.sumTrips) * 100).toFixed(1); // gir andelen som skal være skravert. floor for fint tall
   let leftAdjust = (350 * andelAvBar) / 100; // 350 er width på diven rundt barene.
@@ -165,7 +148,7 @@ function OneBarWithMovingIconAndTextPercentage(props) {
 }
 
 
-
+// dette er bar nummer tre, for kalorier
 export function TravelProgressBarsCaloriesLS() {
   // ta inn dato/tidsperiode? ta inn array(dict?) med utslipp.
   // OPPDATERING PÅ DENNE OG NESTE FUNKSJON FOR BARER:
@@ -213,6 +196,21 @@ export function TravelProgressBarsCaloriesLS() {
         CO2number={carCalories}
         sumCalories={sumCalories}
       />
+    </div>
+  );
+}
+
+ // måtte ha denne også. dårlig kode i form av gjenskrift, men ble mye å skrive om alle funksjonskallene for g
+ // eneste forskjellen fra OneBarWithIconAndTekst er vel at det står "kcal" istedenfor "g"
+function OneBarWithIconAndTekstCALORIES(props) {
+  let andelAvBar = ((props.CO2number / props.sumCalories) * 100).toFixed(1);
+  return (
+    <div id="enBarMedIkonOgTekst" className="div__enBarMedIkonOgTekst">
+      {props.IconName}
+      <span className="span__tekstOverBaren"> {props.CO2number} kcal </span>
+      <div id="bareBaren" className="div__bareBaren">
+        <ProgressBar animated striped variant="info" now={andelAvBar} />
+      </div>
     </div>
   );
 }

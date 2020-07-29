@@ -2,9 +2,9 @@
         Dette er fila hvor fake testutslipp BLE generert. NÅ er det bare en dict->array + sjekk om emissionsPerDay eksisterer.
 */
 
-import { oppdaterDagligUtslippLS } from "../../../pages/dev";
-import { antallDagerMellom, formatDate } from "./randomDateKG";
-import { getJson } from "../../../getJson";
+import { oppdaterDagligUtslippLS } from "../../pages/dev";
+import { antallDagerMellom, formatDate } from "./formatDateFunctions";
+import { getJson } from "../../getJson";
 
 export function EmissionsPerDayArrayLS() {
   // tanken med denne blir så å sette alle emissions til 0 for alle dager, så fylles de opp etterhvert.

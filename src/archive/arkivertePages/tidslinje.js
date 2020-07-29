@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 
 // under her importerer vi alle kompontentene vi lager
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 // dette er nå komponentene som er spesifikke for tidslinje
 import { HeleLinjen } from "../components/tidslinjeComp/heleLinjen";
@@ -13,8 +13,8 @@ import {
   sumOfEmissionsInArray,
 } from "../components/tidslinjeComp/totalEmission";
 import { Datovelger } from "../components/tidslinjeComp/datovelger";
-import { formatDate } from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
-import { EmissionsPerDayArrayLS } from "../components/tidslinjeComp/tidslinjeData/emissions";
+import { formatDate } from "../../components/statistics/formatDateFunctions";
+import { EmissionsPerDayArrayLS } from "../../components/statistics/emissionsAndDates";
 
 import "../styles/tidslinje.css";
 

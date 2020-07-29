@@ -1,6 +1,6 @@
 // import React from "react"
 import { getJson, setJson } from "../../getJson"
-import { formatDate } from "../tidslinjeComp/tidslinjeData/randomDateKG"
+import { formatDate } from "./formatDateFunctions"
 
 /*
 

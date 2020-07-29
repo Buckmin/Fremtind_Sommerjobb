@@ -25,7 +25,7 @@ const cardStyle = {
 }
 
 
-export function ManyFunfactCards () {
+export function ManyFunfactCards () { // her kunne vi importert flere ikoner, men sånn ble det jo ikke denne gang
     return (
         <div id="divRundtFFcards">
       <OneFunfactCard ikon={<CowIkon/>} kgCO2={0.75} factText="Produksjon av en halvliter øl." />

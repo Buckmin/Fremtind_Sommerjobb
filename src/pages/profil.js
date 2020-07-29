@@ -4,10 +4,7 @@ import Footer from "../components/footer";
 import "../styles/profil.css";
 import karikanari from "../../static/images/karikanari.jpg";
 import audi from "../../static/images/2016_audi_q5.jpg";
-import {
-  formatDate,
-  dagerSiden,
-} from "../components/tidslinjeComp/tidslinjeData/randomDateKG";
+import { formatDate, dagerSiden } from "../components/statistics/formatDateFunctions"
 import { getJson } from "../getJson";
 //import { ManyFunfactCards } from "../components/statistics/funfactCards";
 
