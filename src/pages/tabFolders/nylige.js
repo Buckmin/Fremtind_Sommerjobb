@@ -19,16 +19,18 @@ function sortByDate(obj) {
 }
 
 export default function Nylige () {
+
     const alleTurerKopi = getJson("alleTurer") || {};
     let alleTurerKopiSorted = sortByDate(alleTurerKopi)
 
-    let [text1, setText1] = useState(true);
+    /* let [text1, setText1] = useState(true);
     console.log("før: ", text1)
 
-    function handleChange() {
+    function handleChange(){
         text1 = false
         console.log('trykket')
-    }
+        alert('hei')
+    } */
 
     return (
         <div className="container">
@@ -45,12 +47,11 @@ export default function Nylige () {
                     CO2={alleTurerKopiSorted[dato]['CO2']} 
                     favoritt={alleTurerKopiSorted[dato]['favoritt']}
                     kcal = {alleTurerKopiSorted[dato]['kcal'] ? alleTurerKopiSorted[dato]['kcal'] : 0}
-                    text1 = {text1}
-                    /* onChange = {(e) => setText1(e.currentTarget.value)} */
-                    onClick = {handleChange()}
+                    /* text1 = {text1}
+                    onClick = {handleChange} */
                     /> ))}
 
-            <p> etter : {text1 ? 'true' : 'false'}</p>
+            {/* <p> etter : {text1 ? 'true' : 'false'}</p> */}
         </div>
     ) 
 }

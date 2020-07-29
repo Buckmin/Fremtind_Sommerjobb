@@ -1,14 +1,15 @@
 import React, {useState, useRef} from "react";
 import "../../styles/AccordionJS.css";
 import Chevron from "./Chevron";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+//import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { MdFavoriteBorder, MdFavorite, MdArrowForward} from "react-icons/md";
 import IconButton from '@material-ui/core/IconButton';
 import dummyMap from '../../../static/images/dummyMap.png';
 import InfoSectionUpper from "./infoSectionUpper";
 import InfoSectionLower from "./infoSectionLower";
 import { formatDateWithTimeForHumans } from "../statistics/formatDateFunctions"
 
-export default function AccordionJS(props, {text1, onClick}) {
+export default function AccordionJS(props) {
     const [setActive, setActiveState] = useState("");
     const [setHeight, setHeightState] = useState("0px");
     const [setRotate, setRotateState] = useState("accordion__icon");
@@ -28,7 +29,7 @@ export default function AccordionJS(props, {text1, onClick}) {
 
     return(
         <div id = 'Single Accordion' className="accordion__section">
-            <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
+            <button className={`accordion ${setActive}`}  onClick={toggleAccordion} >
                 <div id = 'Compact Accordion' className = "test">
                     <p className="accordion_date">
                         {formatDateWithTimeForHumans(new Date(props.dato))}
@@ -42,15 +43,13 @@ export default function AccordionJS(props, {text1, onClick}) {
                 </div>
                 
                 <IconButton 
-                    style= {{position: 'absolute', right: 0, top: 0}}
+                    style= {{position: 'absolute', right: 0, top: 0, margin:5}}
                     aria-label= "FavoriteBorderIcon" 
                     className='fav_button'
-                    onClick = {onClick} >
-                        {props.favoritt ? <MdFavorite/> : <MdFavoriteBorder />}
+                    /* onClick = {onClick} */>
+                        {props.favoritt ? <MdFavorite/> : <MdFavoriteBorder/>}
                 </IconButton>
-            
-                <Chevron className={`${setRotate}`} width={10} fill={"#000000"}/>
-                
+                <Chevron className={`${setRotate}`} width={10} fill={"#000000"} /* onClick={toggleAccordion} *//> 
             </button>
             
             <div 
@@ -58,9 +57,10 @@ export default function AccordionJS(props, {text1, onClick}) {
                 ref={content} 
                 style={{ maxHeight: `${setHeight}` }} 
                 className="accordion__content"
-            >
+>
                 <InfoSectionUpper middel={props.middel} tid={props.tid} lengde={props.lengde}/>
                 <img src={dummyMap} alt="dummyMap" className="photo"/>
+                <Chevron className={`${setRotate}`} width={10} fill={"#000000"} /> 
                 <InfoSectionLower kcal={props.kcal} CO2={props.CO2}/>
             </div>
         

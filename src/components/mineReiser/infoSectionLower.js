@@ -1,7 +1,9 @@
 import React from "react"
 
 
+
 function InfoSectionLower(props) {
+    
     return(
         <div id = 'Info Section Lower' style={{marginTop:15}}>
             <p>Utslipp og forbrenning</p>

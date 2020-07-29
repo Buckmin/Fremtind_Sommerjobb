@@ -44,6 +44,7 @@ const useStyles = makeStyles({
       marginBottom: 110,
       padding: 0,
       backgroundColor: "#F8F8F8",
+      boxShadow: 'none',
     },
 });
 
