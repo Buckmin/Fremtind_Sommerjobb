@@ -8,10 +8,11 @@ import InfoSectionUpper from "./infoSectionUpper";
 import InfoSectionLower from "./infoSectionLower";
 import { formatDateWithTimeForHumans } from "../statistics/formatDateFunctions"
 
-export default function AccordionJS(props) {
+export default function AccordionJS(props, {text1, onClick}) {
     const [setActive, setActiveState] = useState("");
     const [setHeight, setHeightState] = useState("0px");
     const [setRotate, setRotateState] = useState("accordion__icon");
+
 
     const content = useRef(null)
 
@@ -25,16 +26,12 @@ export default function AccordionJS(props) {
         );
     }
 
-    /* function handleFavChange() {
-        favoritt ? favoritt=false : favoritt=true;
-    } */
-
     return(
         <div id = 'Single Accordion' className="accordion__section">
             <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
                 <div id = 'Compact Accordion' className = "test">
                     <p className="accordion_date">
-                        {formatDateWithTimeForHumans (new Date(props.dato))}
+                        {formatDateWithTimeForHumans(new Date(props.dato))}
                     </p>
                     
                     <p className="accordion__address">
@@ -48,7 +45,7 @@ export default function AccordionJS(props) {
                     style= {{position: 'absolute', right: 0, top: 0}}
                     aria-label= "FavoriteBorderIcon" 
                     className='fav_button'
-                    /* onClick={handleFavChange()} */>
+                    onClick = {onClick} >
                         {props.favoritt ? <MdFavorite/> : <MdFavoriteBorder />}
                 </IconButton>
             

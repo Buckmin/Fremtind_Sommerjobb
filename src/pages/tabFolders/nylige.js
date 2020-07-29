@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import AccordionJS from "../../components/mineReiser/AccordionJS"
 import {getJson} from "../../getJson";
 
@@ -9,25 +9,26 @@ function sortByDate(obj) {
     for (const key in obj){
         KeyArray.push(key)
     }
-    
     KeyArray.sort()
     KeyArray.reverse()
 
     for (let i = 0; i < KeyArray.length; i++){
         sortedObj[KeyArray[i]] = obj[KeyArray[i]]
-        
     }
     return sortedObj
 }
 
 export default function Nylige () {
-    
     const alleTurerKopi = getJson("alleTurer") || {};
     let alleTurerKopiSorted = sortByDate(alleTurerKopi)
 
-    console.log('alleTurerKopiSorted: ', alleTurerKopiSorted)
-    console.log('alleTurerKopi: ', alleTurerKopi)
+    let [text1, setText1] = useState(true);
+    console.log("før: ", text1)
 
+    function handleChange() {
+        text1 = false
+        console.log('trykket')
+    }
 
     return (
         <div className="container">
@@ -44,7 +45,12 @@ export default function Nylige () {
                     CO2={alleTurerKopiSorted[dato]['CO2']} 
                     favoritt={alleTurerKopiSorted[dato]['favoritt']}
                     kcal = {alleTurerKopiSorted[dato]['kcal'] ? alleTurerKopiSorted[dato]['kcal'] : 0}
-                /> ))}
+                    text1 = {text1}
+                    /* onChange = {(e) => setText1(e.currentTarget.value)} */
+                    onClick = {handleChange()}
+                    /> ))}
+
+            <p> etter : {text1 ? 'true' : 'false'}</p>
         </div>
     ) 
 }
