@@ -1,7 +1,6 @@
 import React from "react"
 import AccordionJS from "../../components/mineReiser/AccordionJS"
 import {getJson} from "../../getJson";
-import { formatDateWithTimeForHumans } from "../../components/statistics/formatDateFunctions"
 
 export default function Nylige () {
     const alleTurerKopi = getJson("alleTurer") || {};
@@ -13,7 +12,7 @@ export default function Nylige () {
                 <AccordionJS 
                     key={`${dato.label}${i}`}
                     label={dato.label}
-                    dato={formatDateWithTimeForHumans (new Date(dato))} 
+                    dato={dato} 
                     fra={alleTurerKopi[dato]['fra']} 
                     til={alleTurerKopi[dato]['til']} 
                     lengde={alleTurerKopi[dato]['lengde']} 

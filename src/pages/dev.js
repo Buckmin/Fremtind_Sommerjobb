@@ -92,6 +92,11 @@ function setInitialAlleTurerLS() {
   let alleTurer = {}
   //alleTurer[dato1] = {fra : "Oslo S", til: "Skøyen", lengde: 1200, tid: 15, middel: "TRANSIT", CO2: 5, favoritt: false}
 
+  alleTurer["2020-07-22T08:00"] = { fra :  "Hammerborgsgata 2", til : "Hasleveien 3", lengde : 3900, tid : 660, middel : "DRIVING", CO2 : 408, kcal : 0, favoritt : false}
+  alleTurer["2020-07-23T08:00"] = { fra :  "Hammerborgsgata 3", til : "Hasleveien 3", lengde : 2500, tid : 840, middel : "TRANSIT", CO2 : 181, kcal : 0, favoritt : false}
+  alleTurer["2020-07-24T08:00"] = { fra :  "Hammerborgsgata 4", til : "Hasleveien 3", lengde : 3500, tid : 720, middel : "BICYCLING", CO2 : 0, kcal : 61, favoritt : false}
+  alleTurer["2020-07-25T08:00"] = { fra :  "Hammerborgsgata 5", til : "Hasleveien 3", lengde : 2300, tid : 1680, middel : "WALKING", CO2 : 0, kcal : 100, favoritt : false}
+  
   setJson("alleTurer", alleTurer)
 
 }
