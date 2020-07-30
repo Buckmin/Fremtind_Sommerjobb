@@ -24,11 +24,11 @@ export default function Nylige () {
     let alleTurerKopiSorted = sortByDate(alleTurerKopi)
 
     /* let [text1, setText1] = useState(true);
-    console.log("før: ", text1)
+    // console.log("før: ", text1)
 
     function handleChange(){
         text1 = false
-        console.log('trykket')
+        // console.log('trykket')
         alert('hei')
     } */
 

@@ -91,6 +91,6 @@ export function antallDagerMellom (startDate, endDate) {
 /*
 
     const daysBetween = moment(new Date("dagens_dato_her")).diff(new Date ("startdato_her"), "days")
-    console.log("her:", daysBetween)
+    // console.log("her:", daysBetween)
 
 */

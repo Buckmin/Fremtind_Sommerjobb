@@ -27,7 +27,7 @@ class Directions extends React.Component {
   }
 
   directionsCallback (response) {
-    console.log(response)
+    // console.log(response)
 
     if (response !== null) {
       if (response.status === 'OK') {
@@ -37,7 +37,7 @@ class Directions extends React.Component {
           })
         )
       } else {
-        console.log('response: ', response)
+        // console.log('response: ', response)
       }
     }
   }
@@ -98,7 +98,7 @@ class Directions extends React.Component {
   }
 
   onMapClick (...args) {
-    console.log('onClick args: ', args)
+    // console.log('onClick args: ', args)
   }
 
   render () {
@@ -203,11 +203,11 @@ class Directions extends React.Component {
             onClick={this.onMapClick}
             // optional
             onLoad={map => {
-              console.log('DirectionsRenderer onLoad map: ', map)
+              // console.log('DirectionsRenderer onLoad map: ', map)
             }}
             // optional
             onUnmount={map => {
-              console.log('DirectionsRenderer onUnmount map: ', map)
+              // console.log('DirectionsRenderer onUnmount map: ', map)
             }}
           >
             {
@@ -226,11 +226,11 @@ class Directions extends React.Component {
                   callback={this.directionsCallback}
                   // optional
                   onLoad={directionsService => {
-                    console.log('DirectionsService onLoad directionsService: ', directionsService)
+                    // console.log('DirectionsService onLoad directionsService: ', directionsService)
                   }}
                   // optional
                   onUnmount={directionsService => {
-                    console.log('DirectionsService onUnmount directionsService: ', directionsService)
+                    // console.log('DirectionsService onUnmount directionsService: ', directionsService)
                   }}
                 />
               )
@@ -245,11 +245,11 @@ class Directions extends React.Component {
                   }}
                   // optional
                   onLoad={directionsRenderer => {
-                    console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
+                    // console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
                   }}
                   // optional
                   onUnmount={directionsRenderer => {
-                    console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
+                    // console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
                   }}
                 />
               )

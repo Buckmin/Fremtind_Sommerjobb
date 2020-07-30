@@ -41,7 +41,7 @@ function FindTransitTrips(props) {
             }
         )
         setLegs(legs)
-        console.log('legs', legs)    
+        // console.log('legs', legs)    
         return legs;
     }
 
@@ -60,8 +60,8 @@ function FindTransitTrips(props) {
         const originLocation = service.convertFeatureToLocation(originFeatures[0])
         const destinationLocation = service.convertFeatureToLocation(destinationFeatures[0])
 
-        console.log('originLOC', originLocation)
-        console.log('destLOC', destinationLocation) */
+        // console.log('originLOC', originLocation)
+        // console.log('destLOC', destinationLocation) */
 
 
             //inntil videre brukes bare en forhåndsdefinert "Location" her
@@ -92,7 +92,7 @@ function FindTransitTrips(props) {
             //trips.forEach(trip => setParsedTrips(parsedTrips => [... parsedTrips, getLegs(trip)]));
             setParsedTrips(parsedTrips)
 
-            console.log('parsedTrips', parsedTrips);
+            // console.log('parsedTrips', parsedTrips);
 
             return parsedTrips;
         }

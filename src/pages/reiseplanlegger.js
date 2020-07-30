@@ -40,8 +40,8 @@ export default function Reiseplanlegger() {
 
     const [showResults, setShowResults] = React.useState(false)
 
-    console.log('origin', origin)
-    console.log('destination', destination)
+    // console.log('origin', origin)
+    // console.log('destination', destination)
 
     // INPUT fuelConsum = forbruk [L/mil], fuel = drivstofftype (BENSIN, DIESEL, EL)
     // OUTPUT Utslipp pr passasjer [g/pkm]

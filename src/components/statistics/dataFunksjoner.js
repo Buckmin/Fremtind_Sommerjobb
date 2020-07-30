@@ -25,7 +25,7 @@ export function upddateLSfromAlleTurerLS () {
     let totalStats = emptyTotalStats ()
     for (let key in alleTurer){ //
         newEmissionsPerDay[formatDate(new Date(key))] = alleTurer[key]["CO2"] //   // emissionsPerDay      legger til CO2 i dict for emissions per day
-        console.log(key)
+        // console.log(key)
         if (alleTurer[key]["middel"] === "WALKING"){
             newCO2SumTransportMeans["walkEmission"] += alleTurer[key]["CO2"]       // CO2SumTransportMeans
             newTripsCaloriesDict["walkCalories"] += alleTurer[key]["kcal"]         // kCalSumTransportMeans

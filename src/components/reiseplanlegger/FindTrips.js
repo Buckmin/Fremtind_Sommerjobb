@@ -96,7 +96,7 @@ function FindTrips(props) {
 
     
     function directionsCallback (response) {
-        console.log('response: ', response)
+        // console.log('response: ', response)
 
         if (response !== null) {
         if (response.status === 'OK' && count.current === 0) {
@@ -123,7 +123,7 @@ function FindTrips(props) {
             count.current += 1;
 
         } else {
-            console.log('response2: ', response)
+            // console.log('response2: ', response)
         }
         }
     }
@@ -298,11 +298,11 @@ function FindTrips(props) {
                 onClick={() => onMapClick()}
                 // optional
                 onLoad={map => {
-                console.log('DirectionsRenderer onLoad map: ', map)
+                // console.log('DirectionsRenderer onLoad map: ', map)
                 }}
                 // optional
                 onUnmount={map => {
-                console.log('DirectionsRenderer onUnmount map: ', map)
+                // console.log('DirectionsRenderer onUnmount map: ', map)
                 }}
             >
                 {
@@ -322,11 +322,11 @@ function FindTrips(props) {
                     callback={directionsCallback}
                     // optional
     /*                     onLoad={ directionsService => {
-                        console.log('DirectionsService onLoad directionsService: ', directionsService)
+                        // console.log('DirectionsService onLoad directionsService: ', directionsService)
                     }} */
                     // optional
     /*                     onUnmount={directionsService => {
-                        console.log('DirectionsService onUnmount directionsService: ', directionsService)
+                        // console.log('DirectionsService onUnmount directionsService: ', directionsService)
                     }} */
                     />
                 )
@@ -341,11 +341,11 @@ function FindTrips(props) {
                     }}
                     // optional
     /*                     onLoad={directionsRenderer => {
-                        console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
+                        // console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
                     }} */
                     // optional
     /*                     onUnmount={directionsRenderer => {
-                        console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
+                        // console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
                     }} */
                     />
                 )
@@ -356,7 +356,7 @@ function FindTrips(props) {
         )
 
     function onMapClick (...args) {
-        console.log('onClick args: ', args)
+        // console.log('onClick args: ', args)
     }
   
 

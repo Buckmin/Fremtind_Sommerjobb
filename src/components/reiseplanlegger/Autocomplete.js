@@ -73,7 +73,7 @@ export default function GoogleMaps(props) {
     service.getDetails(request, function(place, status) {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
         let location = place.geometry.location
-        console.log('locat', location)
+        // console.log('locat', location)
 
         return location
       }
