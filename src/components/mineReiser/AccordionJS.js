@@ -2,7 +2,7 @@ import React, {useState, useRef} from "react";
 import "../../styles/AccordionJS.css";
 import Chevron from "./Chevron";
 //import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { MdFavoriteBorder, MdFavorite, MdArrowForward} from "react-icons/md";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import IconButton from '@material-ui/core/IconButton';
 import dummyMap from '../../../static/images/dummyMap.png';
 import InfoSectionUpper from "./infoSectionUpper";
