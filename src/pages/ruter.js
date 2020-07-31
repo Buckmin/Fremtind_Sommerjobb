@@ -8,7 +8,7 @@ import TabBar from "../components/mineReiser/tabs"
 export default function MyRoutes () {
     return (
         <div id = 'MineRuter page'>
-            <Header headerText="Mine Ruter"/>
+            <Header headerText="Mine Reiser"/>
             <TabBar labelOne = "Nylig" labelTwo = "Mest reist" labelThree = "Favoritter"/>
             <Footer page="/ruter"/>
         </div>

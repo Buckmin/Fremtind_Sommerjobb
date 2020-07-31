@@ -46,7 +46,7 @@ export default function HomeLS() {
             className={buttonClasses.button}
             startIcon={<MdEdit />}
             size="small"
-            onClick={() => { navigate('/endrePersonalia') }}
+            onClick={() => { navigate('/EndrePersonalia') }}
           >
             Rediger profil
 
