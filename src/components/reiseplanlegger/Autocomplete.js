@@ -43,7 +43,7 @@ export default function GoogleMaps(props) {
   if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
       loadScript(
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY&libraries=places',
+        'https://maps.googleapis.com/maps/api/js?key=INSERT-YOUR-OWN-KEY',
         document.querySelector('head'),
         'google-maps',
       );
