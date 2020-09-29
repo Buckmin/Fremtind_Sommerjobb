@@ -77,7 +77,7 @@ export default function Reiseplanlegger() {
     const TripResults = () => (
         <div id="nontransit-results">
             <br/><br/>
-            <LoadScriptNext googleMapsApiKey='AIzaSyCkV2kMByU-otnE4P4csvqB4Btj8LdQywY'>
+            <LoadScriptNext googleMapsApiKey='YOU-OWN-KEY'>
                 <FindTrips
                     origin={origin.place_id}
                     destination={destination.place_id}
